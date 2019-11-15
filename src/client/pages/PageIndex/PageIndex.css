@@ -1,4 +1,12 @@
 .PageIndex {
+  font-size: 40px;
+
+  display: flex;
+
+  min-height: 100vh;
+
   color: white;
   background: black;
+  align-items: center;
+  justify-content: center;
 }
