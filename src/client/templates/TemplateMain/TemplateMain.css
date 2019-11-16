@@ -1,0 +1,63 @@
+.TemplateMain {
+  --height-header: 38px;
+  --height-footer: 31px;
+
+  margin-top: var(--height-header);
+
+  /* Шапка */
+  &-Header {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: var(--height-header);
+
+    color: white;
+    background: black;
+  }
+
+  /* Контент шапки */
+  &-HeaderContent {
+    display: flex;
+
+    padding: var(--space-xs) 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Логотип */
+  &-Logotype {
+    font-family: serif;
+    font-size: var(--size-typo-l);
+    font-weight: 600;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Основной контент */
+  &-Content {
+    min-height: calc(100vh - var(--height-header) - var(--height-footer) - var(--space-xxs) * 2);
+    padding: var(--space-xxs) 0;
+  }
+
+  /* Подвал */
+  &-Footer {
+    height: var(--height-footer);
+
+    background: lightgray;
+  }
+
+  /* Контент подвала */
+  &-FooterContent {
+    font-size: var(--size-typo-s);
+
+    display: flex;
+
+    padding: var(--space-xs) 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

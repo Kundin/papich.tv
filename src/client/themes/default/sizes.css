@@ -1,0 +1,35 @@
+html {
+  /* Размер текста */
+  --size-typo-xs: 11px;
+  --size-typo-s: 13px;
+  --size-typo-m: 15px;
+  --size-typo-l: 18px;
+  --size-typo-xl: 20px;
+  --size-typo-xxl: 24px;
+  --size-typo-xxxl: 32px;
+  --size-typo-xxxxl: 48px;
+  --size-typo-xxxxxl: 72px;
+  --size-typo-xxxxxxl: 96px;
+
+  /* Межстрочный интервал */
+  --line-height-typo-xs: 15px;
+  --line-height-typo-s: 18px;
+  --line-height-typo-m: 21px;
+  --line-height-typo-l: 25px;
+  --line-height-typo-xl: 28px;
+  --line-height-typo-xxl: 34px;
+  --line-height-typo-xxxl: 42px;
+  --line-height-typo-xxxxl: 62px;
+  --line-height-typo-xxxxxl: 82px;
+  --line-height-typo-xxxxxxl: 115px;
+
+  /* Максимальная ширина страницы */
+  --page-width: 1200px;
+
+  /* Размеры иконок */
+  --size-icon-s: 18px;
+  --size-icon-m: 24px;
+
+  --height-header-admin: 63px; /* Высота шапки в админке */
+  --height-header-main: 45px; /* Высота шапки в основном шаблоне */
+}

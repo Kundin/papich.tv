@@ -1,0 +1,7 @@
+/* Тени */
+html {
+  --shadow-lvl-1: 0 10px 10px rgba(0, 0, 0, 0.05);
+  --shadow-lvl-2: 0 8px 12px rgba(0, 0, 0, 0.2);
+
+  --shadow-border: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8; /* Имитация border */
+}
