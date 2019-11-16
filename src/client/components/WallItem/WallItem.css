@@ -1,0 +1,9 @@
+.WallItem {
+  background: var(--color-white);
+
+  /* Заголовок */
+  &-Header {
+    margin: 0 var(--space-s);
+    padding-top: var(--space-s);
+  }
+}

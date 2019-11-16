@@ -1,2 +1,8 @@
 .PageIndex {
+  /* Стена */
+  &-Wall {
+    .WallItem {
+      margin: var(--space-s) 0;
+    }
+  }
 }

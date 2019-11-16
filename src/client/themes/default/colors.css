@@ -1,81 +1,14 @@
+/* Белый */
+$color-white: hsla(0, 100%, 100%, 1);
+
 /* Оттенки чёрного цвета */
 $color-black: hsla(0, 0%, 0%, 1);
-$color-black-1: hsla(0, 0%, 10%, 1);
-$color-black-2: hsla(0, 0%, 20%, 1);
-$color-black-3: hsla(0, 0%, 30%, 1);
-$color-black-4: hsla(0, 0%, 40%, 1);
-$color-black-5: hsla(0, 0%, 50%, 1);
-$color-black-6: hsla(0, 0%, 60%, 1);
-$color-black-7: hsla(0, 0%, 70%, 1);
-$color-black-8: hsla(0, 0%, 80%, 1);
-$color-black-9: hsla(0, 0%, 90%, 1);
 
-$color-white: hsla(0, 100%, 100%, 1);
-$color-link: hsla(212, 97%, 43%, 1); /* Цвет ссылок */
-
-/* Оттенки брендового цвета */
-$color-brand: hsla(209, 38%, 47%, 1);
-$color-brand-1: hsla(209, 38%, 57%, 1);
-$color-brand-2: hsla(209, 38%, 62%, 1);
-$color-brand-3: hsla(209, 38%, 67%, 1);
-$color-brand-4: hsla(209, 38%, 72%, 1);
-$color-brand-5: hsla(209, 38%, 77%, 1);
-$color-brand-6: hsla(209, 38%, 82%, 1);
-$color-brand-7: hsla(209, 38%, 87%, 1);
-$color-brand-8: hsla(209, 38%, 92%, 1);
-$color-brand-9: hsla(209, 38%, 97%, 1);
-
-/* Цвета текста */
-$color-text-primary: $color-black; /* Основной */
-$color-text-invert: $color-white; /* Инвертированный */
-$color-text-secondary: $color-black; /* Второстепенный */
-
-$color-border: $color-black-9; /* Цвет границ */
-$color-link: $color-link; /* Цвет ссылок */
-$color-hover-white: $color-brand-9; /* Цвет светлого наведения */
-$color-hover-dark: $color-brand-7; /* Цвет темного наведения */
+/* Цвет фона */
+$color-bg: hsla(0, 0%, 92%, 1);
 
 html {
-  --color-black: $color-black;
   --color-white: $color-white;
-
-  /* Оттенки брендового цвета */
-  --color-brand: $color-brand;
-  --color-brand-1: $color-brand-1;
-  --color-brand-2: $color-brand-2;
-  --color-brand-3: $color-brand-3;
-  --color-brand-4: $color-brand-4;
-  --color-brand-5: $color-brand-5;
-  --color-brand-6: $color-brand-6;
-  --color-brand-7: $color-brand-7;
-  --color-brand-8: $color-brand-8;
-  --color-brand-9: $color-brand-9;
-  --color-brand-hover: $color-brand-1;
-
-  /* Цвета текста */
-  --color-text-primary: $color-text-primary; /* Основной */
-  --color-text-invert: $color-text-invert; /* Инвертированный */
-  --color-text-secondary: $color-text-secondary; /* Второстепенный */
-
-  --color-border: $color-border; /* Цвет границ */
-  --color-link: $color-link; /* Цвет ссылок */
-  --color-hover-white: $color-hover-white; /* Цвет светлого наведения */
-  --color-hover-dark: $color-hover-dark; /* Цвет темного наведения */
-
-  /* Темный цвет */
-  --color-dark: hsla(0, 0%, 25%, 1);
-
-  --color-icon: hsl(209, 28%, 68%, 1); /* Основной цвет иконок */
-
-  --color-bg: hsla(209, 9%, 93%, 1); /* Цвет фона */
-  --color-bg-dark: hsla(209, 9%, 88%, 1); /* Темный фон */
-
-  --color-hr: #999; /* Цвет горизонтального разделителя */
-
-  --color-error: hsla(0, 65%, 51%, 1); /* Цвет ошибок */
-
-  --color-yandex-money: hsla(48, 100%, 50%, 1); /* Цвет Яндекс.Денег */
-  --color-yandex-money-hover: hsla(48, 100%, 60%, 1); /* Наведение */
-
-  --color-vk: hsla(211, 38%, 47%, 1); /* Основной цвет ВКонтакте */
+  --color-black: $color-black;
+  --color-bg: $color-bg;
 }

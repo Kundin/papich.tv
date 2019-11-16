@@ -23,7 +23,7 @@ export function TemplateMain() {
       </header>
 
       <div className={cnTemplateMain('Content')}>
-        <WrapperMain>
+        <WrapperMain className={cnTemplateMain('ContentWrapper')}>
           <Switch>
             <Route path="/" exact component={PageIndex} />
           </Switch>

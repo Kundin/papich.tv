@@ -2,7 +2,7 @@
   --height-header: 38px;
   --height-footer: 31px;
 
-  margin-top: var(--height-header);
+  padding-top: var(--height-header);
 
   /* Шапка */
   &-Header {
@@ -29,25 +29,28 @@
 
   /* Логотип */
   &-Logotype {
-    font-family: serif;
     font-size: var(--size-typo-l);
     font-weight: 600;
 
     margin: 0;
     padding: 0;
+
+    text-transform: uppercase;
   }
 
   /* Основной контент */
   &-Content {
-    min-height: calc(100vh - var(--height-header) - var(--height-footer) - var(--space-xxs) * 2);
-    padding: var(--space-xxs) 0;
+    min-height: calc(100vh - var(--height-header) - var(--height-footer));
+  }
+
+  /* Обёртка контента */
+  &-ContentWrapper {
+    padding: 0;
   }
 
   /* Подвал */
   &-Footer {
     height: var(--height-footer);
-
-    background: lightgray;
   }
 
   /* Контент подвала */
@@ -59,5 +62,15 @@
     padding: var(--space-xs) 0;
     align-items: center;
     justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .TemplateMain {
+    --height-header: 44px;
+
+    &-Logotype {
+      font-size: var(--size-typo-xxl);
+    }
   }
 }

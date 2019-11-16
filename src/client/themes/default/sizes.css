@@ -22,14 +22,4 @@ html {
   --line-height-typo-xxxxl: 62px;
   --line-height-typo-xxxxxl: 82px;
   --line-height-typo-xxxxxxl: 115px;
-
-  /* Максимальная ширина страницы */
-  --page-width: 1200px;
-
-  /* Размеры иконок */
-  --size-icon-s: 18px;
-  --size-icon-m: 24px;
-
-  --height-header-admin: 63px; /* Высота шапки в админке */
-  --height-header-main: 45px; /* Высота шапки в основном шаблоне */
 }

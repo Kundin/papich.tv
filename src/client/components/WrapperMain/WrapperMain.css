@@ -1,4 +1,6 @@
 .WrapperMain {
+  max-width: calc(1200px - var(--space-s) * 2);
+
   margin: 0 auto;
   padding: 0 var(--space-s);
 }

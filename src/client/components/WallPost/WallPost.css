@@ -1,0 +1,76 @@
+.WallPost {
+  /* Автор поста */
+  &-Author {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Аватарка автора */
+  &-AuthorImage {
+    width: 40px;
+    height: 40px;
+
+    margin-right: var(--space-s);
+
+    border-radius: 50%;
+  }
+
+  /* Имя пользователя */
+  &-AuthorName {
+    font-size: var(--size-typo-m);
+    font-weight: 600;
+
+    margin-bottom: var(--space-xxxs);
+  }
+
+  /* Дополнительное информации в блоке автора */
+  &-AuthorInfo {
+    font-size: var(--size-typo-s);
+  }
+
+  /* Текст поста */
+  &-Text {
+    font-size: var(--size-typo-m);
+    line-height: var(--line-height-typo-s);
+
+    margin: var(--space-s);
+    margin-bottom: 0;
+  }
+
+  /* Разделитель */
+  &-Sep {
+    margin: var(--space-s);
+    margin-bottom: 0;
+
+    border: 0;
+    border-top: 1px solid;
+  }
+
+  /* Кнопки реакций */
+  &-Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  /* Отдельная кнопка реакции */
+  &-Button {
+    font-size: var(--size-typo-m);
+
+    display: flex;
+
+    margin-right: var(--space-s);
+    padding: var(--space-xs) var(--space-s);
+    align-items: center;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  /* Иконка в кнопке реакции */
+  &-ButtonIcon {
+    height: 24px;
+    margin-right: var(--space-xxs);
+  }
+}
