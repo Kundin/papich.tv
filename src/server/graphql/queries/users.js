@@ -22,21 +22,17 @@ export const users = {
     },
   },
   resolve: async (obj, args, context, info) => {
-    try {
-      let { id, role, full_name, sex, deactivated } = args,
-        query = {},
-        limit = 50,
-        skip = args.skip || 0
+    const { id, role, full_name, sex, deactivated } = args
+    const query = {}
+    const limit = 50
+    const skip = args.skip || 0
 
-      if (id) query._id = id
-      if (sex) query.sex = sex
+    if (id) query._id = id
+    if (sex) query.sex = sex
 
-      return await Users.find(query)
-        .skip(skip)
-        .limit(limit)
-        .exec()
-    } catch (err) {
-      throw err
-    }
+    return await Users.find(query)
+      .skip(skip)
+      .limit(limit)
+      .exec()
   },
 }
