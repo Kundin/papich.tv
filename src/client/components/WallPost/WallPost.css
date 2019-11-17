@@ -62,13 +62,8 @@
 
     display: flex;
 
-    margin-right: var(--space-s);
     padding: var(--space-xs) var(--space-s);
     align-items: center;
-
-    &:last-child {
-      margin-right: 0;
-    }
   }
 
   /* Иконка в кнопке реакции */
