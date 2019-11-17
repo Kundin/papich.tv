@@ -11,6 +11,7 @@ import './TemplateMain.css'
 const PageNews = loadable(() => import('../../pages/PageNews/default'))
 const PageFeed = loadable(() => import('../../pages/PageFeed/default'))
 const PageMenu = loadable(() => import('../../pages/PageMenu/default'))
+const PageDonate = loadable(() => import('../../pages/PageDonate/default'))
 
 const cnTemplateMain = cn('TemplateMain')
 
@@ -34,6 +35,7 @@ export function TemplateMain() {
           <Route exact path="/" component={PageNews} />
           <Route exact path="/feed" component={PageFeed} />
           <Route exact path="/menu" component={PageMenu} />
+          <Route exact path="/donate" component={PageDonate} />
         </Switch>
       </div>
 
