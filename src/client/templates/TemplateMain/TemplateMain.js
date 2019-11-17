@@ -14,6 +14,7 @@ const PageFeed = loadable(() => import('../../pages/PageFeed/default'))
 const PageMenu = loadable(() => import('../../pages/PageMenu/default'))
 const PageDonate = loadable(() => import('../../pages/PageDonate/default'))
 const PagePost = loadable(() => import('../../pages/PagePost/default'))
+const PageCreatePost = loadable(() => import('../../pages/PageCreatePost/default'))
 
 const cnTemplateMain = cn('TemplateMain')
 
@@ -42,6 +43,7 @@ export function TemplateMain() {
           <Route exact path="/menu" component={PageMenu} />
           <Route exact path="/donate" component={PageDonate} />
           <Route exact path="/post-:postId" component={PagePost} />
+          <Route exact path="/create-post" component={PageCreatePost} />
         </Switch>
       </div>
 
