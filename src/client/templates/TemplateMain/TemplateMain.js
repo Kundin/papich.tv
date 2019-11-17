@@ -26,6 +26,9 @@ export function TemplateMain() {
         <WrapperMain>
           <div className={cnTemplateMain('HeaderContent')}>
             <h1 className={cnTemplateMain('Logotype')}>Papich.tv</h1>
+            <Link to="/donate" className={cnTemplateMain('Donate')}>
+              Поддержать
+            </Link>
           </div>
         </WrapperMain>
       </header>

@@ -1,5 +1,5 @@
 .TemplateMain {
-  --height-header: 38px;
+  --height-header: 40px;
   --height-tabs: 48px;
 
   padding: var(--height-header) 0 var(--height-tabs);
@@ -36,6 +36,21 @@
     padding: 0;
 
     text-transform: uppercase;
+  }
+
+  /* Кнопка "Поддержать" */
+  &-Donate {
+    font-size: var(--size-typo-s);
+
+    padding: var(--space-xxs) var(--space-s);
+
+    color: var(--color-white);
+    border-radius: 20px;
+    background: green;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   /* Основной контент */
