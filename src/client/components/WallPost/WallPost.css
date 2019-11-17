@@ -9,12 +9,7 @@
 
   /* Аватарка автора */
   &-AuthorImage {
-    width: 40px;
-    height: 40px;
-
     margin-right: var(--space-s);
-
-    border-radius: 50%;
   }
 
   /* Имя пользователя */

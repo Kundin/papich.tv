@@ -1,4 +1,5 @@
 export * from './App'
+export * from './Avatar'
 export * from './NewPost'
 export * from './Pad'
 export * from './WallItem'

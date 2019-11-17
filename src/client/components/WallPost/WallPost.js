@@ -1,7 +1,7 @@
 import React from 'react'
 import { cn } from '@bem-react/classname'
 
-import { WallItem } from '../../components'
+import { WallItem, Avatar } from '../../components'
 import { IconHeartRegular, IconCommentRegular } from '../../icons'
 import { dateToString } from '../../utils'
 import './WallPost.css'
@@ -30,10 +30,12 @@ export function WallPost({ className, id, author, counters, createdAt, children,
 }
 
 // Автор поста
-export function WallPostAuthor({ avatar, fullName, info, ...props }) {
+export function WallPostAuthor(user) {
+  const { avatar, fullName, info, ...props } = user
+
   return (
     <div {...props} className={cnWallPost('Author')}>
-      <img className={cnWallPost('AuthorImage')} src={avatar} alt={fullName} />
+      <Avatar className={cnWallPost('AuthorImage')} user={user} alt={fullName} />
       <div className={cnWallPost('AuthorContent')}>
         <div className={cnWallPost('AuthorName')}>{fullName}</div>
         <div className={cnWallPost('AuthorInfo')}>{info}</div>
