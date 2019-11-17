@@ -6,6 +6,7 @@ import loadable from '@loadable/component'
 import { WrapperMain } from '../../components'
 import { Link } from '../../UI'
 import { IconFireSolid, IconUsersSolid, IconBarsSolid } from '../../icons'
+import { texts } from './texts'
 import './TemplateMain.css'
 
 const PageNews = loadable(() => import('../../pages/PageNews/default'))
@@ -26,9 +27,9 @@ export function TemplateMain() {
       <header className={cnTemplateMain('Header')}>
         <WrapperMain>
           <div className={cnTemplateMain('HeaderContent')}>
-            <h1 className={cnTemplateMain('Logotype')}>Papich.tv</h1>
+            <h1 className={cnTemplateMain('Logotype')}>{texts.title}</h1>
             <Link to="/donate" className={cnTemplateMain('Donate')}>
-              Поддержать
+              {texts.btnDonate}
             </Link>
           </div>
         </WrapperMain>

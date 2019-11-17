@@ -1,4 +1,6 @@
 .WallPost {
+  color: var(--color-text-primary);
+
   /* Автор поста */
   &-Author {
     display: flex;
@@ -19,13 +21,12 @@
   &-AuthorName {
     font-size: var(--size-typo-m);
     font-weight: 600;
-
-    margin-bottom: var(--space-xxxs);
   }
 
   /* Дополнительное информации в блоке автора */
   &-AuthorInfo {
     font-size: var(--size-typo-s);
+    line-height: var(--line-height-typo-s);
   }
 
   /* Текст поста */

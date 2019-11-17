@@ -1,0 +1,35 @@
+.Pad {
+  background: var(--color-white);
+
+  /* Шапка */
+  &-Header {
+    display: flex;
+
+    padding: var(--space-s);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Заголовок */
+  &-Title {
+    font-size: var(--size-typo-m);
+    font-weight: 400;
+
+    margin: 0;
+    padding: 0;
+
+    text-transform: uppercase;
+
+    color: var(--color-text-secondary);
+  }
+
+  /* Контент */
+  &-Content {
+    /* Внутренний отступ */
+    &_padding {
+      &_s {
+        padding: var(--space-s);
+      }
+    }
+  }
+}

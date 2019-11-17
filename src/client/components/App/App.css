@@ -5,6 +5,8 @@ body {
 
 .App {
   font-family: sans-serif;
+  font-size: var(--size-typo-m);
+  line-height: var(--line-height-typo-m);
 
   background: var(--color-bg);
 }

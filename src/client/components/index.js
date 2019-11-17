@@ -1,4 +1,5 @@
 export * from './App'
+export * from './Pad'
 export * from './WallItem'
 export * from './WallPost'
 export * from './WrapperMain'

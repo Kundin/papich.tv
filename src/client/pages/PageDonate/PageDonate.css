@@ -1,2 +1,9 @@
 .PageDonate {
+  .Pad {
+    margin-bottom: var(--space-s);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }

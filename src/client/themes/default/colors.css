@@ -11,12 +11,16 @@ $color-bg: hsla(0, 0%, 92%, 1);
 $color-border: hsla(0, 0%, 88%, 1);
 
 /* Цвета текста */
+$color-text-primary: hsla(0, 0%, 0%, 1); /* Основной */
 $color-text-secondary: hsla(213, 0%, 60%, 1); /* Второстепенный */
+$color-text-link: hsla(207, 90%, 54%, 1); /* Ссылки */
 
 html {
   --color-white: $color-white;
   --color-black: $color-black;
   --color-bg: $color-bg;
   --color-border: $color-border;
+  --color-text-primary: $color-text-primary;
   --color-text-secondary: $color-text-secondary;
+  --color-text-link: $color-text-link;
 }
