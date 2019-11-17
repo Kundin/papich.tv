@@ -8,8 +8,8 @@ import './WallPost.css'
 
 const cnWallPost = cn('WallPost')
 
-export function WallPost({ className, author, children, ...props }) {
-  author.info = dateToString(new Date())
+export function WallPost({ className, author, counters, createdAt, children, ...props }) {
+  author.info = dateToString(createdAt)
 
   return (
     <WallItem
@@ -17,8 +17,8 @@ export function WallPost({ className, author, children, ...props }) {
       header={<WallPostAuthor {...author} />}
       footer={
         <div className={cnWallPost('Buttons')}>
-          <WallPostButton icon={<IconHeartRegular />}>12</WallPostButton>
-          <WallPostButton icon={<IconCommentRegular />}>3</WallPostButton>
+          <WallPostButton icon={<IconHeartRegular />}>{counters.likes}</WallPostButton>
+          <WallPostButton icon={<IconCommentRegular />}>{counters.comments}</WallPostButton>
         </div>
       }
     >

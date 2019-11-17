@@ -7,7 +7,7 @@ import { WrapperMain } from '../../components'
 import { IconFireSolid, IconUsersSolid, IconBarsSolid } from '../../icons'
 import './TemplateMain.css'
 
-const PageIndex = loadable(() => import('../../pages/PageIndex/default'))
+const PageNews = loadable(() => import('../../pages/PageNews/default'))
 
 const cnTemplateMain = cn('TemplateMain')
 
@@ -25,7 +25,7 @@ export function TemplateMain() {
       <div className={cnTemplateMain('Content')}>
         <WrapperMain className={cnTemplateMain('ContentWrapper')}>
           <Switch>
-            <Route path="/" exact component={PageIndex} />
+            <Route path="/" exact component={PageNews} />
           </Switch>
         </WrapperMain>
       </div>
