@@ -1,6 +1,4 @@
 .WallItem {
-  display: block;
-
   background: var(--color-white);
 
   /* Заголовок */

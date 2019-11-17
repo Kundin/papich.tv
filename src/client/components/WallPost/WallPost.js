@@ -24,8 +24,10 @@ export function WallPost({ className, id, author, counters, createdAt, children,
         </div>
       }
     >
-      <div className={cnWallPost('Text')}>{children}</div>
-      <hr className={cnWallPost('Sep')} />
+      <Link to={`post-${id}`}>
+        <div className={cnWallPost('Text')}>{children}</div>
+        <hr className={cnWallPost('Sep')} />
+      </Link>
     </WallItem>
   )
 }
@@ -35,7 +37,7 @@ export function WallPostAuthor(user) {
   const { id, avatar, fullName, info, ...props } = user
 
   return (
-    <Link to={`/id${id}`} {...props} className={cnWallPost('Author')}>
+    <Link {...props} to={`/id${id}`} className={cnWallPost('Author')}>
       <Avatar className={cnWallPost('AuthorImage')} user={user} alt={fullName} />
       <div className={cnWallPost('AuthorContent')}>
         <div className={cnWallPost('AuthorName')}>{fullName}</div>

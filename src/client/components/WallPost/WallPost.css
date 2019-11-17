@@ -35,6 +35,8 @@
 
     margin: var(--space-s);
     margin-bottom: 0;
+
+    color: var(--color-text-primary);
   }
 
   /* Разделитель */
