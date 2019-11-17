@@ -1,8 +1,8 @@
 .TemplateMain {
   --height-header: 38px;
-  --height-footer: 31px;
+  --height-tabs: 48px;
 
-  padding-top: var(--height-header);
+  padding: var(--height-header) 0 var(--height-tabs);
 
   /* Шапка */
   &-Header {
@@ -40,7 +40,7 @@
 
   /* Основной контент */
   &-Content {
-    min-height: calc(100vh - var(--height-header) - var(--height-footer));
+    min-height: calc(100vh - var(--height-header) - var(--height-tabs));
   }
 
   /* Обёртка контента */
@@ -48,29 +48,53 @@
     padding: 0;
   }
 
-  /* Подвал */
-  &-Footer {
-    height: var(--height-footer);
-  }
-
-  /* Контент подвала */
-  &-FooterContent {
-    font-size: var(--size-typo-s);
+  /* Вкладки */
+  &-Tabs {
+    position: fixed;
+    z-index: 1000;
+    bottom: 0;
+    left: 0;
 
     display: flex;
 
-    padding: var(--space-xs) 0;
+    width: 100%;
+
+    background: var(--color-white);
+    box-shadow: 0 -2px 6px 2px rgba(0, 0, 0, 0.06);
     align-items: center;
-    justify-content: space-between;
   }
-}
 
-@media (min-width: 1024px) {
-  .TemplateMain {
-    --height-header: 44px;
+  /* Отдельная вкладка */
+  &-Tab {
+    display: flex;
 
-    &-Logotype {
-      font-size: var(--size-typo-xxl);
-    }
+    padding: var(--space-s);
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  /* Иконка во вкладке */
+  &-TabIcon {
+    position: relative;
+
+    height: 24px;
+  }
+
+  /* Счётчик во вкладке */
+  &-TabCounter {
+    font-size: var(--size-typo-m);
+    font-weight: 500;
+
+    position: absolute;
+    top: 0;
+    left: 16px;
+
+    height: 18px;
+    padding: 0 var(--space-xxs);
+
+    color: var(--color-white);
+    border-radius: 10px;
+
+    background: red;
   }
 }
