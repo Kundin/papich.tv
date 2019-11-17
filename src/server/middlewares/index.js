@@ -1,4 +1,5 @@
 export * from './render'
+export * from './authRedirect'
 export * from './detectDevice'
 export * from './login'
 export * from './logout'

@@ -7,7 +7,7 @@ import { ApolloServer } from 'apollo-server-express'
 
 import { config } from '../config'
 import { schema } from './graphql'
-import { render, login, logout, detectDevice } from './middlewares'
+import { render, login, logout, detectDevice, authRedirect } from './middlewares'
 import { getUserByJWT } from './utils'
 
 const isDev = process.env.NODE_ENV !== 'production'
@@ -21,7 +21,7 @@ const app = express()
 const server = new ApolloServer({
   schema,
   context: async ({ req }) => {
-    const token = req.cookies.jwt || ''
+    const token = req.cookies.jwt || null
     const user = token ? await getUserByJWT(token) : null
 
     return { user }
@@ -45,9 +45,7 @@ if (isDev) {
         publicPath: '/public/dist/web',
         serverSideRender: true,
         writeToDisk(filePath) {
-          return (
-            /dist\/node\//.test(filePath) || /loadable-stats/.test(filePath)
-          )
+          return /dist\/node\//.test(filePath) || /loadable-stats/.test(filePath)
         },
       }),
     )
@@ -64,9 +62,7 @@ app
 
 // На локальном сервер отдачей файлов занимается NodeJS
 if (config.isLocal) {
-  app
-    .use('/dist', express.static('./public/dist'))
-    .use('/static', express.static('./public'))
+  app.use('/dist', express.static('./public/dist')).use('/static', express.static('./public'))
 }
 
 // Парсинг данных запроса
@@ -81,6 +77,9 @@ server.applyMiddleware({ app, path: '/graphql' })
 app
   // Определение устройства
   .use(detectDevice)
+
+  // Редирект после авторизации
+  .get('/auth-redirect', authRedirect)
 
   // Вход и выход из аккаунта
   .post('/login', login)
