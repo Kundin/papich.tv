@@ -43,11 +43,6 @@
     min-height: calc(100vh - var(--height-header) - var(--height-tabs));
   }
 
-  /* Обёртка контента */
-  &-ContentWrapper {
-    padding: 0;
-  }
-
   /* Вкладки */
   &-Tabs {
     position: fixed;
@@ -71,6 +66,11 @@
     padding: var(--space-s);
     flex-grow: 1;
     justify-content: center;
+
+    /* Активная вкладка */
+    &_active {
+      color: red;
+    }
   }
 
   /* Иконка во вкладке */

@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { cn } from '@bem-react/classname'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useLocation } from 'react-router-dom'
 import loadable from '@loadable/component'
 
 import { WrapperMain } from '../../components'
+import { Link } from '../../UI'
 import { IconFireSolid, IconUsersSolid, IconBarsSolid } from '../../icons'
 import './TemplateMain.css'
 
 const PageNews = loadable(() => import('../../pages/PageNews/default'))
+const PageFeed = loadable(() => import('../../pages/PageFeed/default'))
 
 const cnTemplateMain = cn('TemplateMain')
 
 export function TemplateMain() {
+  const tabs = ['/', '/feed', '/menu']
+  const { pathname } = useLocation()
+  const [activeTab, setActiveTab] = useState(tabs.includes(pathname) ? pathname : null)
+
   return (
     <div className={cnTemplateMain()}>
       <header className={cnTemplateMain('Header')}>
@@ -23,30 +29,44 @@ export function TemplateMain() {
       </header>
 
       <div className={cnTemplateMain('Content')}>
-        <WrapperMain className={cnTemplateMain('ContentWrapper')}>
-          <Switch>
-            <Route path="/" exact component={PageNews} />
-          </Switch>
-        </WrapperMain>
+        <Switch>
+          <Route path="/" exact component={PageNews} />
+          <Route path="/feed" exact component={PageFeed} />
+        </Switch>
       </div>
 
       <div className={cnTemplateMain('Tabs')}>
-        <TemplateMainTab icon={<IconFireSolid />} />
-        <TemplateMainTab icon={<IconUsersSolid />} />
-        <TemplateMainTab icon={<IconBarsSolid />} />
+        <TemplateMainTab
+          active={activeTab === '/'}
+          url="/"
+          icon={<IconFireSolid />}
+          onClick={() => setActiveTab('/')}
+        />
+        <TemplateMainTab
+          active={activeTab === '/feed'}
+          url="/feed"
+          icon={<IconUsersSolid />}
+          onClick={() => setActiveTab('/feed')}
+        />
+        <TemplateMainTab
+          active={activeTab === '/menu'}
+          url="/menu"
+          icon={<IconBarsSolid />}
+          onClick={() => setActiveTab('/menu')}
+        />
       </div>
     </div>
   )
 }
 
 // Отдельная вкладка
-export function TemplateMainTab({ className, icon, count = 0, ...props }) {
+export function TemplateMainTab({ className, active, url, icon, count = 0, ...props }) {
   return (
-    <div {...props} className={cnTemplateMain('Tab', [className])}>
+    <Link {...props} className={cnTemplateMain('Tab', { active }, [className])} to={url}>
       <div className={cnTemplateMain('TabIcon')}>
         {icon}
         {!!count && <div className={cnTemplateMain('TabCounter')}>{count}</div>}
       </div>
-    </div>
+    </Link>
   )
 }
