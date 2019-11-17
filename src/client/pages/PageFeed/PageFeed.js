@@ -4,12 +4,14 @@ import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
 
 import { WallPost } from '../../components'
-import news from './news'
+import posts from '../posts'
 import './PageFeed.css'
 
 const cnPageFeed = cn('PageFeed')
 
 export function PageFeed() {
+  const filteredPosts = posts.filter((post) => !post.isPapich)
+
   return (
     <Fragment>
       <Helmet>
@@ -17,7 +19,7 @@ export function PageFeed() {
       </Helmet>
       <div className={cnPageFeed()}>
         <div className={cnPageFeed('Wall')}>
-          {news.map(({ id, text, ...post }) => (
+          {filteredPosts.map(({ id, text, ...post }) => (
             <WallPost key={id} id={id} {...post}>
               {text}
             </WallPost>
