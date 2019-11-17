@@ -40,7 +40,7 @@ export function TemplateMain() {
           <Route exact path="/feed" component={PageFeed} />
           <Route exact path="/menu" component={PageMenu} />
           <Route exact path="/donate" component={PageDonate} />
-          <Route exact path="/post/:postId" component={PagePost} />
+          <Route exact path="/post-:postId" component={PagePost} />
         </Switch>
       </div>
 

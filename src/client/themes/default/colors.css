@@ -7,8 +7,16 @@ $color-black: hsla(0, 0%, 0%, 1);
 /* Цвет фона */
 $color-bg: hsla(0, 0%, 92%, 1);
 
+/* Основной цвет границ */
+$color-border: hsla(0, 0%, 88%, 1);
+
+/* Цвета текста */
+$color-text-secondary: hsla(213, 0%, 60%, 1); /* Второстепенный */
+
 html {
   --color-white: $color-white;
   --color-black: $color-black;
   --color-bg: $color-bg;
+  --color-border: $color-border;
+  --color-text-secondary: $color-text-secondary;
 }

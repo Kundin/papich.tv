@@ -79,6 +79,8 @@
     display: flex;
 
     padding: var(--space-s);
+
+    color: var(--color-text-secondary);
     flex-grow: 1;
     justify-content: center;
 

@@ -43,12 +43,14 @@
     margin-bottom: 0;
 
     border: 0;
-    border-top: 1px solid;
+    border-top: 1px solid var(--color-border);
   }
 
   /* Кнопки реакций */
   &-Buttons {
     display: flex;
+
+    color: var(--color-text-secondary);
     align-items: center;
     justify-content: flex-start;
   }

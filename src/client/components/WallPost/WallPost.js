@@ -14,7 +14,7 @@ export function WallPost({ className, id, author, counters, createdAt, children,
   return (
     <WallItem
       className={cnWallPost({}, [className])}
-      to={`/post/${id}`}
+      to={`/post-${id}`}
       header={<WallPostAuthor {...author} />}
       footer={
         <div className={cnWallPost('Buttons')}>
