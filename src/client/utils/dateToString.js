@@ -12,7 +12,7 @@ export function dateToString(_date) {
   const minutes = date.getMinutes()
   const year_string = year === now.getFullYear() ? ' ' : ` ${year} `
   const hours_string = hours > 9 ? hours : `0${hours}`
-  const minutes_string = minutes > 9 ? minutes : `0${hours}`
+  const minutes_string = minutes > 9 ? minutes : `0${minutes}`
 
   return `${day} ${months[month]}${year_string}в ${hours_string}:${minutes_string}`
 }
