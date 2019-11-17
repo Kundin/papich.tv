@@ -16,12 +16,16 @@
   &-AuthorName {
     font-size: var(--size-typo-m);
     font-weight: 600;
+
+    color: var(--color-text-link);
   }
 
   /* Дополнительное информации в блоке автора */
   &-AuthorInfo {
     font-size: var(--size-typo-s);
     line-height: var(--line-height-typo-s);
+
+    color: var(--color-text-secondary);
   }
 
   /* Текст поста */

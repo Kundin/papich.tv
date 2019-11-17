@@ -2,7 +2,7 @@
 
 import { Schema } from 'mongoose'
 
-export const UsersSchema = new Schema(
+export const PostsSchema = new Schema(
   {
     // Автор
     author: {

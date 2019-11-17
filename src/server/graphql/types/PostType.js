@@ -2,7 +2,7 @@ import { GraphQLID, GraphQLString, GraphQLObjectType, GraphQLNonNull, GraphQLLis
 
 import { UserType } from '../types'
 
-export const UserType = new GraphQLObjectType({
+export const PostType = new GraphQLObjectType({
   name: 'Post',
   description: 'Пост',
   fields: () => ({
