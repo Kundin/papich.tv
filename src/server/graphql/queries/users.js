@@ -1,4 +1,4 @@
-import { GraphQLInt, GraphQLString, GraphQLList, GraphQLBoolean } from 'graphql'
+import { GraphQLInt, GraphQLString, GraphQLList } from 'graphql'
 
 import { UserType } from '../types'
 import { Users } from '../../models'
