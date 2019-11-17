@@ -8,12 +8,13 @@ import './WallPost.css'
 
 const cnWallPost = cn('WallPost')
 
-export function WallPost({ className, author, counters, createdAt, children, ...props }) {
+export function WallPost({ className, id, author, counters, createdAt, children, ...props }) {
   author.info = dateToString(createdAt)
 
   return (
     <WallItem
       className={cnWallPost({}, [className])}
+      to={`/post/${id}`}
       header={<WallPostAuthor {...author} />}
       footer={
         <div className={cnWallPost('Buttons')}>

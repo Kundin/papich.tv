@@ -18,7 +18,7 @@ export function PageNews() {
       <div className={cnPageNews()}>
         <div className={cnPageNews('Wall')}>
           {news.map(({ id, text, ...post }) => (
-            <WallPost key={id} {...post}>
+            <WallPost key={id} id={id} {...post}>
               {text}
             </WallPost>
           ))}

@@ -18,7 +18,7 @@ export function PageFeed() {
       <div className={cnPageFeed()}>
         <div className={cnPageFeed('Wall')}>
           {news.map(({ id, text, ...post }) => (
-            <WallPost key={id} {...post}>
+            <WallPost key={id} id={id} {...post}>
               {text}
             </WallPost>
           ))}
