@@ -47,7 +47,7 @@ export function WallPostButton({ icon, children, ...props }) {
   return (
     <div {...props} className={cnWallPost('Button')}>
       <div className={cnWallPost('ButtonIcon')}>{icon}</div>
-      {children}
+      {!!children && children}
     </div>
   )
 }
