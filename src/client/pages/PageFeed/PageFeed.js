@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import gql from 'graphql-tag'
 import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
@@ -11,7 +11,7 @@ const cnPageFeed = cn('PageFeed')
 
 export function PageFeed() {
   return (
-    <div>
+    <Fragment>
       <Helmet>
         <title>Papich.tv</title>
       </Helmet>
@@ -24,6 +24,6 @@ export function PageFeed() {
           ))}
         </div>
       </div>
-    </div>
+    </Fragment>
   )
 }
