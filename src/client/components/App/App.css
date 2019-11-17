@@ -1,6 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+
+  background: var(--color-bg);
 }
 
 .App {
@@ -8,5 +10,6 @@ body {
   font-size: var(--size-typo-m);
   line-height: var(--line-height-typo-m);
 
-  background: var(--color-bg);
+  max-width: var(--page-max-width);
+  margin: 0 auto;
 }

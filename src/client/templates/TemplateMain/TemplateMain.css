@@ -12,6 +12,7 @@
     left: 0;
 
     width: 100vw;
+    max-width: var(--page-max-width);
     height: var(--height-header);
 
     color: white;
@@ -65,7 +66,8 @@
 
     display: flex;
 
-    width: 100%;
+    width: 100vw;
+    max-width: var(--page-max-width);
 
     background: var(--color-white);
     box-shadow: 0 -2px 6px 2px rgba(0, 0, 0, 0.06);
@@ -111,5 +113,17 @@
     border-radius: 10px;
 
     background: red;
+  }
+}
+
+@media (min-width: 426px) {
+  .TemplateMain {
+    &-Header {
+      left: calc((100vw - var(--page-max-width)) / 2);
+    }
+
+    &-Tabs {
+      left: calc((100vw - var(--page-max-width)) / 2);
+    }
   }
 }
