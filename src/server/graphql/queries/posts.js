@@ -3,7 +3,7 @@ import { GraphQLID } from 'graphql'
 import { PostType } from '../types'
 import { Posts } from '../../models'
 
-export const user = {
+export const posts = {
   type: PostType,
   description: 'Получить посты',
   resolve: async (obj, args, context, info) => {
