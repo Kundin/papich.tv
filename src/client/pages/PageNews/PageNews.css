@@ -1,4 +1,9 @@
 .PageNews {
+  /* Новый пост */
+  &-NewPost {
+    margin-bottom: var(--space-s);
+  }
+
   /* Стена */
   &-Wall {
     .WallItem {

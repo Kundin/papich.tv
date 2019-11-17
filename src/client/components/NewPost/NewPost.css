@@ -1,0 +1,25 @@
+.NewPost {
+  display: block;
+
+  /* Изображение пользователя */
+  &-Avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: var(--space-s);
+
+    border-radius: 50%;
+  }
+
+  /* Текст */
+  &-Text {
+    color: var(--color-text-secondary);
+  }
+
+  /* Контент */
+  .Pad-Content {
+    display: flex;
+
+    padding: var(--space-xs) var(--space-s);
+    align-items: center;
+  }
+}

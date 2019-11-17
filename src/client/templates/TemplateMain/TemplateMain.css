@@ -52,7 +52,8 @@
 
   /* Основной контент */
   &-Content {
-    min-height: calc(100vh - var(--height-header) - var(--height-tabs));
+    min-height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s));
+    padding-bottom: var(--space-s);
   }
 
   /* Вкладки */
