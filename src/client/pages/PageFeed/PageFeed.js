@@ -5,12 +5,15 @@ import { cn } from '@bem-react/classname'
 
 import { WallPost, NewPost } from '../../components'
 import posts from '../posts'
-import users from '../users'
+import { useMe } from '../../graphql/hooks'
 import './PageFeed.css'
 
 const cnPageFeed = cn('PageFeed')
 
 export function PageFeed() {
+  const {
+    data: { me },
+  } = useMe()
   const filteredPosts = posts.filter((post) => !post.isPapich)
 
   return (
@@ -19,7 +22,7 @@ export function PageFeed() {
         <title>Papich.tv</title>
       </Helmet>
       <div className={cnPageFeed()}>
-        <NewPost className={cnPageFeed('NewPost')} user={users[1]} />
+        <NewPost className={cnPageFeed('NewPost')} user={me} />
 
         <div className={cnPageFeed('Wall')}>
           {filteredPosts.map(({ id, text, ...post }) => (
