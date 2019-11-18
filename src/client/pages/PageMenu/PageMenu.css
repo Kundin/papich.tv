@@ -1,2 +1,33 @@
 .PageMenu {
+  /* Профиль */
+  &-Profile {
+    margin-bottom: var(--space-s);
+    padding: var(--space-xs) var(--space-s);
+  }
+
+  /* Контейнер профиля */
+  &-ProfileContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Аватарка профиля */
+  &-ProfileAvatar {
+    margin-right: var(--space-s);
+  }
+
+  /* Имя профиля */
+  &-ProfileName {
+    font-weight: 600;
+
+    color: var(--color-text-link);
+  }
+
+  /* Дополнительный текст в профиле */
+  &-ProfileText {
+    font-size: var(--size-typo-s);
+    line-height: var(--line-height-typo-s);
+
+    color: var(--color-text-secondary);
+  }
 }

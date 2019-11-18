@@ -5,7 +5,7 @@ import loadable from '@loadable/component'
 
 import { WrapperMain, RouteAuth } from '../../components'
 import { Link } from '../../UI'
-import { IconFireSolid, IconUsersSolid, IconBarsSolid } from '../../icons'
+import { IconFireSolid, IconUsersSolid, IconBarsSolid, IconUserCircleSolid } from '../../icons'
 import { useMe } from '../../graphql/hooks'
 import { texts } from './texts'
 import './TemplateMain.css'
@@ -25,7 +25,7 @@ export function TemplateMain() {
   const {
     data: { me },
   } = useMe()
-  const tabs = ['/', '/feed', '/menu']
+  const tabs = ['/', '/feed', `/id${me && me.vkId}`]
   const { pathname } = useLocation()
   const [activeTab, setActiveTab] = useState(tabs.includes(pathname) ? pathname : null)
 
@@ -46,7 +46,7 @@ export function TemplateMain() {
         <Switch>
           <RouteAuth exact path="/" component={PageNews} />
           <RouteAuth exact path="/feed" component={PageFeed} />
-          <RouteAuth exact path="/menu" component={PageMenu} />
+          {/* <RouteAuth exact path="/menu" component={PageMenu} /> */}
           <RouteAuth exact path="/create-post" component={PageCreatePost} />
           <Route exact path="/post-:postId" component={PagePost} />
           <Route exact path="/id:userId" component={PageUser} />
@@ -70,10 +70,10 @@ export function TemplateMain() {
             onClick={() => setActiveTab('/feed')}
           />
           <TemplateMainTab
-            active={activeTab === '/menu'}
-            url="/menu"
-            icon={<IconBarsSolid />}
-            onClick={() => setActiveTab('/menu')}
+            active={activeTab === `/id${me.vkId}`}
+            url={`/id${me.vkId}`}
+            icon={<IconUserCircleSolid />}
+            onClick={() => setActiveTab(`/id${me.vkId}`)}
           />
         </div>
       )}
