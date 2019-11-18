@@ -1,3 +1,6 @@
+/* Основной цвет */
+$color-main: hsla(122, 39%, 49%, 1);
+
 /* Белый */
 $color-white: hsla(0, 100%, 100%, 1);
 
@@ -20,6 +23,7 @@ $color-brand-vk: hsla(212, 42%, 52%, 1); /* ВКонтакте */
 $color-brand-vk-active: hsla(212, 39%, 46%, 1);
 
 html {
+  --color-main: $color-main;
   --color-white: $color-white;
   --color-black: $color-black;
   --color-bg: $color-bg;

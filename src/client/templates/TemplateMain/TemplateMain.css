@@ -45,7 +45,7 @@
 
     color: var(--color-white);
     border-radius: 20px;
-    background: green;
+    background: var(--color-main);
   }
 
   /* Основной контент */
@@ -83,7 +83,7 @@
 
     /* Активная вкладка */
     &_active {
-      color: red;
+      color: var(--color-main);
     }
   }
 

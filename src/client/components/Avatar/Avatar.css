@@ -1,6 +1,21 @@
 .Avatar {
-  width: 40px;
-  height: 40px;
-
   border-radius: 50%;
+
+  /* Размер */
+  &_size {
+    &_s {
+      width: 24px;
+      height: 24px;
+    }
+
+    &_m {
+      width: 40px;
+      height: 40px;
+    }
+
+    &_l {
+      width: 60px;
+      height: 60px;
+    }
+  }
 }

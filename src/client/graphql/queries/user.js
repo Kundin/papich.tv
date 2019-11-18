@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
-export const ME = gql`
-  query {
-    me {
+export const USER = gql`
+  query($vkId: Int) {
+    user(vkId: $vkId) {
       vkId
       firstName
       lastName

@@ -49,7 +49,7 @@ export function TemplateMain() {
           {/* <RouteAuth exact path="/menu" component={PageMenu} /> */}
           <RouteAuth exact path="/create-post" component={PageCreatePost} />
           <Route exact path="/post-:postId" component={PagePost} />
-          <Route exact path="/id:userId" component={PageUser} />
+          <Route exact path="/id:vkId" component={PageUser} />
           <Route exact path="/donate" component={PageDonate} />
           <Route component={PageNotFound} />
         </Switch>

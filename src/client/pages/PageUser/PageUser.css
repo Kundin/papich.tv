@@ -1,2 +1,29 @@
 .PageUser {
+  /* Основная информация */
+  &-Base {
+    margin-bottom: var(--space-s);
+  }
+
+  /* Контейнер основной информации */
+  &-BaseContainer {
+    display: flex;
+
+    padding: var(--space-s);
+  }
+
+  /* Аватарка */
+  &-Avatar {
+    margin-right: var(--space-s);
+  }
+
+  /* Имя */
+  &-Name {
+    font-size: var(--size-typo-l);
+    line-height: var(--line-height-typo-l);
+  }
+
+  /* Статус */
+  &-Status {
+    color: var(--color-text-secondary);
+  }
 }

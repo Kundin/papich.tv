@@ -1,4 +1,4 @@
-import { GraphQLID } from 'graphql'
+import { GraphQLInt } from 'graphql'
 
 import { UserType } from '../types'
 import { Users } from '../../models'
@@ -7,19 +7,17 @@ export const user = {
   type: UserType,
   description: 'Получить пользователя',
   args: {
-    id: {
-      name: 'id',
-      type: GraphQLID,
+    vkId: {
+      name: 'vkId',
+      type: GraphQLInt,
     },
   },
   resolve: async (obj, args, context, info) => {
-    const { id } = args
+    const { vkId } = args
     const query = {}
 
-    if (id) query._id = id
+    if (vkId) query.vkId = vkId
 
-    return await Users.findOne(query)
-      .populate('vk')
-      .exec()
+    return await Users.findOne(query).exec()
   },
 }

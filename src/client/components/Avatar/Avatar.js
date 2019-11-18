@@ -5,6 +5,6 @@ import './Avatar.css'
 
 const cnAvatar = cn('Avatar')
 
-export function Avatar({ className, user, ...props }) {
-  return <img {...props} className={cnAvatar({}, [className])} src={user.avatar} />
+export function Avatar({ className, user, size = 'm', ...props }) {
+  return <img {...props} className={cnAvatar({ size }, [className])} src={user.avatar} />
 }
