@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
 
-import { WallPost, NewPost } from '../../components'
+import { WallPost, NewPost, PreloaderPage } from '../../components'
 import { useMe, usePosts } from '../../graphql/hooks'
 import './PageFeed.css'
 
@@ -19,7 +19,7 @@ export function PageFeed() {
   } = usePosts({ type: 'default' })
 
   return loading ? (
-    'Loading…'
+    <PreloaderPage />
   ) : (
     <Fragment>
       <Helmet>

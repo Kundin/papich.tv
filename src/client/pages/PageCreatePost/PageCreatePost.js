@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { cn } from '@bem-react/classname'
 import { useMutation } from '@apollo/react-hooks'
 
-import { Pad } from '../../components'
+import { Pad, PreloaderPage } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
 import { useMe } from '../../graphql/hooks'
 import { CREATE_POST } from '../../graphql/mutations'
@@ -26,7 +26,7 @@ export function PageCreatePost() {
   }
 
   return loading ? (
-    'Loading…'
+    <PreloaderPage />
   ) : (
     <div className={cnPageCreatePost()}>
       <Pad title="Новая запись">

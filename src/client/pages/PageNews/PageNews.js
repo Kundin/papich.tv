@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
 
-import { WallPost, NewPost } from '../../components'
+import { WallPost, NewPost, PreloaderPage } from '../../components'
 import { usePosts, useMe } from '../../graphql/hooks'
 import './PageNews.css'
 
@@ -18,7 +18,9 @@ export function PageNews() {
     loading,
   } = usePosts({ type: 'papich' })
 
-  return (
+  return loading ? (
+    <PreloaderPage />
+  ) : (
     <Fragment>
       <Helmet>
         <title>Papich.tv</title>

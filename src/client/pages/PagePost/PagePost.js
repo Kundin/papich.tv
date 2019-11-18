@@ -2,7 +2,7 @@ import React from 'react'
 import { cn } from '@bem-react/classname'
 import { useParams } from 'react-router-dom'
 
-import { WallPost } from '../../components'
+import { WallPost, PreloaderPage } from '../../components'
 import { usePost } from '../../graphql/hooks'
 import './PagePost.css'
 
@@ -16,7 +16,7 @@ export function PagePost() {
   } = usePost({ id: postId })
 
   return loading ? (
-    'Loading…'
+    <PreloaderPage />
   ) : (
     <div className={cnPagePost()}>
       <WallPost {...post}>{post.text}</WallPost>

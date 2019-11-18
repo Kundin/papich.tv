@@ -3,7 +3,7 @@ import { cn } from '@bem-react/classname'
 import { useParams } from 'react-router-dom'
 import loadable from '@loadable/component'
 
-import { Pad, Avatar } from '../../components'
+import { Pad, Avatar, PreloaderPage } from '../../components'
 import { useMe, useUser } from '../../graphql/hooks'
 import './PageUser.css'
 
@@ -22,7 +22,7 @@ export function PageUser() {
   } = useUser({ vkId: Number(vkId) })
 
   return loading ? (
-    'Loading'
+    <PreloaderPage />
   ) : user ? (
     <div className={cnPageUser()}>
       <Pad className={cnPageUser('Base')}>

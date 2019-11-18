@@ -1,5 +1,6 @@
 export * from './Icon'
 export * from './IconBarsSolid'
+export * from './IconCogSolid'
 export * from './IconCommentRegular'
 export * from './IconFireSolid'
 export * from './IconHeartRegular'

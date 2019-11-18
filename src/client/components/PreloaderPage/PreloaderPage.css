@@ -1,0 +1,29 @@
+.PreloaderPage {
+  display: flex;
+
+  height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s));
+
+  align-items: center;
+  justify-content: center;
+
+  /* Иконка */
+  &-Icon {
+    animation-name: 'PreloaderPageRotate';
+    animation-duration: 1.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    color: var(--color-text-secondary);
+  }
+}
+
+/* Бесконечное вращение */
+@keyframes PreloaderPageRotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
