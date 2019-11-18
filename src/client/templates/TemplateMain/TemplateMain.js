@@ -17,6 +17,7 @@ const PageDonate = loadable(() => import('../../pages/PageDonate/default'))
 const PagePost = loadable(() => import('../../pages/PagePost/default'))
 const PageCreatePost = loadable(() => import('../../pages/PageCreatePost/default'))
 const PageUser = loadable(() => import('../../pages/PageUser/default'))
+const PageNotFound = loadable(() => import('../../pages/PageNotFound/default'))
 
 const cnTemplateMain = cn('TemplateMain')
 
@@ -50,6 +51,7 @@ export function TemplateMain() {
           <Route exact path="/post-:postId" component={PagePost} />
           <Route exact path="/id:userId" component={PageUser} />
           <Route exact path="/donate" component={PageDonate} />
+          <Route component={PageNotFound} />
         </Switch>
       </div>
 

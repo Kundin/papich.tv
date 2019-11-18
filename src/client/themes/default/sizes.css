@@ -23,6 +23,7 @@ html {
   --line-height-typo-xxxxxl: 82px;
   --line-height-typo-xxxxxxl: 115px;
 
-  /* Максимальная ширина страницы */
-  --page-max-width: 425px;
+  --page-max-width: 425px; /* Максимальная ширина страницы */
+  --height-header: 42px; /* Высота шапки */
+  --height-tabs: 48px; /* Высота основных вкладок */
 }

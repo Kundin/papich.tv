@@ -1,7 +1,4 @@
 .TemplateMain {
-  --height-header: 42px;
-  --height-tabs: 48px;
-
   padding: var(--height-header) 0 var(--height-tabs);
 
   /* Шапка */

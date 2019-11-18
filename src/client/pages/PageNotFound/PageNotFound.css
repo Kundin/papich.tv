@@ -1,0 +1,10 @@
+.PageNotFound {
+  display: flex;
+
+  height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s));
+
+  padding: 0 var(--space-s);
+
+  text-align: center;
+  align-items: center;
+}
