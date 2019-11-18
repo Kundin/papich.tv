@@ -49,6 +49,16 @@ export const UsersSchema = new Schema(
       trim: true,
     },
 
+    // Уровень пользователя
+    // default - обычный пользователь
+    // admin - администратор
+    // papich - папич
+    lvl: {
+      type: String,
+      required: true,
+      default: 'default',
+    },
+
     // Хэшированный пароль
     hashPassword: {
       type: String,

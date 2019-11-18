@@ -22,6 +22,21 @@ UsersSchema.virtual('isMan').get(function() {
   return this.sex === 2
 })
 
+// Это папич?
+UsersSchema.virtual('isPapich').get(function() {
+  return this.lvl === 'papich'
+})
+
+// Это админ?
+UsersSchema.virtual('isAdmin').get(function() {
+  return this.lvl === 'admin'
+})
+
+// Это обычный пользователь?
+UsersSchema.virtual('isDefault').get(function() {
+  return this.lvl === 'default'
+})
+
 // Пароль
 UsersSchema.virtual('password')
   .set(function(password) {

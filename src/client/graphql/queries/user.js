@@ -12,6 +12,9 @@ export const USER = gql`
       email
       isMan
       isWoman
+      isDefault
+      isAdmin
+      isPapich
     }
   }
 `

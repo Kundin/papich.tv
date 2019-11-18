@@ -4,6 +4,15 @@ import { Schema } from 'mongoose'
 
 export const PostsSchema = new Schema(
   {
+    // Тип поста
+    // default - обычный
+    // papich - от Папича
+    type: {
+      type: String,
+      required: 'true',
+      default: 'default',
+    },
+
     // Автор
     author: {
       type: Schema.Types.ObjectId,
@@ -14,8 +23,24 @@ export const PostsSchema = new Schema(
     // Текст
     text: {
       type: String,
-      required: true,
       trim: true,
+    },
+
+    // Счётчики
+    counters: {
+      // Кол-во лайков
+      likes: {
+        type: Number,
+        required: true,
+        default: 0,
+      },
+
+      // Кол-во комментариев
+      comments: {
+        type: Number,
+        required: true,
+        default: 0,
+      },
     },
 
     // Пользователи, лайкнувшие этот пост

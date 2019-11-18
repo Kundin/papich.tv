@@ -4,8 +4,7 @@ import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
 
 import { WallPost, NewPost } from '../../components'
-import posts from '../posts'
-import { useMe } from '../../graphql/hooks'
+import { useMe, usePosts } from '../../graphql/hooks'
 import './PageFeed.css'
 
 const cnPageFeed = cn('PageFeed')
@@ -14,9 +13,14 @@ export function PageFeed() {
   const {
     data: { me },
   } = useMe()
-  const filteredPosts = posts.filter((post) => !post.isPapich)
+  const {
+    data: { posts = [] },
+    loading,
+  } = usePosts({ type: 'default' })
 
-  return (
+  return loading ? (
+    'Loading…'
+  ) : (
     <Fragment>
       <Helmet>
         <title>Papich.tv</title>
@@ -25,7 +29,7 @@ export function PageFeed() {
         <NewPost className={cnPageFeed('NewPost')} user={me} />
 
         <div className={cnPageFeed('Wall')}>
-          {filteredPosts.map(({ id, text, ...post }) => (
+          {posts.map(({ id, text, ...post }) => (
             <WallPost key={id} id={id} {...post}>
               {text}
             </WallPost>

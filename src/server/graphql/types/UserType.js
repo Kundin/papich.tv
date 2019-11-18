@@ -61,6 +61,21 @@ export const UserType = new GraphQLObjectType({
       description: 'Это мужчина?',
     },
 
+    isDefault: {
+      type: new GraphQLNonNull(GraphQLBoolean),
+      description: 'Это обычный пользователь?',
+    },
+
+    isAdmin: {
+      type: new GraphQLNonNull(GraphQLBoolean),
+      description: 'Это админ?',
+    },
+
+    isPapich: {
+      type: new GraphQLNonNull(GraphQLBoolean),
+      description: 'Это Папич?',
+    },
+
     createdAt: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'Дата регистрации',

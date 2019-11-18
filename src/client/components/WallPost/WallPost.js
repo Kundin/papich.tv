@@ -9,13 +9,12 @@ import './WallPost.css'
 
 const cnWallPost = cn('WallPost')
 
-export function WallPost({ className, id, author, counters, createdAt, children, ...props }) {
+export function WallPost({ className, id, author, counters, createdAt, children }) {
   author.info = dateToString(createdAt)
 
   return (
     <WallItem
       className={cnWallPost({}, [className])}
-      to={`/post-${id}`}
       header={<WallPostAuthor {...author} />}
       footer={
         <div className={cnWallPost('Buttons')}>
@@ -34,10 +33,10 @@ export function WallPost({ className, id, author, counters, createdAt, children,
 
 // Автор поста
 export function WallPostAuthor(user) {
-  const { id, avatar, fullName, info, ...props } = user
+  const { vkId, avatar, fullName, info } = user
 
   return (
-    <Link {...props} to={`/id${id}`} className={cnWallPost('Author')}>
+    <Link to={`/id${vkId}`} className={cnWallPost('Author')}>
       <Avatar className={cnWallPost('AuthorImage')} user={user} alt={fullName} />
       <div className={cnWallPost('AuthorContent')}>
         <div className={cnWallPost('AuthorName')}>{fullName}</div>

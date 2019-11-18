@@ -1,0 +1,21 @@
+.Textarea {
+  font: inherit;
+  line-height: inherit;
+
+  display: flex;
+
+  width: calc(100% - var(--space-s) * 2);
+  min-height: 2em;
+
+  padding: var(--space-xs) var(--space-s);
+
+  resize: none;
+
+  transition: box-shadow 0.2s;
+
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  outline: none;
+
+  background: var(--color-white);
+}

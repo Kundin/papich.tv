@@ -1,6 +1,13 @@
-import { GraphQLID, GraphQLString, GraphQLObjectType, GraphQLNonNull, GraphQLList } from 'graphql'
+import {
+  GraphQLID,
+  GraphQLInt,
+  GraphQLString,
+  GraphQLObjectType,
+  GraphQLNonNull,
+  GraphQLList,
+} from 'graphql'
 
-import { UserType } from '../types'
+import { UserType, PostCountersType } from '../types'
 
 export const PostType = new GraphQLObjectType({
   name: 'Post',
@@ -11,14 +18,24 @@ export const PostType = new GraphQLObjectType({
       description: ' Уникальный идентификатор',
     },
 
+    type: {
+      type: new GraphQLNonNull(GraphQLString),
+      description: 'Тип поста',
+    },
+
     author: {
       type: new GraphQLNonNull(UserType),
       description: 'Автор',
     },
 
     text: {
-      type: new GraphQLNonNull(GraphQLString),
+      type: GraphQLString,
       description: 'Текст',
+    },
+
+    counters: {
+      type: new GraphQLNonNull(PostCountersType),
+      description: 'Счётчики',
     },
 
     likes: {
