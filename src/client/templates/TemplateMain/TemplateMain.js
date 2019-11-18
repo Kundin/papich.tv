@@ -3,7 +3,7 @@ import { cn } from '@bem-react/classname'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import loadable from '@loadable/component'
 
-import { WrapperMain } from '../../components'
+import { WrapperMain, RouteAuth } from '../../components'
 import { Link } from '../../UI'
 import { IconFireSolid, IconUsersSolid, IconBarsSolid } from '../../icons'
 import { texts } from './texts'
@@ -39,8 +39,8 @@ export function TemplateMain() {
 
       <div className={cnTemplateMain('Content')}>
         <Switch>
-          <Route exact path="/" component={PageNews} />
-          <Route exact path="/feed" component={PageFeed} />
+          <RouteAuth exact path="/" component={PageNews} />
+          <RouteAuth exact path="/feed" component={PageFeed} />
           <Route exact path="/menu" component={PageMenu} />
           <Route exact path="/donate" component={PageDonate} />
           <Route exact path="/post-:postId" component={PagePost} />

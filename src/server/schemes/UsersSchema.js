@@ -4,15 +4,22 @@ import { Schema } from 'mongoose'
 
 export const UsersSchema = new Schema(
   {
+    // Идентификатор ВКонтакте
+    vkId: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
+
     // Имя
-    first_name: {
+    firstName: {
       type: String,
       required: true,
       trim: true,
     },
 
     // Фамилия
-    last_name: {
+    lastName: {
       type: String,
       required: true,
       trim: true,
@@ -20,8 +27,8 @@ export const UsersSchema = new Schema(
 
     // Пол
     // 0 - не указан
-    // 1 - мужской
-    // 2 - женский
+    // 1 - женский
+    // 2 - мужской
     sex: {
       type: Number,
       required: true,

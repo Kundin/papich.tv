@@ -8,8 +8,8 @@ import { UsersSchema } from '../schemes'
 /* ВИРТУАЛЬНЫЕ ПОЛЯ */
 
 // Полное имя
-UsersSchema.virtual('full_name').get(function() {
-  return `${this.first_name} ${this.last_name}`
+UsersSchema.virtual('fullName').get(function() {
+  return `${this.firstName} ${this.lastName}`
 })
 
 // Это женщина?

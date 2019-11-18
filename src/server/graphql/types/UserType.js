@@ -16,24 +16,34 @@ export const UserType = new GraphQLObjectType({
       description: ' Уникальный идентификатор',
     },
 
-    first_name: {
+    vkId: {
+      type: new GraphQLNonNull(GraphQLInt),
+      description: 'Идентификатор ВКонтакте',
+    },
+
+    firstName: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'Имя',
     },
 
-    last_name: {
+    lastName: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'Фамилия',
     },
 
-    full_name: {
+    fullName: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'Полное имя',
     },
 
     sex: {
       type: new GraphQLNonNull(GraphQLInt),
-      description: ['Пол\n\n', '0 - не определён\n\n', '1 - мужской\n\n', '2 - женский'].join(),
+      description: ['Пол\n\n', '0 - не определён\n\n', '1 - женский\n\n', '2 - мужской'].join(),
+    },
+
+    avatar: {
+      type: GraphQLString,
+      description: 'Полный URL-адрес до аватарки',
     },
 
     email: {

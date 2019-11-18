@@ -9,7 +9,7 @@ export async function getUserByJWT(token) {
   const { user_id } = JWT.verify(token, config.jwt.secret)
 
   // Расшариваем информацию о пользователе
-  const user = await Users.findById(user_id).exec()
+  const user = await Users.findOne({ vkId: user_id }).exec()
 
   return user
 }
