@@ -1,7 +1,7 @@
 import React from 'react'
 import { cn } from '@bem-react/classname'
 
-import { Link } from '../../UI'
+import { Link, ButtonVK } from '../../UI'
 import { getFullUrlAuthVK } from '../../../config'
 import './PageLogin.css'
 
@@ -16,8 +16,8 @@ export function PageLogin() {
         получить — войти через ВКонтакте.
       </div>
 
-      <Link external to={getFullUrlAuthVK()}>
-        Войти через ВКонтакте
+      <Link external to={getFullUrlAuthVK()} className={cnPageLogin('AuthButton')}>
+        <ButtonVK>Войти через ВКонтакте</ButtonVK>
       </Link>
     </div>
   )

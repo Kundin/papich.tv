@@ -15,12 +15,20 @@ $color-text-primary: hsla(0, 0%, 0%, 1); /* Основной */
 $color-text-secondary: hsla(213, 0%, 60%, 1); /* Второстепенный */
 $color-text-link: hsla(207, 90%, 54%, 1); /* Ссылки */
 
+/* Цвета брэндов */
+$color-brand-vk: hsla(212, 42%, 52%, 1); /* ВКонтакте */
+$color-brand-vk-active: hsla(212, 39%, 46%, 1);
+
 html {
   --color-white: $color-white;
   --color-black: $color-black;
   --color-bg: $color-bg;
   --color-border: $color-border;
+
   --color-text-primary: $color-text-primary;
   --color-text-secondary: $color-text-secondary;
   --color-text-link: $color-text-link;
+
+  --color-brand-vk: $color-brand-vk;
+  --color-brand-vk-active: $color-brand-vk-active;
 }

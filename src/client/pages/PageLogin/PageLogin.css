@@ -1,2 +1,30 @@
 .PageLogin {
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
+  padding: 0 var(--space-s);
+  justify-content: center;
+
+  /* Заголовок */
+  &-Title {
+    font-size: var(--size-typo-xxxl);
+    font-weight: 600;
+
+    margin: 0 0 var(--space-l);
+
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  /* Текст */
+  &-Text {
+  }
+
+  /* Кнопка авторизации */
+  &-AuthButton {
+    margin: var(--space-s) auto 0;
+
+    outline: none;
+  }
 }
