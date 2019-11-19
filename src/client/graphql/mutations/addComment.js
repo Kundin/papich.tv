@@ -6,6 +6,28 @@ export const ADD_COMMENT = gql`
       id
       post {
         id
+        type
+        author {
+          vkId
+          firstName
+          lastName
+          fullName
+          sex
+          avatar
+          email
+          isMan
+          isWoman
+          isDefault
+          isAdmin
+          isPapich
+        }
+        text
+        counters {
+          likes
+          comments
+        }
+        hasLike
+        createdAt
       }
       author {
         vkId

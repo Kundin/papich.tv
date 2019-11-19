@@ -37,7 +37,14 @@ export const addComment = {
     })
 
     return await Comments.findById(comment._id)
-      .populate('post')
+      .populate({
+        path: 'post',
+        model: 'Posts',
+        populate: {
+          path: 'author',
+          model: 'Users',
+        },
+      })
       .populate('author')
       .exec()
   },

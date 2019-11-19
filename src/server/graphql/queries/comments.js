@@ -14,7 +14,7 @@ export const comments = {
   },
   resolve: async (obj, { postId }, { user }, info) => {
     const comments = await Comments.find({ post: postId })
-      .sort({ createdAt: -1 })
+      .sort({ createdAt: 1 }) // Сначала старые
       .populate('post')
       .populate('author')
       .exec()

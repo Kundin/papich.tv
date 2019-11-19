@@ -6,6 +6,7 @@ import { Avatar } from '../../components'
 import { Textarea } from '../../UI'
 import { IconTelegramPlaneBrands } from '../../icons'
 import { ADD_COMMENT } from '../../graphql/mutations'
+import { COMMENTS, POST } from '../../graphql/queries'
 import './AddComment.css'
 
 const cnAddComment = cn('AddComment')
@@ -13,18 +14,53 @@ const cnAddComment = cn('AddComment')
 export function AddComment({ className, post, user, ...props }) {
   const refComment = useRef()
   const [activeIcon, setActiveIcon] = useState(false)
-  const [addComment, { data }] = useMutation(ADD_COMMENT)
+  const [addComment, { data }] = useMutation(ADD_COMMENT, {
+    update(cache, { data: { addComment } }) {
+      const variables = { postId: post.id }
+      let { comments } = cache.readQuery({ query: COMMENTS, variables })
+
+      comments.push(addComment)
+
+      cache.writeQuery({
+        query: COMMENTS,
+        variables,
+        data: {
+          comments,
+        },
+      })
+      cache.writeQuery({
+        query: POST,
+        variables: { id: post.id },
+        data: {
+          post: addComment.post,
+        },
+      })
+    },
+  })
+
+  // Получить текст сообщения
+  function getText() {
+    return refComment.current.value
+  }
+
+  // Очистить поле ввода сообщения
+  function clearText() {
+    refComment.current.value = ''
+  }
 
   // Отправить комментарий
   function onSend() {
-    const text = refComment.current.value
+    const text = getText()
+
+    if (text.length === 0) return
 
     addComment({ variables: { postId: post.id, text } })
+    clearText()
   }
 
   // Ввод текста
   function onInput() {
-    const text = refComment.current.value
+    const text = getText()
 
     setActiveIcon(text.length > 0)
   }

@@ -27,13 +27,17 @@ export function PagePost() {
   ) : (
     <div className={cnPagePost()}>
       <WallPost {...post}>{post.text}</WallPost>
+
       <AddComment post={post} user={me} />
-      <Pad className={cnPagePost('Comments')}>
-        <a id="comments" />
-        {comments.map((comment) => (
-          <Comment key={comment.id} {...comment} />
-        ))}
-      </Pad>
+
+      {comments.length > 0 && (
+        <Pad className={cnPagePost('Comments')}>
+          <a id="comments" />
+          {comments.map((comment) => (
+            <Comment key={comment.id} {...comment} />
+          ))}
+        </Pad>
+      )}
     </div>
   )
 }
