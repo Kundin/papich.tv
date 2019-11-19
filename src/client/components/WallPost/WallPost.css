@@ -52,7 +52,6 @@
   &-Buttons {
     display: flex;
 
-    color: var(--color-text-secondary);
     align-items: center;
     justify-content: flex-start;
   }
@@ -64,7 +63,13 @@
     display: flex;
 
     padding: var(--space-xs) var(--space-s);
+
+    color: var(--color-text-secondary);
     align-items: center;
+
+    &_active {
+      color: var(--color-accent);
+    }
   }
 
   /* Иконка в кнопке реакции */

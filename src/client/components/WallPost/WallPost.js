@@ -1,16 +1,27 @@
 import React from 'react'
 import { cn } from '@bem-react/classname'
+import { useMutation } from '@apollo/react-hooks'
 
 import { WallItem, Avatar } from '../../components'
-import { IconHeartRegular, IconCommentRegular } from '../../icons'
+import { IconHeartRegular, IconHeartSolid, IconCommentRegular } from '../../icons'
 import { Link } from '../../UI'
 import { dateToString } from '../../utils'
+import { ADD_POST_LIKE } from '../../graphql/mutations'
 import './WallPost.css'
 
 const cnWallPost = cn('WallPost')
 
-export function WallPost({ className, id, author, counters, createdAt, children }) {
+export function WallPost({ className, id, author, counters, hasLike, createdAt, children }) {
+  const [addPostLike, { data, loading }] = useMutation(ADD_POST_LIKE)
+
   author.info = dateToString(createdAt)
+
+  // Клик на лайк
+  function onLike(e) {
+    e.preventDefault()
+
+    addPostLike({ variables: { id } })
+  }
 
   return (
     <WallItem
@@ -18,12 +29,21 @@ export function WallPost({ className, id, author, counters, createdAt, children 
       header={<WallPostAuthor {...author} />}
       footer={
         <div className={cnWallPost('Buttons')}>
-          <WallPostButton icon={<IconHeartRegular />}>{counters.likes}</WallPostButton>
-          <WallPostButton icon={<IconCommentRegular />}>{counters.comments}</WallPostButton>
+          <WallPostButton
+            to="/like"
+            icon={hasLike ? <IconHeartSolid /> : <IconHeartRegular />}
+            active={hasLike}
+            onClick={onLike}
+          >
+            {counters.likes}
+          </WallPostButton>
+          <WallPostButton to={`/post-${id}#comments`} icon={<IconCommentRegular />}>
+            {counters.comments}
+          </WallPostButton>
         </div>
       }
     >
-      <Link to={`post-${id}`}>
+      <Link to={`/post-${id}`}>
         <div className={cnWallPost('Text')}>{children}</div>
         <hr className={cnWallPost('Sep')} />
       </Link>
@@ -47,11 +67,11 @@ export function WallPostAuthor(user) {
 }
 
 // Кнопки реакций на пост
-export function WallPostButton({ icon, children, ...props }) {
+export function WallPostButton({ icon, children, active = false, ...props }) {
   return (
-    <div {...props} className={cnWallPost('Button')}>
+    <Link {...props} className={cnWallPost('Button', { active })}>
       <div className={cnWallPost('ButtonIcon')}>{icon}</div>
       {!!children && children}
-    </div>
+    </Link>
   )
 }

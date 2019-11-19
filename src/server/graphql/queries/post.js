@@ -12,11 +12,9 @@ export const post = {
       type: GraphQLID,
     },
   },
-  resolve: async (obj, { id }, context, info) => {
-    const post = await Posts.findById(id)
+  resolve: async (obj, { id }, { user }, info) => {
+    return await Posts.findById(id)
       .populate('author')
       .exec()
-
-    return post
   },
 }

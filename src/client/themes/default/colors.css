@@ -14,6 +14,9 @@ $color-bg: hsla(0, 0%, 92%, 1);
 /* Основной цвет границ */
 $color-border: hsla(0, 0%, 88%, 1);
 
+/* Цвет акцентов */
+$color-accent: hsla(4, 90%, 58%, 1);
+
 /* Цвета текста */
 $color-text-primary: hsla(0, 0%, 0%, 1); /* Основной */
 $color-text-secondary: hsla(213, 0%, 60%, 1); /* Второстепенный */
@@ -31,6 +34,7 @@ html {
   --color-black: $color-black;
   --color-bg: $color-bg;
   --color-border: $color-border;
+  --color-accent: $color-accent;
 
   --color-text-primary: $color-text-primary;
   --color-text-secondary: $color-text-secondary;

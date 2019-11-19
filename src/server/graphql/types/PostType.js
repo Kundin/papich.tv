@@ -5,6 +5,7 @@ import {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLList,
+  GraphQLBoolean,
 } from 'graphql'
 
 import { UserType, PostCountersType } from '../types'
@@ -46,6 +47,14 @@ export const PostType = new GraphQLObjectType({
     comments: {
       type: new GraphQLList(UserType),
       description: 'Пользователи, написавшие комментарий к этому посту',
+    },
+
+    hasLike: {
+      type: new GraphQLNonNull(GraphQLBoolean),
+      description: 'Есть ли лайк от текущего пользователя?',
+      resolve: (post, args, { user }) => {
+        return Boolean(post.likes.find((userId) => userId.toString() === user.id.toString()))
+      },
     },
 
     createdAt: {

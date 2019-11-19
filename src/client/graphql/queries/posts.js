@@ -24,6 +24,7 @@ export const POSTS = gql`
         likes
         comments
       }
+      hasLike
       createdAt
     }
   }

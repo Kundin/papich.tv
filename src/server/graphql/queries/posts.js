@@ -12,7 +12,7 @@ export const posts = {
       type: GraphQLString,
     },
   },
-  resolve: async (obj, { type }, context, info) => {
+  resolve: async (obj, { type }, { user }, info) => {
     const posts = await Posts.find({ type })
       .populate('author')
       .exec()

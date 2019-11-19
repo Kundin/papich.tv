@@ -4,10 +4,27 @@ export const CREATE_POST = gql`
   mutation createPost($text: String) {
     createPost(text: $text) {
       id
+      type
       author {
-        id
+        vkId
+        firstName
+        lastName
+        fullName
+        sex
+        avatar
+        email
+        isMan
+        isWoman
+        isDefault
+        isAdmin
+        isPapich
       }
       text
+      counters {
+        likes
+        comments
+      }
+      hasLike
       createdAt
     }
   }

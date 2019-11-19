@@ -7,14 +7,19 @@ export const createPost = {
   type: PostType,
   description: 'Создать новый пост',
   args: {
+    type: {
+      name: 'type',
+      type: GraphQLString,
+    },
     text: {
       name: 'text',
       type: GraphQLString,
     },
   },
-  resolve: async (rootVal, { text }, { user }) => {
+  resolve: async (rootVal, { type = 'default', text }, { user }) => {
     const { id } = await new Posts({
       author: user.id,
+      type,
       text,
     }).save()
 

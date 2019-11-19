@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
-export const POST = gql`
-  query post($id: ID!) {
-    post(id: $id) {
+export const ADD_POST_LIKE = gql`
+  mutation addPostLike($id: ID!) {
+    addPostLike(id: $id) {
       id
       type
       author {
