@@ -1,0 +1,23 @@
+.Comment {
+  display: flex;
+
+  padding: var(--space-xs) var(--space-s);
+
+  /* Контент */
+  &-Content {
+    margin-left: var(--space-s);
+  }
+
+  /* Имя */
+  &-Name {
+    font-weight: 600;
+  }
+
+  /* Дата */
+  &-Date {
+    font-size: var(--size-typo-s);
+    line-height: var(--line-height-typo-s);
+
+    color: var(--color-text-secondary);
+  }
+}

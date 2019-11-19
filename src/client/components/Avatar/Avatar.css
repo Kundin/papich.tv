@@ -1,4 +1,6 @@
 .Avatar {
+  display: flex;
+
   border-radius: 50%;
 
   /* Размер */

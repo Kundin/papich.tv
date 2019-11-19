@@ -8,7 +8,7 @@
   }
 
   /* Аватарка автора */
-  &-AuthorImage {
+  &-AuthorAvatar {
     margin-right: var(--space-s);
   }
 
@@ -24,6 +24,8 @@
   &-AuthorInfo {
     font-size: var(--size-typo-s);
     line-height: var(--line-height-typo-s);
+
+    display: block;
 
     color: var(--color-text-secondary);
   }

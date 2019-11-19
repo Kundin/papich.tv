@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 import { cn } from '@bem-react/classname'
 
 import './Link.css'
@@ -12,8 +12,8 @@ export function Link({ className, to, external, children, ...props }) {
       {children}
     </a>
   ) : (
-    <NavLink {...props} className={cnLink({}, [className])} to={to}>
+    <HashLink {...props} className={cnLink({}, [className])} to={to}>
       {children}
-    </NavLink>
+    </HashLink>
   )
 }

@@ -1,5 +1,7 @@
+export * from './AddComment'
 export * from './App'
 export * from './Avatar'
+export * from './Comment'
 export * from './NewPost'
 export * from './Pad'
 export * from './PreloaderPage'

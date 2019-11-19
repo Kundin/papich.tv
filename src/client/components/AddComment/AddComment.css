@@ -1,0 +1,43 @@
+.AddComment {
+  display: flex;
+
+  padding: var(--space-s);
+  align-items: flex-end;
+
+  /* Аватарка */
+  &-Avatar {
+  }
+
+  /* Поле ввода комментария */
+  &-Comment {
+    min-height: calc(40px - var(--space-xs) * 2);
+
+    margin: 0 var(--space-xs);
+
+    border-radius: 20px;
+    flex-grow: 1;
+  }
+
+  /* Кнопка отправки комментария */
+  &-Submit {
+    display: flex;
+
+    width: 24px;
+    height: 40px;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    flex-shrink: 0;
+  }
+
+  /* Иконка отправки сообщения */
+  &-SubmitIcon {
+    color: var(--color-text-secondary);
+
+    /* Активная */
+    &_active {
+      color: var(--color-main);
+    }
+  }
+}

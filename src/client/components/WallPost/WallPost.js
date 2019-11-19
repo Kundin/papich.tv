@@ -14,7 +14,11 @@ const cnWallPost = cn('WallPost')
 export function WallPost({ className, id, author, counters, hasLike, createdAt, children }) {
   const [addPostLike, { data, loading }] = useMutation(ADD_POST_LIKE)
 
-  author.info = dateToString(createdAt)
+  author.info = (
+    <Link to={`/post-${id}`} className={cnWallPost('AuthorInfo')}>
+      {dateToString(createdAt)}
+    </Link>
+  )
 
   // Клик на лайк
   function onLike(e) {
@@ -43,10 +47,8 @@ export function WallPost({ className, id, author, counters, hasLike, createdAt, 
         </div>
       }
     >
-      <Link to={`/post-${id}`}>
-        <div className={cnWallPost('Text')}>{children}</div>
-        <hr className={cnWallPost('Sep')} />
-      </Link>
+      <div className={cnWallPost('Text')}>{children}</div>
+      <hr className={cnWallPost('Sep')} />
     </WallItem>
   )
 }
@@ -56,13 +58,17 @@ export function WallPostAuthor(user) {
   const { vkId, avatar, fullName, info } = user
 
   return (
-    <Link to={`/id${vkId}`} className={cnWallPost('Author')}>
-      <Avatar className={cnWallPost('AuthorImage')} user={user} alt={fullName} />
+    <div className={cnWallPost('Author')}>
+      <Link to={`/id${vkId}`} className={cnWallPost('AuthorAvatar')}>
+        <Avatar user={user} alt={fullName} />
+      </Link>
       <div className={cnWallPost('AuthorContent')}>
-        <div className={cnWallPost('AuthorName')}>{fullName}</div>
-        <div className={cnWallPost('AuthorInfo')}>{info}</div>
+        <Link to={`/id${vkId}`}>
+          <div className={cnWallPost('AuthorName')}>{fullName}</div>
+        </Link>
+        {info}
       </div>
-    </Link>
+    </div>
   )
 }
 

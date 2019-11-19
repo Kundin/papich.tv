@@ -1,4 +1,6 @@
 .Link {
+  display: inline-block;
+
   text-decoration: none;
 
   color: var(--color-text-link);

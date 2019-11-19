@@ -1,2 +1,12 @@
 .PagePost {
+  /* Комментарии */
+  &-Comments {
+    .Comment {
+      border-bottom: 1px dashed var(--color-border);
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
 }

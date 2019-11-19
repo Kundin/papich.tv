@@ -1,4 +1,4 @@
-import { GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql'
+import { GraphQLList, GraphQLString } from 'graphql'
 
 import { PostType } from '../types'
 import { Posts } from '../../models'
