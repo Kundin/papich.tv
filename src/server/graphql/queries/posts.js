@@ -14,6 +14,7 @@ export const posts = {
   },
   resolve: async (obj, { type }, { user }, info) => {
     const posts = await Posts.find({ type })
+      .sort({ createdAt: -1 })
       .populate('author')
       .exec()
 
