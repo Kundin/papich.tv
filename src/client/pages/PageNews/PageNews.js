@@ -26,15 +26,21 @@ export function PageNews() {
         <title>Papich.tv</title>
       </Helmet>
       <div className={cnPageNews()}>
-        <NewPost className={cnPageNews('NewPost')} user={me} />
+        {me.isPapich && <NewPost className={cnPageNews('NewPost')} user={me} />}
 
-        <div className={cnPageNews('Wall')}>
-          {posts.map(({ id, text, ...post }) => (
-            <WallPost key={id} id={id} {...post}>
-              {text}
-            </WallPost>
-          ))}
-        </div>
+        {posts.length > 0 ? (
+          <div className={cnPageNews('Wall')}>
+            {posts.map(({ id, text, ...post }) => (
+              <WallPost key={id} id={id} {...post}>
+                {text}
+              </WallPost>
+            ))}
+          </div>
+        ) : (
+          <div className={cnPageNews('Placeholder')}>
+            Здесь будет контент от Папича, как только он решит что-то опубликовать на своём сайте.
+          </div>
+        )}
       </div>
     </Fragment>
   )
