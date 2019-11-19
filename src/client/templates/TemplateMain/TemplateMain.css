@@ -67,7 +67,7 @@
     max-width: var(--page-max-width);
 
     background: var(--color-white);
-    box-shadow: 0 -2px 6px 2px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-main-tabs);
     align-items: center;
   }
 
