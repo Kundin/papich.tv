@@ -26,7 +26,7 @@ export function PageFeed() {
         <title>Papich.tv</title>
       </Helmet>
       <div className={cnPageFeed()}>
-        <NewPost className={cnPageFeed('NewPost')} user={me} />
+        {me.isAdmin && <NewPost className={cnPageFeed('NewPost')} user={me} />}
 
         <div className={cnPageFeed('Wall')}>
           {posts.map(({ id, text, ...post }) => (

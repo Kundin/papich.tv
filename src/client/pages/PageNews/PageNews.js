@@ -37,7 +37,7 @@ export function PageNews() {
             ))}
           </div>
         ) : (
-          <div className={cnPageNews('Placeholder')}>
+          <div className={cnPageNews('Placeholder', { papich: me.isPapich })}>
             Здесь будет контент от Папича, как только он решит что-то опубликовать на своём сайте.
           </div>
         )}

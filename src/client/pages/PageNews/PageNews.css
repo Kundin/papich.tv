@@ -25,5 +25,10 @@
 
     align-items: center;
     justify-content: center;
+
+    /* Плейсхолдер для папича */
+    &_papich {
+      height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s) * 2 - 56px);
+    }
   }
 }
