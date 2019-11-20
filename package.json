@@ -22,7 +22,8 @@
         "prod": "cross-env NODE_ENV=production node lib/server/index.js",
         "build": "cross-env NODE_ENV=production yarn build:webpack && yarn build:lib",
         "build:webpack": "webpack",
-        "build:lib": "babel -d lib src"
+        "build:lib": "babel -d lib src",
+        "remove-statics": "rm -rf public/tmp/*.* && rm -rf public/files/*.*"
     },
     "dependencies": {
         "@apollo/react-hooks": "3.0.0",
@@ -35,6 +36,7 @@
         "apollo-link-http": "1.5.15",
         "apollo-server": "^2.9.6",
         "apollo-server-express": "^2.9.6",
+        "apollo-upload-client": "^11.0.0",
         "body-parser": "^1.19.0",
         "cookie-parser": "^1.4.4",
         "cors": "^2.8.5",
@@ -61,6 +63,7 @@
         "react-router-hash-link": "^1.2.2",
         "request": "^2.88.0",
         "request-promise-native": "^1.0.8",
+        "shortid": "^2.2.15",
         "terser-webpack-plugin": "^2.1.3",
         "webpack-node-externals": "^1.7.2"
     },

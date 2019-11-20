@@ -58,6 +58,14 @@ export const PostsSchema = new Schema(
         ref: 'Users',
       },
     ],
+
+    // Вложения
+    attachments: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Attachments',
+      },
+    ],
   },
   {
     timestamps: true,

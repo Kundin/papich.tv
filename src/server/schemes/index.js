@@ -1,3 +1,5 @@
+export * from './AttachmentsSchema'
 export * from './CommentsSchema'
+export * from './PhotoAttachmentsSchema'
 export * from './PostsSchema'
 export * from './UsersSchema'

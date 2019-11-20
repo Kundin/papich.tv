@@ -4,6 +4,10 @@ node_modules
 lib
 public/dist
 
+# Files
+public/files/*
+public/tmp/*
+
 # Config
 src/config.js
 ecosystem.config.js

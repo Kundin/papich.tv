@@ -5,9 +5,10 @@ import { Redirect } from 'react-router-dom'
 
 import { Pad, PreloaderPage, ErrorPage } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
+import { IconPaperclipSolid } from '../../icons'
 import { useMe } from '../../graphql/hooks'
 import { POSTS } from '../../graphql/queries'
-import { CREATE_POST } from '../../graphql/mutations'
+import { CREATE_POST, UPLOAD_FILE } from '../../graphql/mutations'
 import './PageCreatePost.css'
 
 const cnPageCreatePost = cn('PageCreatePost')
@@ -35,12 +36,36 @@ export function PageCreatePost() {
       })
     },
   })
+  const [uploadFile, { data: dataFile }] = useMutation(UPLOAD_FILE)
 
   // Добавить пост
   function onAddPost() {
     const text = refText.current.value
 
     createPost({ variables: { text } })
+  }
+
+  // Загрузка файла
+  function onUpload(e) {
+    const {
+      validity,
+      files: [file],
+    } = e.target
+
+    const reader = new FileReader()
+
+    console.log(file)
+
+    // reader.onloadend = () => {
+    //   this.setState({
+    //     file,
+    //     imagePreviewUrl: reader.result
+    //   });
+    // }
+    //
+    // reader.readAsDataURL(file)
+
+    uploadFile({ variables: { file } })
   }
 
   return loading ? (
@@ -64,6 +89,16 @@ export function PageCreatePost() {
         <ButtonAction onClick={onAddPost}>
           {me.isDefault ? 'Предложить' : 'Опубликовать'}
         </ButtonAction>
+
+        <div className={cnPageCreatePost('Attach')}>
+          <IconPaperclipSolid className={cnPageCreatePost('AttachIcon')} />
+          <input
+            type="file"
+            accept="image/*"
+            className={cnPageCreatePost('AttachInput')}
+            onChange={onUpload}
+          />
+        </div>
       </div>
     </div>
   )

@@ -8,7 +8,7 @@ import {
   GraphQLBoolean,
 } from 'graphql'
 
-import { UserType, PostCountersType } from '../types'
+import { UserType, PostCountersType, AttachmentType } from '../types'
 
 export const PostType = new GraphQLObjectType({
   name: 'Post',
@@ -55,6 +55,11 @@ export const PostType = new GraphQLObjectType({
       resolve: (post, args, { user }) => {
         return Boolean(post.likes.find((userId) => userId.toString() === user.id.toString()))
       },
+    },
+
+    attachments: {
+      type: GraphQLList(AttachmentType),
+      description: 'Вложения',
     },
 
     createdAt: {

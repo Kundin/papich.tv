@@ -62,7 +62,8 @@ app
 
 // На локальном сервер отдачей файлов занимается NodeJS
 if (config.isLocal) {
-  app.use('/dist', express.static('./public/dist')).use('/static', express.static('./public'))
+  app.use('/dist', express.static('./public/dist'))
+  app.use('/static', express.static('./public'))
 }
 
 // Парсинг данных запроса

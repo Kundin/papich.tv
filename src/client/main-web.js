@@ -4,14 +4,14 @@ import { BrowserRouter } from 'react-router-dom'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import { createHttpLink } from 'apollo-link-http'
+import { createUploadLink } from 'apollo-upload-client'
 import { loadableReady } from '@loadable/component'
 
 import { config } from '../config'
 import { App } from './components'
 
 const client = new ApolloClient({
-  link: createHttpLink({
+  link: createUploadLink({
     uri: config.apollo.uri,
     credentials: 'same-origin',
   }),

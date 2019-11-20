@@ -1,3 +1,5 @@
+export * from './Attachments'
 export * from './Comments'
+export * from './PhotoAttachments'
 export * from './Posts'
 export * from './Users'

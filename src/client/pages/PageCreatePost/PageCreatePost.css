@@ -10,7 +10,35 @@
 
   /* Подвал */
   &-Footer {
+    display: flex;
+
     margin-top: var(--space-s);
     padding: 0 var(--space-s);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Прикрепление файла */
+  &-Attach {
+    position: relative;
+
+    height: 24px;
+  }
+
+  /* Иконка прикрипления файла */
+  &-AttachIcon {
+    color: var(--color-text-secondary);
+  }
+
+  /* Поле ввода для прикрипления файла */
+  &-AttachInput {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
   }
 }
