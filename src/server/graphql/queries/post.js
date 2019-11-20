@@ -15,6 +15,13 @@ export const post = {
   resolve: async (obj, { id }, { user }, info) => {
     return await Posts.findById(id)
       .populate('author')
+      .populate({
+        path: 'attachments',
+        model: 'Attachments',
+        populate: {
+          path: 'body',
+        },
+      })
       .exec()
   },
 }

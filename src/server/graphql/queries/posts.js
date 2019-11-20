@@ -13,9 +13,16 @@ export const posts = {
     },
   },
   resolve: async (obj, { type }, { user }, info) => {
-    const posts = await Posts.find({ type })
+    const posts = await Posts.find({ type, attachments: { $ne: [] } })
       .sort({ createdAt: -1 })
       .populate('author')
+      .populate({
+        path: 'attachments',
+        model: 'Attachments',
+        populate: {
+          path: 'body',
+        },
+      })
       .exec()
 
     return posts

@@ -41,6 +41,22 @@
     color: var(--color-text-primary);
   }
 
+  /* Вложения */
+  &-Attaches {
+    display: flex;
+
+    margin-top: var(--space-s);
+    justify-content: center;
+  }
+
+  /* Отдельное вложение */
+  &-Attach {
+    width: 100%;
+    max-height: 400px;
+
+    object-fit: cover;
+  }
+
   /* Разделитель */
   &-Sep {
     margin: var(--space-s);

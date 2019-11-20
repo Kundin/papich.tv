@@ -8,6 +8,19 @@
     border-radius: 0;
   }
 
+  /* Вложения */
+  &-Attaches {
+    display: grid;
+
+    height: calc(300px - var(--space-s));
+
+    padding: var(--space-s);
+    padding-bottom: 0;
+
+    grid-template-columns: 1fr;
+    grid-gap: var(--space-s);
+  }
+
   /* Подвал */
   &-Footer {
     display: flex;

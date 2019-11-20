@@ -1,9 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { cn } from '@bem-react/classname'
 import { useMutation } from '@apollo/react-hooks'
 import { Redirect } from 'react-router-dom'
 
-import { Pad, PreloaderPage, ErrorPage } from '../../components'
+import { Pad, PreloaderPage, ErrorPage, AttachPhoto } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
 import { IconPaperclipSolid } from '../../icons'
 import { useMe } from '../../graphql/hooks'
@@ -15,6 +15,7 @@ const cnPageCreatePost = cn('PageCreatePost')
 
 export function PageCreatePost() {
   const refText = useRef()
+  const [attachments, setAttachments] = useState([])
   const {
     data: { me },
     loading,
@@ -38,11 +39,17 @@ export function PageCreatePost() {
   })
   const [uploadFile, { data: dataFile }] = useMutation(UPLOAD_FILE)
 
+  useEffect(() => {
+    if (!dataFile) return
+
+    setAttachments([dataFile.uploadFile])
+  }, [dataFile])
+
   // Добавить пост
   function onAddPost() {
     const text = refText.current.value
 
-    createPost({ variables: { text } })
+    createPost({ variables: { text, attachments: attachments.map((attachment) => attachment.id) } })
   }
 
   // Загрузка файла
@@ -52,20 +59,14 @@ export function PageCreatePost() {
       files: [file],
     } = e.target
 
-    const reader = new FileReader()
-
-    console.log(file)
-
-    // reader.onloadend = () => {
-    //   this.setState({
-    //     file,
-    //     imagePreviewUrl: reader.result
-    //   });
-    // }
-    //
-    // reader.readAsDataURL(file)
-
     uploadFile({ variables: { file } })
+  }
+
+  // Удаление вложения
+  function onRemoveAttach(e, id) {
+    const newAttachments = attachments.filter((attach) => attach.id !== id)
+
+    setAttachments(newAttachments)
   }
 
   return loading ? (
@@ -84,6 +85,18 @@ export function PageCreatePost() {
           placeholder="Введите текст…"
         />
       </Pad>
+
+      {attachments.length > 0 && (
+        <div className={cnPageCreatePost('Attaches')}>
+          {attachments.map((attach) => (
+            <AttachPhoto
+              key={attach.id}
+              {...attach.body}
+              onRemove={(e) => onRemoveAttach(e, attach.id)}
+            />
+          ))}
+        </div>
+      )}
 
       <div className={cnPageCreatePost('Footer')}>
         <ButtonAction onClick={onAddPost}>

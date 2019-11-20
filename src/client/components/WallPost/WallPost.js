@@ -11,7 +11,16 @@ import './WallPost.css'
 
 const cnWallPost = cn('WallPost')
 
-export function WallPost({ className, id, author, counters, hasLike, createdAt, children }) {
+export function WallPost({
+  className,
+  id,
+  author,
+  attachments,
+  counters,
+  hasLike,
+  createdAt,
+  children,
+}) {
   const [addPostLike, { data, loading }] = useMutation(ADD_POST_LIKE)
 
   author.info = (
@@ -48,7 +57,15 @@ export function WallPost({ className, id, author, counters, hasLike, createdAt, 
       }
     >
       <div className={cnWallPost('Text')}>{children}</div>
-      <hr className={cnWallPost('Sep')} />
+      {attachments.length > 0 ? (
+        <div className={cnWallPost('Attaches')}>
+          {attachments.map(({ id, body }) => (
+            <img key={id} className={cnWallPost('Attach')} src={body.src} />
+          ))}
+        </div>
+      ) : (
+        <hr className={cnWallPost('Sep')} />
+      )}
     </WallItem>
   )
 }

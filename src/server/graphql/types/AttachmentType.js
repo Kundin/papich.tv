@@ -28,7 +28,7 @@ export const AttachmentType = new GraphQLObjectType({
         types: [PhotoAttachmentType],
         resolveType(value) {
           // Это фотография
-          if (value.path && value.src) return PhotoAttachmentType
+          if (value.path && value.src) return 'PhotoAttachment'
 
           return null
         },
