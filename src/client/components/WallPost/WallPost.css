@@ -52,7 +52,16 @@
     font-size: var(--size-typo-m);
     line-height: var(--line-height-typo-s);
 
+    overflow: hidden;
+
+    max-height: 72px;
+
     color: var(--color-text-primary);
+
+    /* Развернутый пост */
+    &_unfolded {
+      max-height: none;
+    }
   }
 
   /* Вложения */

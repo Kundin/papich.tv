@@ -1,6 +1,7 @@
 import React from 'react'
 import { cn } from '@bem-react/classname'
 import { useMutation } from '@apollo/react-hooks'
+import TextTruncate from 'react-text-truncate'
 
 import { WallItem, Avatar } from '../../components'
 import { IconHeartRegular, IconHeartSolid, IconCommentRegular } from '../../icons'
@@ -20,6 +21,7 @@ export function WallPost({
   counters,
   hasLike,
   createdAt,
+  unfolded = false, // Развернутый пост?
   children,
 }) {
   const [addPostLike, { data, loading }] = useMutation(ADD_POST_LIKE)
@@ -61,7 +63,11 @@ export function WallPost({
         <Link to={`/post-${id}`} className={cnWallPost('Content')}>
           {title && <h2 className={cnWallPost('Title')}>{title}</h2>}
 
-          {children && <div className={cnWallPost('Text')}>{children}</div>}
+          {children && (
+            <div className={cnWallPost('Text', { unfolded })}>
+              {unfolded ? children : <TextTruncate line={4} text={children} />}
+            </div>
+          )}
         </Link>
       )}
 

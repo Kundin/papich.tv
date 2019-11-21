@@ -29,7 +29,7 @@ export function PagePost() {
     <PreloaderPage />
   ) : post ? (
     <div className={cnPagePost()}>
-      <WallPost {...post} className={cnPagePost('Post')}>
+      <WallPost {...post} unfolded className={cnPagePost('Post')}>
         {post.text}
       </WallPost>
 
