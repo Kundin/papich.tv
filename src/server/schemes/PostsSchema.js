@@ -4,15 +4,6 @@ import { Schema } from 'mongoose'
 
 export const PostsSchema = new Schema(
   {
-    // Тип поста
-    // default - обычный
-    // papich - от Папича
-    type: {
-      type: String,
-      required: 'true',
-      default: 'default',
-    },
-
     // Автор
     author: {
       type: Schema.Types.ObjectId,

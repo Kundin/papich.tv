@@ -4,7 +4,6 @@ export const CREATE_POST = gql`
   mutation createPost($title: String, $text: String, $attachments: [ID]) {
     createPost(title: $title, text: $text, attachments: $attachments) {
       id
-      type
       author {
         vkId
         firstName
@@ -36,6 +35,7 @@ export const CREATE_POST = gql`
         comments
       }
       hasLike
+      isPapich
       createdAt
     }
   }

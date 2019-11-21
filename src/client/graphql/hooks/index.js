@@ -1,5 +1,7 @@
 export * from './useComments'
+export * from './useDefaultPosts'
 export * from './useMe'
+export * from './usePapichPosts'
 export * from './usePost'
 export * from './usePosts'
 export * from './useUser'

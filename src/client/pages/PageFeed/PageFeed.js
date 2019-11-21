@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
 
 import { WallPost, NewPost, PreloaderPage } from '../../components'
-import { useMe, usePosts } from '../../graphql/hooks'
+import { useMe, useDefaultPosts } from '../../graphql/hooks'
 import './PageFeed.css'
 
 const cnPageFeed = cn('PageFeed')
@@ -16,7 +16,7 @@ export function PageFeed() {
   const {
     data: { posts = [] },
     loading,
-  } = usePosts({ type: 'default' })
+  } = useDefaultPosts()
 
   return loading ? (
     <PreloaderPage />

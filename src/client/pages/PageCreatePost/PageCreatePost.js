@@ -23,7 +23,7 @@ export function PageCreatePost() {
   } = useMe()
   const [createPost, { data }] = useMutation(CREATE_POST, {
     update(cache, { data: { createPost } }) {
-      const variables = { type: 'default' }
+      const variables = { isPapich: me.isPapich }
       let { posts } = cache.readQuery({ query: POSTS, variables })
 
       // Добавляем пост в самое начало списка

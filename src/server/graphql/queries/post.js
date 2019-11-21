@@ -9,7 +9,7 @@ export const post = {
   args: {
     id: {
       name: 'id',
-      type: GraphQLID,
+      type: new GraphQLNonNull(GraphQLID),
     },
   },
   resolve: async (obj, { id }, { user }, info) => {

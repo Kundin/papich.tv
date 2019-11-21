@@ -4,7 +4,6 @@ export const ADD_POST_LIKE = gql`
   mutation addPostLike($id: ID!) {
     addPostLike(id: $id) {
       id
-      type
       author {
         vkId
         firstName
@@ -36,6 +35,7 @@ export const ADD_POST_LIKE = gql`
         comments
       }
       hasLike
+      isPapich
       createdAt
     }
   }

@@ -4,7 +4,6 @@ export const POST = gql`
   query post($id: ID!) {
     post(id: $id) {
       id
-      type
       author {
         vkId
         firstName
@@ -36,6 +35,7 @@ export const POST = gql`
         comments
       }
       hasLike
+      isPapich
       createdAt
     }
   }

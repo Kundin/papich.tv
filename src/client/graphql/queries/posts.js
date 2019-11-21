@@ -1,10 +1,9 @@
 import gql from 'graphql-tag'
 
 export const POSTS = gql`
-  query posts($type: String) {
-    posts(type: $type) {
+  query posts($isPapich: Boolean!) {
+    posts(isPapich: $isPapich) {
       id
-      type
       author {
         vkId
         firstName
@@ -36,6 +35,7 @@ export const POSTS = gql`
         comments
       }
       hasLike
+      isPapich
       createdAt
     }
   }

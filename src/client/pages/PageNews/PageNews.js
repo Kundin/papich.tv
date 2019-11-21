@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
 
 import { WallPost, NewPost, PreloaderPage } from '../../components'
-import { usePosts, useMe } from '../../graphql/hooks'
+import { usePapichPosts, useMe } from '../../graphql/hooks'
 import './PageNews.css'
 
 const cnPageNews = cn('PageNews')
@@ -16,7 +16,7 @@ export function PageNews() {
   const {
     data: { posts = [] },
     loading,
-  } = usePosts({ type: 'papich' })
+  } = usePapichPosts()
 
   return loading ? (
     <PreloaderPage />

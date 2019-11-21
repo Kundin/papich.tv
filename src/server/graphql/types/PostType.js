@@ -57,8 +57,16 @@ export const PostType = new GraphQLObjectType({
     hasLike: {
       type: new GraphQLNonNull(GraphQLBoolean),
       description: 'Есть ли лайк от текущего пользователя?',
-      resolve: (post, args, { user }) => {
+      resolve(post, args, { user }) {
         return Boolean(post.likes.find((userId) => userId.toString() === user.id.toString()))
+      },
+    },
+
+    isPapich: {
+      type: new GraphQLNonNull(GraphQLBoolean),
+      description: 'Это пост от Папича?',
+      resolve(post) {
+        return post.author.isPapich
       },
     },
 

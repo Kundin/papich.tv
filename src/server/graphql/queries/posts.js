@@ -1,4 +1,4 @@
-import { GraphQLList, GraphQLString } from 'graphql'
+import { GraphQLList, GraphQLBoolean } from 'graphql'
 
 import { PostType } from '../types'
 import { Posts } from '../../models'
@@ -7,13 +7,13 @@ export const posts = {
   type: new GraphQLList(PostType),
   description: 'Получить посты',
   args: {
-    type: {
-      name: 'type',
-      type: GraphQLString,
+    isPapich: {
+      name: 'isPapich',
+      type: GraphQLBoolean,
     },
   },
-  resolve: async (obj, { type }, { user }, info) => {
-    const posts = await Posts.find({ type, attachments: { $ne: [] } })
+  resolve: async (obj, { isPapich }, { user }, info) => {
+    let posts = await Posts.find()
       .sort({ createdAt: -1 })
       .populate('author')
       .populate({
@@ -24,6 +24,13 @@ export const posts = {
         },
       })
       .exec()
+
+    // Только посты от Папича
+    if (isPapich) {
+      posts = posts.filter((post) => post.author.isPapich)
+    } else {
+      posts = posts.filter((post) => !post.author.isPapich)
+    }
 
     return posts
   },

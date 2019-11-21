@@ -6,7 +6,6 @@ export const ADD_COMMENT = gql`
       id
       post {
         id
-        type
         author {
           vkId
           firstName
@@ -38,6 +37,7 @@ export const ADD_COMMENT = gql`
           comments
         }
         hasLike
+        isPapich
         createdAt
       }
       author {
