@@ -25,8 +25,6 @@ export const createPost = {
     },
   },
   resolve: async (rootVal, { type = 'default', title, text, attachments }, { user }) => {
-    console.log({ attachments })
-
     const { id } = await new Posts({
       author: user.id,
       type,

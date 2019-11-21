@@ -28,9 +28,6 @@
 
     max-height: calc(400px - var(--space-s));
 
-    padding: var(--space-s);
-    padding-bottom: 0;
-
     grid-template-columns: 1fr;
     grid-gap: var(--space-s);
   }
