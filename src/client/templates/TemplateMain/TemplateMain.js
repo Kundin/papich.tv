@@ -1,27 +1,18 @@
 import React, { useState } from 'react'
 import { cn } from '@bem-react/classname'
-import { Route, Switch, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import loadable from '@loadable/component'
 
-import { WrapperMain, RouteAuth } from '../../components'
+import { WrapperMain } from '../../components'
 import { Link } from '../../UI'
 import { IconFireSolid, IconUsersSolid, IconBarsSolid, IconUserCircleSolid } from '../../icons'
 import { useMe } from '../../graphql'
 import { texts } from './texts'
 import './TemplateMain.css'
 
-const PageNews = loadable(() => import('../../pages/PageNews/default'))
-const PageFeed = loadable(() => import('../../pages/PageFeed/default'))
-const PageMenu = loadable(() => import('../../pages/PageMenu/default'))
-const PageDonate = loadable(() => import('../../pages/PageDonate/default'))
-const PagePost = loadable(() => import('../../pages/PagePost/default'))
-const PageCreatePost = loadable(() => import('../../pages/PageCreatePost/default'))
-const PageUser = loadable(() => import('../../pages/PageUser/default'))
-const PageNotFound = loadable(() => import('../../pages/PageNotFound/default'))
-
 const cnTemplateMain = cn('TemplateMain')
 
-export function TemplateMain() {
+export function TemplateMain({ children }) {
   const {
     data: { me },
   } = useMe()
@@ -47,18 +38,7 @@ export function TemplateMain() {
         </WrapperMain>
       </header>
 
-      <div className={cnTemplateMain('Content')}>
-        <Switch>
-          <RouteAuth exact path="/" component={PageNews} />
-          <RouteAuth exact path="/feed" component={PageFeed} />
-          {/* <RouteAuth exact path="/menu" component={PageMenu} /> */}
-          <RouteAuth exact path="/create-post" component={PageCreatePost} />
-          <Route exact path="/post-:postId" component={PagePost} />
-          <Route exact path="/id:vkId" component={PageUser} />
-          <Route exact path="/donate" component={PageDonate} />
-          <Route component={PageNotFound} />
-        </Switch>
-      </div>
+      <div className={cnTemplateMain('Content')}>{children}</div>
 
       {me && (
         <div className={cnTemplateMain('Tabs')}>
