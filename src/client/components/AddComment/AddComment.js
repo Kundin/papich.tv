@@ -5,8 +5,7 @@ import { useMutation } from '@apollo/react-hooks'
 import { Avatar } from '../../components'
 import { Textarea } from '../../UI'
 import { IconTelegramPlaneBrands } from '../../icons'
-import { ADD_COMMENT } from '../../graphql/mutations'
-import { COMMENTS, POST } from '../../graphql/queries'
+import { ADD_COMMENT, COMMENTS, POST } from '../../graphql'
 import './AddComment.css'
 
 const cnAddComment = cn('AddComment')

@@ -2,7 +2,7 @@ import React from 'react'
 import { cn } from '@bem-react/classname'
 
 import { Pad, Avatar } from '../../components'
-import { useMe } from '../../graphql/hooks'
+import { useMe } from '../../graphql'
 import './PageMenu.css'
 
 const cnPageMenu = cn('PageMenu')

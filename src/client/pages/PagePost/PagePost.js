@@ -3,7 +3,7 @@ import { cn } from '@bem-react/classname'
 import { useParams } from 'react-router-dom'
 
 import { WallPost, PreloaderPage, AddComment, Pad, Comment } from '../../components'
-import { usePost, useMe, useComments } from '../../graphql/hooks'
+import { usePost, useMe, useComments } from '../../graphql'
 import './PagePost.css'
 
 const cnPagePost = cn('PagePost')

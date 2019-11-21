@@ -6,9 +6,7 @@ import { Redirect } from 'react-router-dom'
 import { Pad, PreloaderPage, ErrorPage, AttachPhoto } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
 import { IconPaperclipSolid } from '../../icons'
-import { useMe } from '../../graphql/hooks'
-import { POSTS } from '../../graphql/queries'
-import { CREATE_POST, UPLOAD_FILE } from '../../graphql/mutations'
+import { POSTS, CREATE_POST, UPLOAD_FILE, useMe } from '../../graphql'
 import './PageCreatePost.css'
 
 const cnPageCreatePost = cn('PageCreatePost')

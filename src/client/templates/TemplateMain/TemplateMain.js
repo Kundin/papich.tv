@@ -6,7 +6,7 @@ import loadable from '@loadable/component'
 import { WrapperMain, RouteAuth } from '../../components'
 import { Link } from '../../UI'
 import { IconFireSolid, IconUsersSolid, IconBarsSolid, IconUserCircleSolid } from '../../icons'
-import { useMe } from '../../graphql/hooks'
+import { useMe } from '../../graphql'
 import { texts } from './texts'
 import './TemplateMain.css'
 

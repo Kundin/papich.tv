@@ -6,7 +6,7 @@ import { WallItem, Avatar } from '../../components'
 import { IconHeartRegular, IconHeartSolid, IconCommentRegular } from '../../icons'
 import { Link } from '../../UI'
 import { dateToString } from '../../utils'
-import { ADD_POST_LIKE } from '../../graphql/mutations'
+import { ADD_POST_LIKE } from '../../graphql'
 import './WallPost.css'
 
 const cnWallPost = cn('WallPost')

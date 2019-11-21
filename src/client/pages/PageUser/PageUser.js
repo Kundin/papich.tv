@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import loadable from '@loadable/component'
 
 import { Pad, Avatar, PreloaderPage } from '../../components'
-import { useMe, useUser } from '../../graphql/hooks'
+import { useMe, useUser } from '../../graphql'
 import './PageUser.css'
 
 const PageNotFound = loadable(() => import('../../pages/PageNotFound/default'))

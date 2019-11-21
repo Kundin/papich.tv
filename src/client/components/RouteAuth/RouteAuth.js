@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
-import { useMe } from '../../graphql/hooks'
+import { useMe } from '../../graphql'
 
 export function RouteAuth({ children, ...props }) {
   const {

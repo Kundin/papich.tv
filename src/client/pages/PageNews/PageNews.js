@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
 
 import { WallPost, NewPost, PreloaderPage } from '../../components'
-import { usePapichPosts, useMe } from '../../graphql/hooks'
+import { usePapichPosts, useMe } from '../../graphql'
 import './PageNews.css'
 
 const cnPageNews = cn('PageNews')
