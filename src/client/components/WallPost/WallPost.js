@@ -40,7 +40,7 @@ export function WallPost({
   return (
     <WallItem
       className={cnWallPost({}, [className])}
-      header={<WallPostAuthor {...author} />}
+      header={!author.isAdmin && <WallPostAuthor {...author} />}
       footer={
         <div className={cnWallPost('Buttons')}>
           <WallPostButton
@@ -58,11 +58,11 @@ export function WallPost({
       }
     >
       {(title || children) && (
-        <div className={cnWallPost('Content')}>
+        <Link to={`/post-${id}`} className={cnWallPost('Content')}>
           {title && <h2 className={cnWallPost('Title')}>{title}</h2>}
 
           {children && <div className={cnWallPost('Text')}>{children}</div>}
-        </div>
+        </Link>
       )}
 
       {attachments.length > 0 ? (

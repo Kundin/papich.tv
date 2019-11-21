@@ -32,7 +32,7 @@
 
   /* Основной контент */
   &-Content {
-    margin: var(--space-s) var(--space-s) 0;
+    padding: var(--space-s) var(--space-s) 0;
   }
 
   /* Заголовок */
@@ -43,6 +43,8 @@
 
     margin: 0;
     padding: 0;
+
+    color: var(--color-text-primary);
   }
 
   /* Текст поста */
