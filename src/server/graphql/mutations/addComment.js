@@ -40,10 +40,19 @@ export const addComment = {
       .populate({
         path: 'post',
         model: 'Posts',
-        populate: {
-          path: 'author',
-          model: 'Users',
-        },
+        populate: [
+          {
+            path: 'author',
+            model: 'Users',
+          },
+          {
+            path: 'attachments',
+            model: 'Attachments',
+            populate: {
+              path: 'body',
+            },
+          },
+        ],
       })
       .populate('author')
       .exec()
