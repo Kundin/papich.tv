@@ -21,81 +21,68 @@ const PageNotFound = loadable(() => import('../../pages/PageNotFound/default'))
 
 const cnApp = cn('App')
 
-// Страницы, требующие авторизации
-function AuthPages() {
-  return (
-    <Switch>
-      <RouteAuth exact path="/">
-        <TemplateMain>
-          <PageNews />
-        </TemplateMain>
-      </RouteAuth>
-
-      <RouteAuth exact path="/feed">
-        <TemplateMain>
-          <PageFeed />
-        </TemplateMain>
-      </RouteAuth>
-
-      <RouteAuth exact path="/create-post">
-        <TemplateMain>
-          <PageCreatePost />
-        </TemplateMain>
-      </RouteAuth>
-
-      {/*
-        <RouteAuth exact path="/menu">
-          <TemplateMain>
-            <PageMenu />
-          </TemplateMain>
-        </RouteAuth>
-      */}
-    </Switch>
-  )
-}
-
-// Публичные страницы, доступные без авторизации
-function PublicPages() {
-  return (
-    <Switch>
-      <Route exact path="/login">
-        <PageLogin />
-      </Route>
-
-      <Route exact path="/post-:postId">
-        <TemplateMain>
-          <PagePost />
-        </TemplateMain>
-      </Route>
-
-      <Route exact path="/id:vkId">
-        <TemplateMain>
-          <PageUser />
-        </TemplateMain>
-      </Route>
-
-      {/*
-        <Route exact path="/donate">
-          <TemplateMain>
-            <PageDonate />
-          </TemplateMain>
-        </Route>
-      */}
-
-      <Route>
-        <TemplateMain>
-          <PageNotFound />
-        </TemplateMain>
-      </Route>
-    </Switch>
-  )
-}
-
 export function App() {
   return (
     <div className={cnApp()}>
-      <AuthPages />
-      <PublicPages />
+      <Switch>
+        {/* СТРАНИЦЫ ДОСТУПНЫЕ ПОСЛЕ АВТОРИЗАЦИИ */}
+        <RouteAuth exact path="/">
+          <TemplateMain>
+            <PageNews />
+          </TemplateMain>
+        </RouteAuth>
+
+        <RouteAuth exact path="/feed">
+          <TemplateMain>
+            <PageFeed />
+          </TemplateMain>
+        </RouteAuth>
+
+        <RouteAuth exact path="/create-post">
+          <TemplateMain>
+            <PageCreatePost />
+          </TemplateMain>
+        </RouteAuth>
+
+        {/*
+          <RouteAuth exact path="/menu">
+            <TemplateMain>
+              <PageMenu />
+            </TemplateMain>
+          </RouteAuth>
+        */}
+
+        {/* ПУБЛИЧНЫЕ СТРАНИЦЫ, ДОСТУПНЫЕ БЕЗ АВТОРИЗАЦИИ */}
+        <Route exact path="/login">
+          <PageLogin />
+        </Route>
+
+        <Route exact path="/post-:postId">
+          <TemplateMain>
+            <PagePost />
+          </TemplateMain>
+        </Route>
+
+        <Route exact path="/id:vkId">
+          <TemplateMain>
+            <PageUser />
+          </TemplateMain>
+        </Route>
+
+        {/*
+          <Route exact path="/donate">
+            <TemplateMain>
+              <PageDonate />
+            </TemplateMain>
+          </Route>
+        */}
+
+        <Route>
+          <TemplateMain>
+            <PageNotFound />
+          </TemplateMain>
+        </Route>
+      </Switch>
     </div>
   )
 }

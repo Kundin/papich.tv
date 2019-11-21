@@ -14,4 +14,21 @@
       }
     }
   }
+
+  /* Плейсхолдер когда нет постов */
+  &-Placeholder {
+    display: flex;
+
+    height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s));
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+
+    /* Плейсхолдер для админа */
+    &_admin {
+      height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s) * 2 - 56px);
+    }
+  }
 }

@@ -28,13 +28,19 @@ export function PageFeed() {
       <div className={cnPageFeed()}>
         {me.isAdmin && <NewPost className={cnPageFeed('NewPost')} user={me} />}
 
-        <div className={cnPageFeed('Wall')}>
-          {posts.map(({ id, text, ...post }) => (
-            <WallPost key={id} id={id} {...post}>
-              {text}
-            </WallPost>
-          ))}
-        </div>
+        {posts.length > 0 ? (
+          <div className={cnPageFeed('Wall')}>
+            {posts.map(({ id, text, ...post }) => (
+              <WallPost key={id} id={id} {...post}>
+                {text}
+              </WallPost>
+            ))}
+          </div>
+        ) : (
+          <div className={cnPageFeed('Placeholder', { admin: me.isAdmin })}>
+            Пока что здесь ничего нет, заходите позже.
+          </div>
+        )}
       </div>
     </Fragment>
   )
