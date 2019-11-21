@@ -38,6 +38,13 @@ export const addPostLike = {
 
     return await Posts.findById(id)
       .populate('author')
+      .populate({
+        path: 'attachments',
+        model: 'Attachments',
+        populate: {
+          path: 'body',
+        },
+      })
       .exec()
   },
 }
