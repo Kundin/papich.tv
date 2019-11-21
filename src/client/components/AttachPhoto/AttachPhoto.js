@@ -10,7 +10,9 @@ export function AttachPhoto({ className, src, onRemove }) {
   return (
     <div className={cnAttachPhoto({}, [className])}>
       <img className={cnAttachPhoto('Photo')} src={src} />
-      <IconTimesCircleSolid className={cnAttachPhoto('Remove')} onClick={onRemove} />
+      <div className={cnAttachPhoto('Remove')}>
+        <IconTimesCircleSolid className={cnAttachPhoto('RemoveIcon')} onClick={onRemove} />
+      </div>
     </div>
   )
 }

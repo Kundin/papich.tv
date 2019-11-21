@@ -2,7 +2,8 @@
   position: relative;
 
   width: 100%;
-  height: inherit;
+  height: auto;
+  max-height: inherit;
 
   border-radius: 4px;
 
@@ -21,6 +22,18 @@
     top: var(--space-s);
     right: var(--space-s);
 
+    overflow: hidden;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+    background: var(--color-black);
+    box-shadow: var(--shadow-main);
+  }
+
+  /* Иконка кнопки для удаления */
+  &-RemoveIcon {
     color: var(--color-white);
   }
 }
