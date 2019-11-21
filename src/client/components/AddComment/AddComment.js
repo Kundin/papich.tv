@@ -46,6 +46,7 @@ export function AddComment({ className, post, user, ...props }) {
   // Очистить поле ввода сообщения
   function clearText() {
     refComment.current.value = ''
+    setActiveIcon(false)
   }
 
   // Отправить комментарий
