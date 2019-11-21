@@ -2,6 +2,7 @@ import React from 'react'
 import { cn } from '@bem-react/classname'
 import { useParams } from 'react-router-dom'
 import loadable from '@loadable/component'
+import { Helmet } from 'react-helmet'
 
 import { WallPost, PreloaderPage, AddComment, Pad, Comment } from '../../components'
 import { usePost, useMe, useComments } from '../../graphql'
@@ -29,6 +30,11 @@ export function PagePost() {
     <PreloaderPage />
   ) : post ? (
     <div className={cnPagePost()}>
+      <Helmet>
+        <title>{post.title || 'Запись'}</title>
+        <meta name="description" content={post.text && post.text.substring(0, 200)} />
+      </Helmet>
+
       <WallPost {...post} unfolded className={cnPagePost('Post')}>
         {post.text}
       </WallPost>

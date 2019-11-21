@@ -64,6 +64,7 @@ app
 if (config.isLocal) {
   app.use('/dist', express.static('./public/dist'))
   app.use('/static', express.static('./public'))
+  app.use('/robots.txt', express.static('./public/robots.txt'))
 }
 
 // Парсинг данных запроса

@@ -74,7 +74,7 @@ export function WallPost({
       {attachments.length > 0 ? (
         <div className={cnWallPost('Attaches')}>
           {attachments.map(({ id, body }) => (
-            <img key={id} className={cnWallPost('Attach')} src={body.src} />
+            <img key={id} className={cnWallPost('Attach')} src={body.src} alt={title || ''} />
           ))}
         </div>
       ) : (

@@ -2,6 +2,7 @@ import React from 'react'
 import { cn } from '@bem-react/classname'
 import { useParams } from 'react-router-dom'
 import loadable from '@loadable/component'
+import { Helmet } from 'react-helmet'
 
 import { Pad, Avatar, PreloaderPage } from '../../components'
 import { useMe, useUser } from '../../graphql'
@@ -31,6 +32,11 @@ export function PageUser() {
     <PreloaderPage />
   ) : user ? (
     <div className={cnPageUser()}>
+      <Helmet>
+        <title>{user.fullName}</title>
+        <meta name="description" content={`Информация о пользователе ${user.fullName}`} />
+      </Helmet>
+
       <Pad className={cnPageUser('Base')}>
         <div className={cnPageUser('BaseContainer')}>
           <Avatar className={cnPageUser('Avatar')} user={user} size="l" />
