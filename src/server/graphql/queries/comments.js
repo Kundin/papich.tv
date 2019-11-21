@@ -1,4 +1,5 @@
 import { GraphQLID, GraphQLList } from 'graphql'
+import validator from 'validator'
 
 import { CommentType } from '../types'
 import { Comments } from '../../models'
@@ -13,6 +14,10 @@ export const comments = {
     },
   },
   resolve: async (obj, { postId }, { user }, info) => {
+    if (!validator.isMongoId(postId)) {
+      return null
+    }
+
     const comments = await Comments.find({ post: postId })
       .sort({ createdAt: 1 }) // Сначала старые
       .populate('post')
