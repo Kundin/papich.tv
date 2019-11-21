@@ -14,6 +14,7 @@ import './PageCreatePost.css'
 const cnPageCreatePost = cn('PageCreatePost')
 
 export function PageCreatePost() {
+  const refTitle = useRef()
   const refText = useRef()
   const [attachments, setAttachments] = useState([])
   const {
@@ -47,9 +48,12 @@ export function PageCreatePost() {
 
   // Добавить пост
   function onAddPost() {
+    const title = refTitle.current.value
     const text = refText.current.value
 
-    createPost({ variables: { text, attachments: attachments.map((attachment) => attachment.id) } })
+    createPost({
+      variables: { title, text, attachments: attachments.map((attachment) => attachment.id) },
+    })
   }
 
   // Загрузка файла
@@ -78,6 +82,12 @@ export function PageCreatePost() {
   ) : (
     <div className={cnPageCreatePost()}>
       <Pad title="Новая запись">
+        <Textarea
+          ref={refTitle}
+          className={cnPageCreatePost('Title')}
+          name="title"
+          placeholder="Заголовок (необязательно)"
+        />
         <Textarea
           ref={refText}
           className={cnPageCreatePost('Text')}

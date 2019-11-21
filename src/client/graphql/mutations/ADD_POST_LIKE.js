@@ -19,7 +19,18 @@ export const ADD_POST_LIKE = gql`
         isAdmin
         isPapich
       }
+      title
       text
+      attachments {
+        id
+        type
+        body {
+          ... on PhotoAttachment {
+            id
+            src
+          }
+        }
+      }
       counters {
         likes
         comments

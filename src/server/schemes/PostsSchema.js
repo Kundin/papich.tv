@@ -20,6 +20,12 @@ export const PostsSchema = new Schema(
       required: true,
     },
 
+    // Заголовок
+    title: {
+      type: String,
+      trim: true,
+    },
+
     // Текст
     text: {
       type: String,

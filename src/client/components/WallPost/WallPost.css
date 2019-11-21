@@ -30,6 +30,16 @@
     color: var(--color-text-secondary);
   }
 
+  /* Заголовок */
+  &-Title {
+    font-size: var(--size-typo-m);
+    font-weight: 600;
+    line-height: var(--line-height-typo-m);
+
+    margin: var(--space-s) var(--space-s) 0;
+    padding: 0;
+  }
+
   /* Текст поста */
   &-Text {
     font-size: var(--size-typo-m);

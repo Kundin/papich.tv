@@ -29,6 +29,11 @@ export const PostType = new GraphQLObjectType({
       description: 'Автор',
     },
 
+    title: {
+      type: GraphQLString,
+      description: 'Заголовок',
+    },
+
     text: {
       type: GraphQLString,
       description: 'Текст',

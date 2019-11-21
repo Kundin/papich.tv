@@ -4,13 +4,13 @@ export const UPLOAD_FILE = gql`
   mutation uploadFile($file: Upload!) {
     uploadFile(file: $file) {
       id
+      type
       body {
         ... on PhotoAttachment {
           id
           src
         }
       }
-      type
     }
   }
 `

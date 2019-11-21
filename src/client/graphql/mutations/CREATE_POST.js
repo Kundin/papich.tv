@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export const CREATE_POST = gql`
-  mutation createPost($text: String, $attachments: [ID]) {
-    createPost(text: $text, attachments: $attachments) {
+  mutation createPost($title: String, $text: String, $attachments: [ID]) {
+    createPost(title: $title, text: $text, attachments: $attachments) {
       id
       type
       author {
@@ -19,6 +19,7 @@ export const CREATE_POST = gql`
         isAdmin
         isPapich
       }
+      title
       text
       attachments {
         id

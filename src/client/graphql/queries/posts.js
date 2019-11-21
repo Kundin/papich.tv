@@ -19,6 +19,7 @@ export const POSTS = gql`
         isAdmin
         isPapich
       }
+      title
       text
       attachments {
         id

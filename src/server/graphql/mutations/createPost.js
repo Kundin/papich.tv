@@ -11,6 +11,10 @@ export const createPost = {
       name: 'type',
       type: GraphQLString,
     },
+    title: {
+      name: 'title',
+      type: GraphQLString,
+    },
     text: {
       name: 'text',
       type: GraphQLString,
@@ -20,12 +24,13 @@ export const createPost = {
       type: new GraphQLList(GraphQLID),
     },
   },
-  resolve: async (rootVal, { type = 'default', text, attachments }, { user }) => {
+  resolve: async (rootVal, { type = 'default', title, text, attachments }, { user }) => {
     console.log({ attachments })
 
     const { id } = await new Posts({
       author: user.id,
       type,
+      title,
       text,
       attachments,
     }).save()

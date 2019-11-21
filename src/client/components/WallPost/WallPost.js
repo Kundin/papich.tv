@@ -15,6 +15,7 @@ export function WallPost({
   className,
   id,
   author,
+  title,
   attachments,
   counters,
   hasLike,
@@ -56,7 +57,10 @@ export function WallPost({
         </div>
       }
     >
+      {title && <h2 className={cnWallPost('Title')}>{title}</h2>}
+
       <div className={cnWallPost('Text')}>{children}</div>
+
       {attachments.length > 0 ? (
         <div className={cnWallPost('Attaches')}>
           {attachments.map(({ id, body }) => (
