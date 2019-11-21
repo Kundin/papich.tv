@@ -57,9 +57,13 @@ export function WallPost({
         </div>
       }
     >
-      {title && <h2 className={cnWallPost('Title')}>{title}</h2>}
+      {(title || children) && (
+        <div className={cnWallPost('Content')}>
+          {title && <h2 className={cnWallPost('Title')}>{title}</h2>}
 
-      <div className={cnWallPost('Text')}>{children}</div>
+          {children && <div className={cnWallPost('Text')}>{children}</div>}
+        </div>
+      )}
 
       {attachments.length > 0 ? (
         <div className={cnWallPost('Attaches')}>

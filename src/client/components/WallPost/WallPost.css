@@ -30,13 +30,18 @@
     color: var(--color-text-secondary);
   }
 
+  /* Основной контент */
+  &-Content {
+    margin: var(--space-s) var(--space-s) 0;
+  }
+
   /* Заголовок */
   &-Title {
     font-size: var(--size-typo-m);
     font-weight: 600;
     line-height: var(--line-height-typo-m);
 
-    margin: var(--space-s) var(--space-s) 0;
+    margin: 0;
     padding: 0;
   }
 
@@ -44,9 +49,6 @@
   &-Text {
     font-size: var(--size-typo-m);
     line-height: var(--line-height-typo-s);
-
-    margin: var(--space-s);
-    margin-bottom: 0;
 
     color: var(--color-text-primary);
   }
