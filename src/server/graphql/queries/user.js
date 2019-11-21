@@ -1,4 +1,4 @@
-import { GraphQLInt } from 'graphql'
+import { GraphQLInt, GraphQLNonNull } from 'graphql'
 
 import { UserType } from '../types'
 import { Users } from '../../models'
@@ -9,15 +9,10 @@ export const user = {
   args: {
     vkId: {
       name: 'vkId',
-      type: GraphQLInt,
+      type: new GraphQLNonNull(GraphQLInt),
     },
   },
-  resolve: async (obj, args, context, info) => {
-    const { vkId } = args
-    const query = {}
-
-    if (vkId) query.vkId = vkId
-
-    return await Users.findOne(query).exec()
+  resolve: async (obj, { vkId }, context, info) => {
+    return await Users.findOne({ vkId }).exec()
   },
 }

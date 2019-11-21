@@ -1,10 +1,13 @@
 import React from 'react'
 import { cn } from '@bem-react/classname'
 import { useParams } from 'react-router-dom'
+import loadable from '@loadable/component'
 
 import { WallPost, PreloaderPage, AddComment, Pad, Comment } from '../../components'
 import { usePost, useMe, useComments } from '../../graphql'
 import './PagePost.css'
+
+const PageNotFound = loadable(() => import('../../pages/PageNotFound/default'))
 
 const cnPagePost = cn('PagePost')
 
@@ -24,11 +27,13 @@ export function PagePost() {
 
   return loadingPost || loadingComments ? (
     <PreloaderPage />
-  ) : (
+  ) : post ? (
     <div className={cnPagePost()}>
-      <WallPost {...post}>{post.text}</WallPost>
+      <WallPost {...post} className={cnPagePost('Post')}>
+        {post.text}
+      </WallPost>
 
-      <AddComment post={post} user={me} />
+      {me && <AddComment post={post} user={me} className={cnPagePost('AddComment')} />}
 
       {comments.length > 0 && (
         <Pad className={cnPagePost('Comments')}>
@@ -39,5 +44,7 @@ export function PagePost() {
         </Pad>
       )}
     </div>
+  ) : (
+    <PageNotFound />
   )
 }

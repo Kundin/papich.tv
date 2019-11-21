@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { cn } from '@bem-react/classname'
 import { useLocation } from 'react-router-dom'
-import loadable from '@loadable/component'
 
 import { WrapperMain } from '../../components'
 import { Link } from '../../UI'

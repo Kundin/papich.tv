@@ -1,4 +1,14 @@
 .PagePost {
+  /* Пост */
+  &-Post {
+    margin-bottom: var(--space-s);
+  }
+
+  /* Добавить комментарий */
+  &-AddComment {
+    margin-bottom: var(--space-s);
+  }
+
   /* Комментарии */
   &-Comments {
     .Comment {

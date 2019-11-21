@@ -13,6 +13,12 @@ const cnPageUser = cn('PageUser')
 
 export function PageUser() {
   const { vkId } = useParams()
+
+  // В идентификаторе не должно других символов кроме цифр
+  if (/\D/.test(vkId)) {
+    return <PageNotFound />
+  }
+
   const {
     data: { me },
   } = useMe()

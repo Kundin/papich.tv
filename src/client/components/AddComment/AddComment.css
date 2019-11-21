@@ -1,7 +1,7 @@
 .AddComment {
   display: flex;
 
-  padding: var(--space-s);
+  padding: 0 var(--space-s);
   align-items: flex-end;
 
   /* Аватарка */
