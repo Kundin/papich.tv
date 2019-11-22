@@ -1,4 +1,18 @@
 .YouTubePlayer {
   width: 100%;
   height: calc(100vw / 1.76886792453);
+
+  background: var(--color-border);
+
+  /* Заглушка */
+  &-Placeholder {
+    display: flex;
+
+    height: 100%;
+
+    text-align: center;
+
+    align-items: center;
+    justify-content: center;
+  }
 }

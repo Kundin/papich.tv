@@ -5,6 +5,6 @@ import './Textarea.css'
 
 const cnTextarea = cn('Textarea')
 
-export const Textarea = forwardRef(({ className, ...props }, ref) => (
-  <textarea {...props} ref={ref} className={cnTextarea({}, [className])} />
-))
+export const Textarea = forwardRef(({ className, ...props }, ref) => {
+  return <textarea {...props} ref={ref} className={cnTextarea({}, [className])} />
+})

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { cn } from '@bem-react/classname'
 import ReactPlayer from 'react-player'
 
@@ -6,32 +6,44 @@ import './YouTubePlayer.css'
 
 const cnYouTubePlayer = cn('YouTubePlayer')
 
-export function YouTubePlayer({ className, ...props }) {
-  const opts = {
-    width: '375',
-    height: 'auto',
-    playerVars: {
-      autoplay: 1,
-    },
-  }
+export function YouTubePlayer({
+  className,
+  url,
+  placeholder = 'Здесь должно быть видео…',
+  ...props
+}) {
+  const ref = useRef()
   const [width, setWidth] = useState()
+  const strWidth = `${width}px`
+  const strHeight = `calc(${width}px / 1.76886792453)`
 
   useEffect(() => {
-    setWidth(document.querySelector('.App').offsetWidth)
+    setWidth(ref.current.offsetWidth)
 
     window.addEventListener('resize', () => {
-      setWidth(document.querySelector('.App').offsetWidth)
+      setWidth(ref.current.offsetWidth)
     })
   }, [width])
 
   return (
-    <ReactPlayer
-      {...props}
+    <div
+      ref={ref}
       className={cnYouTubePlayer({}, [className])}
-      controls
-      light
-      width={`${width}px`}
-      height={`calc(${width}px / 1.76886792453)`}
-    />
+      style={{ width: strWidth, height: strHeight }}
+    >
+      {url ? (
+        <ReactPlayer
+          {...props}
+          className={cnYouTubePlayer('Player')}
+          controls
+          light
+          width={strWidth}
+          height={strHeight}
+          url={url}
+        />
+      ) : (
+        <span className={cnYouTubePlayer('Placeholder')}>{placeholder}</span>
+      )}
+    </div>
   )
 }

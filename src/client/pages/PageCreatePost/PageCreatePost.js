@@ -97,7 +97,6 @@ export function PageCreatePost() {
           placeholder="Введите текст…"
         />
       </Pad>
-
       {/* Вложения */}
       {attachments.length > 0 && (
         <div className={cnPageCreatePost('Attaches')}>
@@ -110,7 +109,6 @@ export function PageCreatePost() {
           ))}
         </div>
       )}
-
       {/* Подвал */}
       <div className={cnPageCreatePost('Footer')}>
         <ButtonAction onClick={onAddPost}>
@@ -138,14 +136,11 @@ export function PageCreatePost() {
           </div>
         </div>
       </div>
-
       {/* Модальное окно добавление видео с ютуба */}
-      {visibleModalAddYouTubeVideo && (
-        <ModalAddYouTubeVideo
-          visible={visibleModalAddYouTubeVideo}
-          onClose={() => setVisibleModalAddYouTubeVideo(false)}
-        />
-      )}
+      <ModalAddYouTubeVideo
+        visible={visibleModalAddYouTubeVideo}
+        onClose={() => setVisibleModalAddYouTubeVideo(false)}
+      />
     </div>
   )
 }

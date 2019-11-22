@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { cn } from '@bem-react/classname'
 
-import { Modal } from '../../components'
-import { Input } from '../../UI'
+import { Modal, YouTubePlayer } from '../../components'
+import { Input, ButtonAction } from '../../UI'
 import './ModalAddYouTubeVideo.css'
 
 const cnModalAddYouTubeVideo = cn('ModalAddYouTubeVideo')
 
 export function ModalAddYouTubeVideo({ className, ...props }) {
+  const refUrl = useRef()
+  const [url, setUrl] = useState()
+
+  // Изменение текста в поле ввода
+  function onChangeUrl() {
+    const _url = refUrl.current.value
+
+    setUrl(_url)
+  }
+
   return (
     <Modal
       {...props}
@@ -15,7 +25,15 @@ export function ModalAddYouTubeVideo({ className, ...props }) {
       className={cnModalAddYouTubeVideo({}, [className])}
     >
       <div className={cnModalAddYouTubeVideo('Content')}>
-        <Input wide placeholder="Адрес видео" />
+        <Input ref={refUrl} wide placeholder="Адрес видео" onChange={onChangeUrl} />
+
+        <div className={cnModalAddYouTubeVideo('WrapperPlayer')}>
+          <YouTubePlayer url={url} />
+        </div>
+
+        <div className={cnModalAddYouTubeVideo('Footer')}>
+          <ButtonAction>Прикрепить</ButtonAction>
+        </div>
       </div>
     </Modal>
   )

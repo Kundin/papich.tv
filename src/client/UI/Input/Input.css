@@ -1,4 +1,7 @@
 .Input {
+  font-size: var(--size-typo-m);
+  line-height: var(--line-height-typo-s);
+
   box-sizing: border-box;
   padding: var(--space-xs) var(--space-s);
 
