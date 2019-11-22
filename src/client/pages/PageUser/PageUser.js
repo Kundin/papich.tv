@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import loadable from '@loadable/component'
 import { Helmet } from 'react-helmet'
 
-import { Pad, Avatar, PreloaderPage, YouTubePlayer } from '../../components'
+import { Pad, Avatar, PreloaderPage } from '../../components'
 import { useMe, useUser } from '../../graphql'
 import './PageUser.css'
 
@@ -46,8 +46,6 @@ export function PageUser() {
           </div>
         </div>
       </Pad>
-
-      <YouTubePlayer url="https://www.youtube.com/watch?v=O6439j-pVnc" />
 
       <Pad title={'Лента активности'}>Feed</Pad>
     </div>
