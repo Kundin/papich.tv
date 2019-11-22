@@ -50,8 +50,8 @@
 
   /* Основной контент */
   &-Content {
-    min-height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s));
-    padding-bottom: var(--space-s);
+    min-height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s) * 2);
+    padding: var(--space-s) 0;
   }
 
   /* Вкладки */

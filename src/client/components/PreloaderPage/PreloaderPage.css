@@ -1,7 +1,7 @@
 .PreloaderPage {
   display: flex;
 
-  height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s));
+  height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s) * 2);
 
   align-items: center;
   justify-content: center;
