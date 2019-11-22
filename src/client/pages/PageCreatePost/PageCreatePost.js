@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 
 import { Pad, PreloaderPage, ErrorPage, AttachPhoto } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
-import { IconPaperclipSolid } from '../../icons'
+import { IconCameraSolid, IconVideoSolid } from '../../icons'
 import { POSTS, CREATE_POST, UPLOAD_FILE, useMe } from '../../graphql'
 import './PageCreatePost.css'
 
@@ -111,14 +111,20 @@ export function PageCreatePost() {
           {me.isDefault ? 'Предложить' : 'Опубликовать'}
         </ButtonAction>
 
-        <div className={cnPageCreatePost('Attach')}>
-          <IconPaperclipSolid className={cnPageCreatePost('AttachIcon')} />
-          <input
-            type="file"
-            accept="image/*"
-            className={cnPageCreatePost('AttachInput')}
-            onChange={onUpload}
-          />
+        <div className={cnPageCreatePost('Buttons')}>
+          <div className={cnPageCreatePost('Attach')}>
+            <IconVideoSolid />
+          </div>
+
+          <div className={cnPageCreatePost('Attach')}>
+            <IconCameraSolid />
+            <input
+              type="file"
+              accept="image/*"
+              className={cnPageCreatePost('AttachInput')}
+              onChange={onUpload}
+            />
+          </div>
         </div>
       </div>
     </div>

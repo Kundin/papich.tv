@@ -5,14 +5,13 @@ import './Icon.css'
 
 const cnIcon = cn('Icon')
 
-export function Icon({
-  className,
-  width = 24,
-  height = 24,
-  viewBox = '0 0 512 512',
-  children,
-  ...props
-}) {
+export function Icon({ className, viewBox = '0 0 512 512', children, ...props }) {
+  const baseSize = 24
+  const matches = viewBox.match(/^(\d{0,3}) (\d{0,3}) (\d{0,3}) (\d{0,3})$/)
+  const coef = Number(matches[3]) / Number(matches[4])
+  const width = baseSize * coef
+  const height = baseSize
+
   return (
     <svg
       {...props}
@@ -22,8 +21,8 @@ export function Icon({
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox={viewBox}
-      width={width}
-      height={height}
+      width={`${width}px`}
+      height={`${height}px`}
     >
       {children}
     </svg>

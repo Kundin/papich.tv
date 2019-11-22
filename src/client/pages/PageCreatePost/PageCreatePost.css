@@ -42,16 +42,25 @@
     justify-content: space-between;
   }
 
+  /* Кнопки */
+  &-Buttons {
+    display: flex;
+    align-items: center;
+  }
+
   /* Прикрепление файла */
   &-Attach {
     position: relative;
 
     height: 24px;
-  }
 
-  /* Иконка прикрипления файла */
-  &-AttachIcon {
+    margin-right: var(--space-s);
+
     color: var(--color-text-secondary);
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   /* Поле ввода для прикрипления файла */
