@@ -3,7 +3,7 @@ import { cn } from '@bem-react/classname'
 import { useLocation } from 'react-router-dom'
 
 import { WrapperMain } from '../../components'
-import { Link } from '../../UI'
+import { Link, ButtonAction } from '../../UI'
 import { IconFireSolid, IconUsersSolid, IconBarsSolid, IconUserCircleSolid } from '../../icons'
 import { useMe } from '../../graphql'
 import { texts } from './texts'
@@ -25,13 +25,8 @@ export function TemplateMain({ children }) {
         <WrapperMain>
           <div className={cnTemplateMain('HeaderContent')}>
             <h1 className={cnTemplateMain('Logotype')}>{texts.title}</h1>
-            <Link
-              external
-              target="_blank"
-              to="//donationalerts.com/r/evilarthas"
-              className={cnTemplateMain('Donate')}
-            >
-              {texts.btnDonate}
+            <Link external target="_blank" to="//donationalerts.com/r/evilarthas">
+              <ButtonAction className={cnTemplateMain('Donate')}>{texts.btnDonate}</ButtonAction>
             </Link>
           </div>
         </WrapperMain>
