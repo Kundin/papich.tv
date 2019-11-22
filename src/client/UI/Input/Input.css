@@ -1,0 +1,17 @@
+.Input {
+  box-sizing: border-box;
+  padding: var(--space-xs) var(--space-s);
+
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  outline: none;
+
+  &:focus {
+    border-color: var(--color-main);
+  }
+
+  /* Максимальная ширина */
+  &_wide {
+    width: 100%;
+  }
+}

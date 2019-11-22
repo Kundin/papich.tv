@@ -140,10 +140,12 @@ export function PageCreatePost() {
       </div>
 
       {/* Модальное окно добавление видео с ютуба */}
-      <ModalAddYouTubeVideo
-        visible={visibleModalAddYouTubeVideo}
-        onClose={() => setVisibleModalAddYouTubeVideo(false)}
-      />
+      {visibleModalAddYouTubeVideo && (
+        <ModalAddYouTubeVideo
+          visible={visibleModalAddYouTubeVideo}
+          onClose={() => setVisibleModalAddYouTubeVideo(false)}
+        />
+      )}
     </div>
   )
 }

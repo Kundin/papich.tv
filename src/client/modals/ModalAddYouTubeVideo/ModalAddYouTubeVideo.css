@@ -1,7 +1,6 @@
 .ModalAddYouTubeVideo {
   /* Контент */
   &-Content {
-    height: 2000px;
     padding: 0 var(--space-s) var(--space-s);
   }
 }
