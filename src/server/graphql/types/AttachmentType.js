@@ -6,7 +6,7 @@ import {
   GraphQLNonNull,
 } from 'graphql'
 
-import { PhotoAttachmentType } from '../types'
+import { PhotoAttachmentType, YoutubeAttachmentType } from '../types'
 
 export const AttachmentType = new GraphQLObjectType({
   name: 'Attachment',
@@ -25,8 +25,11 @@ export const AttachmentType = new GraphQLObjectType({
     body: {
       type: new GraphQLUnionType({
         name: 'AttachmentBody',
-        types: [PhotoAttachmentType],
+        types: [PhotoAttachmentType, YoutubeAttachmentType],
         resolveType(value) {
+          // Это видео на ютубе
+          if (!value.path && value.src) return 'YoutubeAttachment'
+
           // Это фотография
           if (value.path && value.src) return 'PhotoAttachment'
 
