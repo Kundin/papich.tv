@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import gql from 'graphql-tag'
 import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
@@ -21,27 +21,26 @@ export function PageFeed() {
   return loading ? (
     <PreloaderPage />
   ) : (
-    <Fragment>
+    <div className={cnPageFeed()}>
       <Helmet>
-        <title>Papich.tv</title>
+        <title>Лента</title>
       </Helmet>
-      <div className={cnPageFeed()}>
-        {me.isAdmin && <NewPost className={cnPageFeed('NewPost')} user={me} />}
 
-        {posts.length > 0 ? (
-          <div className={cnPageFeed('Wall')}>
-            {posts.map(({ id, text, ...post }) => (
-              <WallPost key={id} id={id} {...post}>
-                {text}
-              </WallPost>
-            ))}
-          </div>
-        ) : (
-          <div className={cnPageFeed('Placeholder', { admin: me.isAdmin })}>
-            Пока что здесь ничего нет, заходите позже.
-          </div>
-        )}
-      </div>
-    </Fragment>
+      {me.isAdmin && <NewPost className={cnPageFeed('NewPost')} user={me} />}
+
+      {posts.length > 0 ? (
+        <div className={cnPageFeed('Wall')}>
+          {posts.map(({ id, text, ...post }) => (
+            <WallPost key={id} id={id} {...post}>
+              {text}
+            </WallPost>
+          ))}
+        </div>
+      ) : (
+        <div className={cnPageFeed('Placeholder', { admin: me.isAdmin })}>
+          Пока что здесь ничего нет, заходите позже.
+        </div>
+      )}
+    </div>
   )
 }

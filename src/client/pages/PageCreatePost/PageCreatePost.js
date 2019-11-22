@@ -3,6 +3,7 @@ import { cn } from '@bem-react/classname'
 import { useMutation } from '@apollo/react-hooks'
 import { Redirect } from 'react-router-dom'
 import loadable from '@loadable/component'
+import { Helmet } from 'react-helmet'
 
 import { Pad, PreloaderPage, ErrorPage, AttachPhoto } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
@@ -83,6 +84,10 @@ export function PageCreatePost() {
     <ErrorPage text="Создавать новые записи могут только администраторы и Папич." />
   ) : (
     <div className={cnPageCreatePost()}>
+      <Helmet>
+        <title>Новая запись</title>
+      </Helmet>
+
       <Pad title="Новая запись">
         <Textarea
           ref={refTitle}
