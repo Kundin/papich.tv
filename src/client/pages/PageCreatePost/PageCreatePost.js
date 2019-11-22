@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { cn } from '@bem-react/classname'
 import { useMutation } from '@apollo/react-hooks'
 import { Redirect } from 'react-router-dom'
+import loadable from '@loadable/component'
 
 import { Pad, PreloaderPage, ErrorPage, AttachPhoto } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
@@ -9,12 +10,15 @@ import { IconCameraSolid, IconVideoSolid } from '../../icons'
 import { POSTS, CREATE_POST, UPLOAD_FILE, useMe } from '../../graphql'
 import './PageCreatePost.css'
 
+const ModalAddYouTubeVideo = loadable(() => import('../../modals/ModalAddYouTubeVideo/default'))
+
 const cnPageCreatePost = cn('PageCreatePost')
 
 export function PageCreatePost() {
   const refTitle = useRef()
   const refText = useRef()
   const [attachments, setAttachments] = useState([])
+  const [visibleModalAddYouTubeVideo, setVisibleModalAddYouTubeVideo] = useState(false)
   const {
     data: { me },
     loading,
@@ -94,6 +98,7 @@ export function PageCreatePost() {
         />
       </Pad>
 
+      {/* Вложения */}
       {attachments.length > 0 && (
         <div className={cnPageCreatePost('Attaches')}>
           {attachments.map((attach) => (
@@ -106,16 +111,22 @@ export function PageCreatePost() {
         </div>
       )}
 
+      {/* Подвал */}
       <div className={cnPageCreatePost('Footer')}>
         <ButtonAction onClick={onAddPost}>
           {me.isDefault ? 'Предложить' : 'Опубликовать'}
         </ButtonAction>
 
         <div className={cnPageCreatePost('Buttons')}>
-          <div className={cnPageCreatePost('Attach')}>
+          {/* Прикрепить видео с ютуба */}
+          <div
+            className={cnPageCreatePost('Attach')}
+            onClick={() => setVisibleModalAddYouTubeVideo(true)}
+          >
             <IconVideoSolid />
           </div>
 
+          {/* Прикрепить изображение */}
           <div className={cnPageCreatePost('Attach')}>
             <IconCameraSolid />
             <input
@@ -127,6 +138,12 @@ export function PageCreatePost() {
           </div>
         </div>
       </div>
+
+      {/* Модальное окно добавление видео с ютуба */}
+      <ModalAddYouTubeVideo
+        visible={visibleModalAddYouTubeVideo}
+        onClose={() => setVisibleModalAddYouTubeVideo(false)}
+      />
     </div>
   )
 }

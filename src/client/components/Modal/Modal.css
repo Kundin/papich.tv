@@ -1,0 +1,81 @@
+.Modal {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: -100vw;
+
+  display: flex;
+
+  width: 100%;
+  height: 100vh;
+
+  transition: opacity 0.2s;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  background: rgba(0, 0, 0, 0.2);
+  align-items: flex-end;
+
+  /* Видимое */
+  &_visible {
+    left: 0;
+
+    pointer-events: all;
+
+    opacity: 1;
+
+    .Modal {
+      &-Body {
+        bottom: 0;
+      }
+    }
+  }
+
+  /* Тело */
+  &-Body {
+    position: absolute;
+    bottom: -70vh;
+
+    width: 100%;
+    max-height: 70vh;
+
+    transition: bottom 0.2s;
+
+    border-radius: 20px 20px 0 0;
+    background: var(--color-white);
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  /* Шапка */
+  &-Header {
+    display: flex;
+
+    padding: var(--space-s);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Заголовок */
+  &-Title {
+    font-size: var(--size-typo-l);
+    font-weight: 400;
+    line-height: var(--line-height-typo-m);
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Иконка закрытия */
+  &-Close {
+    color: var(--color-text-secondary);
+  }
+
+  /* Контент */
+  &-Content {
+    overflow-y: auto;
+
+    max-height: calc(70vh - 48px);
+  }
+}
