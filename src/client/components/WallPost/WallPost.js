@@ -82,7 +82,13 @@ export function WallPost({
 
               case 'youtube':
                 return (
-                  <YouTubePlayer key={id} url={body.url} playing={unfolded} light={!unfolded} />
+                  <YouTubePlayer
+                    key={id}
+                    url={body.url}
+                    playing={unfolded}
+                    light={!unfolded}
+                    controls={true}
+                  />
                 )
 
               default:

@@ -18,15 +18,20 @@ export function YouTubePlayer({
   const ref = useRef()
   const [width, setWidth] = useState()
   const strWidth = `${width}px`
-  const strHeight = `calc(${width}px / 1.76886792453)`
+  const strHeight = `${width / 1.76886792453}px`
 
   useEffect(() => {
-    setWidth(ref.current.offsetWidth)
+    calcWidth()
 
-    window.addEventListener('resize', () => {
-      setWidth(ref.current.offsetWidth)
-    })
+    window.addEventListener('resize', calcWidth)
+
+    return () => window.removeEventListener('resize', calcWidth)
   }, [width])
+
+  // Рассчитать ширину плеера
+  function calcWidth() {
+    ref && setWidth(ref.current.parentNode.offsetWidth)
+  }
 
   return (
     <div
