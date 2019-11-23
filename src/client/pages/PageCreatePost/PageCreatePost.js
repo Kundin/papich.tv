@@ -75,7 +75,7 @@ export function PageCreatePost() {
     const text = refText.current.value
 
     createPost({
-      variables: { title, text, attachments: attachments.map((attachment) => attachment.id) },
+      variables: { title, text, attachmentIds: attachments.map((attachment) => attachment.id) },
     })
   }
 

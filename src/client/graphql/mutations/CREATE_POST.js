@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export const CREATE_POST = gql`
-  mutation createPost($title: String, $text: String, $attachments: [ID]) {
-    createPost(title: $title, text: $text, attachments: $attachments) {
+  mutation createPost($title: String, $text: String, $attachmentIds: [ID]) {
+    createPost(title: $title, text: $text, attachmentIds: $attachmentIds) {
       id
       author {
         vkId
