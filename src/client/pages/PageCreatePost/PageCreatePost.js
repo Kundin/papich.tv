@@ -8,7 +8,14 @@ import { Helmet } from 'react-helmet'
 import { Pad, PreloaderPage, ErrorPage, AttachPhoto, AttachYouTube } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
 import { IconCameraSolid, IconYoutubeBrands } from '../../icons'
-import { POSTS, CREATE_POST, UPLOAD_FILE, UPLOAD_YOUTUBE, useMe } from '../../graphql'
+import {
+  POSTS,
+  CREATE_POST,
+  UPLOAD_FILE,
+  UPLOAD_YOUTUBE,
+  REMOVE_ATTACH,
+  useMe,
+} from '../../graphql'
 import './PageCreatePost.css'
 
 const ModalAddYouTubeVideo = loadable(() => import('../../modals/ModalAddYouTubeVideo/default'))
@@ -43,11 +50,24 @@ export function PageCreatePost() {
   })
   const [uploadFile, { data: dataFile }] = useMutation(UPLOAD_FILE)
   const [uploadYouTube, { data: dataYouTube }] = useMutation(UPLOAD_YOUTUBE)
+  const [removeAttach, { data: dataRemoveAttach }] = useMutation(REMOVE_ATTACH)
 
+  // Добавляем фотовложения
   useEffect(() => {
     dataFile && setAttachments([dataFile.uploadFile])
+  }, [dataFile])
+
+  // Добавляем вложение видео с ютуба
+  useEffect(() => {
     dataYouTube && setAttachments([dataYouTube.uploadYouTube])
-  }, [dataFile, dataYouTube])
+  }, [dataYouTube])
+
+  // Удаляем вложение
+  useEffect(() => {
+    setAttachments(() => {
+      return attachments.filter((attach) => attach.id !== dataRemoveAttach.removeAttach.id)
+    })
+  }, [dataRemoveAttach])
 
   // Добавить пост
   function onAddPost() {
@@ -71,9 +91,7 @@ export function PageCreatePost() {
 
   // Удаление вложения
   function onRemoveAttach(e, id) {
-    const newAttachments = attachments.filter((attach) => attach.id !== id)
-
-    setAttachments(newAttachments)
+    removeAttach({ variables: { id } })
   }
 
   return loading ? (

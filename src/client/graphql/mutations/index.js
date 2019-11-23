@@ -1,5 +1,6 @@
 export * from './ADD_COMMENT'
 export * from './ADD_POST_LIKE'
 export * from './CREATE_POST'
+export * from './REMOVE_ATTACH'
 export * from './UPLOAD_FILE'
 export * from './UPLOAD_YOUTUBE'
