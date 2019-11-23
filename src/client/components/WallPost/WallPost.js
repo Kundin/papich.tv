@@ -42,7 +42,7 @@ export function WallPost({
   return (
     <WallItem
       className={cnWallPost({}, [className])}
-      header={!author.isAdmin && <WallPostAuthor {...author} />}
+      header={<WallPostAuthor {...author} />}
       footer={
         <div className={cnWallPost('Buttons')}>
           <WallPostButton

@@ -154,7 +154,7 @@ export function PageCreatePost() {
         visible={visibleModalAddYouTubeVideo}
         onClose={() => setVisibleModalAddYouTubeVideo(false)}
         onAttach={(e, { url }) => {
-          uploadYouTube({ variables: { url } })
+          url && uploadYouTube({ variables: { url } })
 
           setVisibleModalAddYouTubeVideo(false)
         }}
