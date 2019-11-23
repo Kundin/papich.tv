@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet'
 
 import { Pad, PreloaderPage, ErrorPage, AttachPhoto, AttachYouTube } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
-import { IconCameraSolid, IconVideoSolid } from '../../icons'
+import { IconCameraSolid, IconYoutubeBrands } from '../../icons'
 import { POSTS, CREATE_POST, UPLOAD_FILE, UPLOAD_YOUTUBE, useMe } from '../../graphql'
 import './PageCreatePost.css'
 
@@ -133,7 +133,7 @@ export function PageCreatePost() {
             className={cnPageCreatePost('Attach')}
             onClick={() => setVisibleModalAddYouTubeVideo(true)}
           >
-            <IconVideoSolid />
+            <IconYoutubeBrands />
           </div>
 
           {/* Прикрепить изображение */}
