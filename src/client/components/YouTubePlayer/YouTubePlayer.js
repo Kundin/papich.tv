@@ -9,6 +9,9 @@ const cnYouTubePlayer = cn('YouTubePlayer')
 export function YouTubePlayer({
   className,
   url,
+  controls = false,
+  playing = false,
+  light = true,
   placeholder = 'Здесь должно быть видео…',
   ...props
 }) {
@@ -35,8 +38,9 @@ export function YouTubePlayer({
         <ReactPlayer
           {...props}
           className={cnYouTubePlayer('Player')}
-          controls
-          light
+          controls={controls}
+          playing={playing}
+          light={light}
           width={strWidth}
           height={strHeight}
           url={url}
