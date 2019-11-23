@@ -1,3 +1,4 @@
+import fs from 'fs'
 import { GraphQLNonNull, GraphQLID } from 'graphql'
 
 import { AttachmentType } from '../types'
@@ -25,7 +26,11 @@ export const removeAttach = {
     // Удаляем вложенный документ
     switch (attachment.type) {
       case 'photo':
-        await PhotoAttachments.deleteOne({ _id: attachment.body._id })
+        fs.unlink(attachment.body.path, async (err) => {
+          if (err) throw err
+
+          await PhotoAttachments.deleteOne({ _id: attachment.body._id })
+        })
         break
 
       case 'youtube':
