@@ -12,6 +12,7 @@ export const ADD_POST_LIKE = gql`
         sex
         avatar
         email
+        lvl
         isMan
         isWoman
         isDefault

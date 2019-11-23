@@ -14,6 +14,7 @@ export const ADD_COMMENT = gql`
           sex
           avatar
           email
+          lvl
           isMan
           isWoman
           isDefault
@@ -52,6 +53,7 @@ export const ADD_COMMENT = gql`
         sex
         avatar
         email
+        lvl
         isMan
         isWoman
         isDefault

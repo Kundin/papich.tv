@@ -12,6 +12,7 @@ export const CREATE_POST = gql`
         sex
         avatar
         email
+        lvl
         isMan
         isWoman
         isDefault

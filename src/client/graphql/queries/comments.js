@@ -15,6 +15,7 @@ export const COMMENTS = gql`
         sex
         avatar
         email
+        lvl
         isMan
         isWoman
         isDefault

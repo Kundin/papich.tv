@@ -10,6 +10,7 @@ export const USER = gql`
       sex
       avatar
       email
+      lvl
       isMan
       isWoman
       isDefault

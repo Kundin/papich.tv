@@ -51,6 +51,11 @@ export const UserType = new GraphQLObjectType({
       description: 'Адрес электронной почты',
     },
 
+    lvl: {
+      type: GraphQLString,
+      description: 'Уровень пользователя',
+    },
+
     isWoman: {
       type: new GraphQLNonNull(GraphQLBoolean),
       description: 'Это женщина?',
