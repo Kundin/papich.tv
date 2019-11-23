@@ -9,7 +9,7 @@ export const AttachmentsSchema = new Schema(
     type: {
       type: String,
       required: true,
-      enum: ['photo'],
+      enum: ['photo', 'youtube'],
     },
 
     // Информация о вложении
@@ -23,7 +23,7 @@ export const AttachmentsSchema = new Schema(
     onModel: {
       type: String,
       required: true,
-      enum: ['PhotoAttachments'],
+      enum: ['PhotoAttachments', 'YouTubeAttachments'],
     },
   },
   {

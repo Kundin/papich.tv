@@ -2,10 +2,10 @@
 
 import { Schema } from 'mongoose'
 
-export const YoutubeAttachmentsSchema = new Schema(
+export const YouTubeAttachmentsSchema = new Schema(
   {
-    // Полный адрес видео
-    src: {
+    // Полный адрес к видео
+    url: {
       type: String,
       required: true,
     },

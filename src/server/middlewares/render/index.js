@@ -7,21 +7,25 @@ import { getDataFromTree } from '@apollo/react-ssr'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { ApolloClient } from 'apollo-client'
 import { createHttpLink } from 'apollo-link-http'
-import { InMemoryCache } from 'apollo-cache-inmemory'
+import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory'
 import { HelmetProvider } from 'react-helmet-async'
 import { ChunkExtractor } from '@loadable/server'
 
 import { config } from '../../../config'
 import { HtmlDocument } from './HtmlDocument'
+import introspectionQueryResultData from '../../graphql/fragmentTypes.json'
 
 const nodeStats = path.resolve(__dirname, '../../../../public/dist/node/loadable-stats.json')
-
 const webStats = path.resolve(__dirname, '../../../../public/dist/web/loadable-stats.json')
 
 export async function render(req, res) {
   const routerContext = {}
   const helmetContext = {}
 
+  const fragmentMatcher = new IntrospectionFragmentMatcher({
+    introspectionQueryResultData,
+  })
+  const cache = new InMemoryCache({ fragmentMatcher })
   const client = new ApolloClient({
     ssrMode: true,
     link: createHttpLink({
@@ -32,7 +36,7 @@ export async function render(req, res) {
         cookie: req.header('Cookie'),
       },
     }),
-    cache: new InMemoryCache(),
+    cache,
   })
 
   const nodeExtractor = new ChunkExtractor({ statsFile: nodeStats })

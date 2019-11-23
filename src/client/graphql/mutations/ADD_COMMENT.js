@@ -30,6 +30,10 @@ export const ADD_COMMENT = gql`
               id
               src
             }
+            ... on YouTubeAttachment {
+              id
+              url
+            }
           }
         }
         counters {

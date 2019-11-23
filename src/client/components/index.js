@@ -1,6 +1,7 @@
 export * from './AddComment'
 export * from './App'
 export * from './AttachPhoto'
+export * from './AttachYouTube'
 export * from './Avatar'
 export * from './Comment'
 export * from './ErrorPage'

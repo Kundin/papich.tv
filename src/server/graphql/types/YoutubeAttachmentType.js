@@ -1,7 +1,7 @@
 import { GraphQLID, GraphQLString, GraphQLObjectType, GraphQLNonNull } from 'graphql'
 
-export const YoutubeAttachmentType = new GraphQLObjectType({
-  name: 'YoutubeAttachment',
+export const YouTubeAttachmentType = new GraphQLObjectType({
+  name: 'YouTubeAttachment',
   description: 'Вложение с типом Видео на ютубе',
   fields: () => ({
     id: {
@@ -9,7 +9,7 @@ export const YoutubeAttachmentType = new GraphQLObjectType({
       description: ' Уникальный идентификатор',
     },
 
-    src: {
+    url: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'Полный путь к видео',
     },

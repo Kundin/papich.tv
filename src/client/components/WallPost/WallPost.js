@@ -3,7 +3,7 @@ import { cn } from '@bem-react/classname'
 import { useMutation } from '@apollo/react-hooks'
 import TextTruncate from 'react-text-truncate'
 
-import { WallItem, Avatar } from '../../components'
+import { WallItem, Avatar, YouTubePlayer } from '../../components'
 import { IconHeartRegular, IconHeartSolid, IconCommentRegular } from '../../icons'
 import { Link } from '../../UI'
 import { dateToString } from '../../utils'
@@ -73,9 +73,20 @@ export function WallPost({
 
       {attachments.length > 0 ? (
         <div className={cnWallPost('Attaches')}>
-          {attachments.map(({ id, body }) => (
-            <img key={id} className={cnWallPost('Attach')} src={body.src} alt={title || ''} />
-          ))}
+          {attachments.map(({ id, type, body }) => {
+            switch (type) {
+              case 'photo':
+                return (
+                  <img key={id} className={cnWallPost('Attach')} src={body.src} alt={title || ''} />
+                )
+
+              case 'youtube':
+                return <YouTubePlayer key={id} url={body.url} />
+
+              default:
+                return null
+            }
+          })}
         </div>
       ) : (
         <hr className={cnWallPost('Sep')} />

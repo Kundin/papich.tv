@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import shortid from 'shortid'
-import { GraphQLID, GraphQLString, GraphQLNonNull } from 'graphql'
+import { GraphQLNonNull } from 'graphql'
 import { GraphQLUpload } from 'apollo-server'
 
 import { config } from '../../../config'

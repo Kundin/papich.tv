@@ -2,7 +2,7 @@
 
 import { model } from 'mongoose'
 
-import { YoutubeAttachmentsSchema } from '../schemes'
+import { YouTubeAttachmentsSchema } from '../schemes'
 
 /* ВИРТУАЛЬНЫЕ ПОЛЯ */
 
@@ -10,4 +10,4 @@ import { YoutubeAttachmentsSchema } from '../schemes'
 
 /* МЕТОДЫ МОДЕЛИ */
 
-export const YoutubeAttachments = model('YoutubeAttachments', YoutubeAttachmentsSchema)
+export const YouTubeAttachments = model('YouTubeAttachments', YouTubeAttachmentsSchema)

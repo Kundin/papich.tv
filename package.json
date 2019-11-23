@@ -23,7 +23,8 @@
         "build": "cross-env NODE_ENV=production yarn build:webpack && yarn build:lib",
         "build:webpack": "webpack",
         "build:lib": "babel -d lib src",
-        "remove-statics": "rm -rf public/tmp/*.* && rm -rf public/files/*.*"
+        "remove-statics": "rm -rf public/tmp/*.* && rm -rf public/files/*.*",
+        "gql-analize": "node src/server/graphql/analize.js"
     },
     "dependencies": {
         "@apollo/react-hooks": "3.0.0",

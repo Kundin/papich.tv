@@ -5,10 +5,10 @@ import { Redirect } from 'react-router-dom'
 import loadable from '@loadable/component'
 import { Helmet } from 'react-helmet'
 
-import { Pad, PreloaderPage, ErrorPage, AttachPhoto } from '../../components'
+import { Pad, PreloaderPage, ErrorPage, AttachPhoto, AttachYouTube } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
 import { IconCameraSolid, IconVideoSolid } from '../../icons'
-import { POSTS, CREATE_POST, UPLOAD_FILE, useMe } from '../../graphql'
+import { POSTS, CREATE_POST, UPLOAD_FILE, UPLOAD_YOUTUBE, useMe } from '../../graphql'
 import './PageCreatePost.css'
 
 const ModalAddYouTubeVideo = loadable(() => import('../../modals/ModalAddYouTubeVideo/default'))
@@ -42,12 +42,12 @@ export function PageCreatePost() {
     },
   })
   const [uploadFile, { data: dataFile }] = useMutation(UPLOAD_FILE)
+  const [uploadYouTube, { data: dataYouTube }] = useMutation(UPLOAD_YOUTUBE)
 
   useEffect(() => {
-    if (!dataFile) return
-
-    setAttachments([dataFile.uploadFile])
-  }, [dataFile])
+    dataFile && setAttachments([dataFile.uploadFile])
+    dataYouTube && setAttachments([dataYouTube.uploadYouTube])
+  }, [dataFile, dataYouTube])
 
   // Добавить пост
   function onAddPost() {
@@ -102,18 +102,25 @@ export function PageCreatePost() {
           placeholder="Введите текст…"
         />
       </Pad>
+
       {/* Вложения */}
       {attachments.length > 0 && (
         <div className={cnPageCreatePost('Attaches')}>
-          {attachments.map((attach) => (
-            <AttachPhoto
-              key={attach.id}
-              {...attach.body}
-              onRemove={(e) => onRemoveAttach(e, attach.id)}
-            />
-          ))}
+          {attachments.map(({ id, type, body }) => {
+            switch (type) {
+              case 'photo':
+                return <AttachPhoto key={id} {...body} onRemove={(e) => onRemoveAttach(e, id)} />
+
+              case 'youtube':
+                return <AttachYouTube key={id} {...body} onRemove={(e) => onRemoveAttach(e, id)} />
+
+              default:
+                return null
+            }
+          })}
         </div>
       )}
+
       {/* Подвал */}
       <div className={cnPageCreatePost('Footer')}>
         <ButtonAction onClick={onAddPost}>
@@ -141,10 +148,16 @@ export function PageCreatePost() {
           </div>
         </div>
       </div>
+
       {/* Модальное окно добавление видео с ютуба */}
       <ModalAddYouTubeVideo
         visible={visibleModalAddYouTubeVideo}
         onClose={() => setVisibleModalAddYouTubeVideo(false)}
+        onAttach={(e, { url }) => {
+          uploadYouTube({ variables: { url } })
+
+          setVisibleModalAddYouTubeVideo(false)
+        }}
       />
     </div>
   )

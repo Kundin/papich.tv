@@ -28,6 +28,10 @@ export const ADD_POST_LIKE = gql`
             id
             src
           }
+          ... on YouTubeAttachment {
+            id
+            url
+          }
         }
       }
       counters {

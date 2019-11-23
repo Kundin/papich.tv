@@ -28,6 +28,10 @@ export const POSTS = gql`
             id
             src
           }
+          ... on YouTubeAttachment {
+            id
+            url
+          }
         }
       }
       counters {
