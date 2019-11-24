@@ -1,6 +1,6 @@
 import { GraphQLID, GraphQLString, GraphQLObjectType, GraphQLNonNull, GraphQLList } from 'graphql'
 
-import { PollOptionType } from './PollOptionType'
+import { PollOptionType, UserType } from '../types'
 
 export const PollAttachmentType = new GraphQLObjectType({
   name: 'PollAttachment',
@@ -14,6 +14,11 @@ export const PollAttachmentType = new GraphQLObjectType({
     options: {
       type: new GraphQLList(PollOptionType),
       description: 'Варианты ответа',
+    },
+
+    votes: {
+      type: new GraphQLList(UserType),
+      description: 'Все проголосовавшие',
     },
   }),
 })

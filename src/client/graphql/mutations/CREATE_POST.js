@@ -41,6 +41,9 @@ export const CREATE_POST = gql`
                 id
               }
             }
+            votes {
+              id
+            }
           }
         }
       }

@@ -14,6 +14,9 @@ export const UPLOAD_POLL = gql`
               id
             }
           }
+          votes {
+            id
+          }
         }
       }
     }

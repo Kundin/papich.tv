@@ -12,13 +12,21 @@ export const PollAttachmentsSchema = new Schema(
           type: String,
         },
 
-        // Проголосовавшие люди
+        // Проголосовавшие за этот вариант
         votes: [
           {
             type: Schema.Types.ObjectId,
             ref: 'Users',
           },
         ],
+      },
+    ],
+
+    // Все проголосовавшие
+    votes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Users',
       },
     ],
   },

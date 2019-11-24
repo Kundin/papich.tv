@@ -41,6 +41,9 @@ export const ADD_POST_LIKE = gql`
                 id
               }
             }
+            votes {
+              id
+            }
           }
         }
       }

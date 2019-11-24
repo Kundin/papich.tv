@@ -43,6 +43,9 @@ export const ADD_COMMENT = gql`
                   id
                 }
               }
+              votes {
+                id
+              }
             }
           }
         }

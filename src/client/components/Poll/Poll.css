@@ -1,22 +1,51 @@
 .Poll {
-  padding: var(--space-xxs) 0;
-
-  background: #eceff1;
-
   /* Опции */
   &-Options {
   }
 
   /* Отдельная опция */
   &-Option {
+    position: relative;
+
     padding: var(--space-xs) var(--space-s);
 
-    border-bottom: 1px dashed var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 
     align-items: center;
 
     &:last-child {
       border-bottom: 0;
     }
+
+    &::after {
+      position: absolute;
+      z-index: 2;
+      bottom: -1px;
+      left: 0;
+
+      display: block;
+
+      width: calc(20px + var(--space-s) * 2);
+      height: 1px;
+
+      content: '';
+
+      background: var(--color-white);
+    }
+  }
+
+  /* Подвал */
+  &-Footer {
+    display: flex;
+
+    padding: var(--space-s);
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Общее количество */
+  &-Total {
+    font-size: var(--size-typo-s);
+    line-height: var(--line-height-typo-s);
   }
 }

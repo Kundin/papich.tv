@@ -13,7 +13,7 @@ export const PollOptionType = new GraphQLObjectType({
 
     votes: {
       type: new GraphQLList(UserType),
-      description: 'Проголосовавшие люди',
+      description: 'Проголосовавшие за этот вариант',
     },
   }),
 })

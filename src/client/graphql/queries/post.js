@@ -41,6 +41,9 @@ export const POST = gql`
                 id
               }
             }
+            votes {
+              id
+            }
           }
         }
       }
