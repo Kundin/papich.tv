@@ -6,10 +6,12 @@ export const AttachmentsSchema = new Schema(
   {
     // Тип
     // photo - фотография
+    // youtube - видео с ютуба
+    // poll - опрос
     type: {
       type: String,
       required: true,
-      enum: ['photo', 'youtube'],
+      enum: ['photo', 'youtube', 'poll'],
     },
 
     // Информация о вложении
@@ -23,7 +25,7 @@ export const AttachmentsSchema = new Schema(
     onModel: {
       type: String,
       required: true,
-      enum: ['PhotoAttachments', 'YouTubeAttachments'],
+      enum: ['PhotoAttachments', 'YouTubeAttachments', 'PollAttachments'],
     },
   },
   {
