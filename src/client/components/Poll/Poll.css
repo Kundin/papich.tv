@@ -45,7 +45,6 @@
 
   /* Общее количество */
   &-Total {
-    font-size: var(--size-typo-s);
-    line-height: var(--line-height-typo-s);
+    color: var(--color-text-secondary);
   }
 }

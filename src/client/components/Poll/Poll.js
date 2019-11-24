@@ -2,11 +2,14 @@ import React from 'react'
 import { cn } from '@bem-react/classname'
 
 import { Checkbox, ButtonAction } from '../../UI'
+import { declOfNum } from '../../utils'
 import './Poll.css'
 
 const cnPoll = cn('Poll')
 
 export function Poll({ className, options, votes, onRemove }) {
+  const totalTitles = ['голос', 'голоса', 'голосов']
+
   return (
     <div className={cnPoll({}, [className])}>
       <div className={cnPoll('Options')}>
@@ -16,7 +19,9 @@ export function Poll({ className, options, votes, onRemove }) {
       </div>
 
       <div className={cnPoll('Footer')}>
-        <div className={cnPoll('Total')}>Проголосовало {votes.length}</div>
+        <div className={cnPoll('Total')}>
+          Всего {votes.length} {declOfNum(votes.length, totalTitles)}
+        </div>
         <ButtonAction>Проголосовать</ButtonAction>
       </div>
     </div>
