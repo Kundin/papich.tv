@@ -1,0 +1,82 @@
+.ModalAddPoll {
+  /* Контент */
+  &-Content {
+    padding: 0 var(--space-s);
+  }
+
+  /* Подвал */
+  &-Footer {
+    display: flex;
+
+    margin-top: var(--space-s);
+    padding: var(--space-s);
+
+    justify-content: flex-end;
+  }
+
+  /* Секция */
+  &-Section {
+    margin-bottom: var(--space-s);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* Метка */
+  &-Label {
+    margin-bottom: var(--space-xxs);
+
+    color: var(--color-text-secondary);
+  }
+
+  /* Опция */
+  &-Option {
+    position: relative;
+
+    display: flex;
+
+    margin-bottom: var(--space-s);
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Поле ввода */
+    .Input {
+      padding-right: 36px;
+    }
+  }
+
+  /* Удаление опции */
+  &-RemoveOption {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+
+    width: 36px;
+    height: 36px;
+
+    color: var(--color-text-secondary);
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Кнопка для добавления варианта */
+  &-AddOption {
+    display: none;
+
+    margin-top: var(--space-s);
+    padding: var(--space-xxs) 0;
+
+    color: var(--color-text-link);
+
+    /* Видимая */
+    &_visible {
+      display: block;
+    }
+  }
+}

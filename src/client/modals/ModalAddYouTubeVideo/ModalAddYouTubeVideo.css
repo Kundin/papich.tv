@@ -1,7 +1,7 @@
 .ModalAddYouTubeVideo {
   /* Контент */
   &-Content {
-    padding: 0 var(--space-s) var(--space-l);
+    padding: 0 var(--space-s);
   }
 
   /* Обёртка плеера */
@@ -12,6 +12,10 @@
   /* Подвал */
   &-Footer {
     display: flex;
+
+    margin-top: var(--space-s);
+    padding: var(--space-s);
+
     justify-content: flex-end;
   }
 }

@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet'
 
 import { Pad, PreloaderPage, ErrorPage, AttachPhoto, AttachYouTube } from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
-import { IconCameraSolid, IconYoutubeBrands } from '../../icons'
+import { IconCameraSolid, IconYoutubeBrands, IconPollSolid } from '../../icons'
 import {
   POSTS,
   CREATE_POST,
@@ -19,6 +19,7 @@ import {
 import './PageCreatePost.css'
 
 const ModalAddYouTubeVideo = loadable(() => import('../../modals/ModalAddYouTubeVideo/default'))
+const ModalAddPoll = loadable(() => import('../../modals/ModalAddPoll/default'))
 
 const cnPageCreatePost = cn('PageCreatePost')
 
@@ -27,6 +28,7 @@ export function PageCreatePost() {
   const refText = useRef()
   const [attachments, setAttachments] = useState([])
   const [visibleModalAddYouTubeVideo, setVisibleModalAddYouTubeVideo] = useState(false)
+  const [visibleModalAddPoll, setVisibleModalAddPoll] = useState(false)
   const {
     data: { me },
     loading,
@@ -141,11 +143,14 @@ export function PageCreatePost() {
 
       {/* Подвал */}
       <div className={cnPageCreatePost('Footer')}>
-        <ButtonAction onClick={onAddPost}>
-          {me.isDefault ? 'Предложить' : 'Опубликовать'}
-        </ButtonAction>
+        <ButtonAction onClick={onAddPost}>Опубликовать</ButtonAction>
 
         <div className={cnPageCreatePost('Buttons')}>
+          {/* Прикрепить опрос */}
+          <div className={cnPageCreatePost('Attach')} onClick={() => setVisibleModalAddPoll(true)}>
+            <IconPollSolid />
+          </div>
+
           {/* Прикрепить видео с ютуба */}
           <div
             className={cnPageCreatePost('Attach')}
@@ -166,6 +171,17 @@ export function PageCreatePost() {
           </div>
         </div>
       </div>
+
+      {/* Модальное окно добавления опроса */}
+      <ModalAddPoll
+        visible={visibleModalAddPoll}
+        onClose={() => setVisibleModalAddPoll(false)}
+        onAttach={(e, data) => {
+          console.log(data)
+
+          setVisibleModalAddPoll(false)
+        }}
+      />
 
       {/* Модальное окно добавление видео с ютуба */}
       <ModalAddYouTubeVideo

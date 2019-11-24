@@ -5,6 +5,13 @@ import './Input.css'
 
 const cnInput = cn('Input')
 
-export const Input = forwardRef(({ className, wide, ...props }, ref) => {
-  return <input {...props} ref={ref} className={cnInput({ wide }, [className])} />
+export const Input = forwardRef(({ className, wide, autoComplete = 'off', ...props }, ref) => {
+  return (
+    <input
+      {...props}
+      ref={ref}
+      autoComplete={autoComplete}
+      className={cnInput({ wide }, [className])}
+    />
+  )
 })

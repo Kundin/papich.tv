@@ -35,10 +35,10 @@ export function ModalAddYouTubeVideo({ className, onAttach, ...props }) {
         <div className={cnModalAddYouTubeVideo('WrapperPlayer')}>
           <YouTubePlayer url={url} />
         </div>
+      </div>
 
-        <div className={cnModalAddYouTubeVideo('Footer')}>
-          <ButtonAction onClick={handleAttach}>Прикрепить</ButtonAction>
-        </div>
+      <div className={cnModalAddYouTubeVideo('Footer')}>
+        <ButtonAction onClick={handleAttach}>Прикрепить</ButtonAction>
       </div>
     </Modal>
   )
