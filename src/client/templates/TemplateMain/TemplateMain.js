@@ -26,7 +26,7 @@ export function TemplateMain({ children }) {
           <div className={cnTemplateMain('HeaderContent')}>
             <h1 className={cnTemplateMain('Logotype')}>{texts.title}</h1>
             <Link external target="_blank" to="//donationalerts.com/r/evilarthas">
-              <ButtonAction className={cnTemplateMain('Donate')}>{texts.btnDonate}</ButtonAction>
+              <ButtonAction>{texts.btnDonate}</ButtonAction>
             </Link>
           </div>
         </WrapperMain>

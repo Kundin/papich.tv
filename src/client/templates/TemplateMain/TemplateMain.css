@@ -36,12 +36,6 @@
     text-transform: uppercase;
   }
 
-  /* Кнопка "Поддержать" */
-  &-Donate {
-    padding-top: var(--space-xxs);
-    padding-bottom: var(--space-xxs);
-  }
-
   /* Основной контент */
   &-Content {
     min-height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s) * 2);
