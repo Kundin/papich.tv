@@ -1,0 +1,35 @@
+.ModalSelectTypePost {
+  /* Контент */
+  &-Content {
+    display: grid;
+
+    padding: 0 var(--space-s) var(--space-l);
+    grid-template-columns: 1fr 1fr;
+    grid-gap: var(--space-s);
+  }
+
+  /* Отдельный тип */
+  &-Type {
+    display: flex;
+    flex-direction: column;
+
+    padding: var(--space-s);
+
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Иконка типа */
+  &-TypeIcon {
+    padding-bottom: var(--space-xs);
+
+    color: var(--color-text-secondary);
+  }
+
+  /* Заголовок типа */
+  &-TypeTitle {
+    color: var(--color-text-primary);
+  }
+}

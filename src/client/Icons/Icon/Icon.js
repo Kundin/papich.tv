@@ -5,8 +5,7 @@ import './Icon.css'
 
 const cnIcon = cn('Icon')
 
-export function Icon({ className, viewBox = '0 0 512 512', children, ...props }) {
-  const baseSize = 24
+export function Icon({ className, baseSize = 24, viewBox = '0 0 512 512', children, ...props }) {
   const matches = viewBox.match(/^(\d{0,3}) (\d{0,3}) (\d{0,3}) (\d{0,3})$/)
   const coef = Number(matches[3]) / Number(matches[4])
   const width = baseSize * coef
