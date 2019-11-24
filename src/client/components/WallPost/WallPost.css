@@ -80,6 +80,11 @@
     object-fit: cover;
   }
 
+  /* Опрос */
+  &-Poll {
+    flex-grow: 1;
+  }
+
   /* Разделитель */
   &-Sep {
     margin: var(--space-s);

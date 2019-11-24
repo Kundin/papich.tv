@@ -1,1 +1,1 @@
-{"__schema":{"types":[{"kind":"UNION","name":"AttachmentBody","possibleTypes":[{"name":"PhotoAttachment"},{"name":"YouTubeAttachment"}]}]}}
+{"__schema":{"types":[{"kind":"UNION","name":"AttachmentBody","possibleTypes":[{"name":"PhotoAttachment"},{"name":"YouTubeAttachment"},{"name":"PollAttachment"}]}]}}

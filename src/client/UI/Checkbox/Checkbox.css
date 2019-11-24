@@ -1,0 +1,50 @@
+.Checkbox {
+  display: flex;
+
+  user-select: none;
+  align-items: center;
+
+  /* Дефолтный контрол */
+  &-Control {
+    display: none;
+
+    &:checked + .Checkbox-Box {
+      border-color: var(--color-main);
+
+      background: var(--color-main);
+    }
+
+    &:checked + .Checkbox-Box .Checkbox-Icon {
+      opacity: 1;
+    }
+  }
+
+  /* Контейнер */
+  &-Box {
+    display: flex;
+
+    padding: var(--space-xxxs);
+
+    border-radius: 4px;
+
+    background: var(--color-white);
+
+    box-shadow: 0 0 0 1px var(--color-main);
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Иконка */
+  &-Icon {
+    transition: opacity 0.2s;
+
+    opacity: 0;
+
+    color: var(--color-white);
+  }
+
+  /* Текст */
+  &-Text {
+    margin-left: var(--space-s);
+  }
+}

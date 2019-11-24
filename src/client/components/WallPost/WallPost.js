@@ -3,7 +3,7 @@ import { cn } from '@bem-react/classname'
 import { useMutation } from '@apollo/react-hooks'
 import TextTruncate from 'react-text-truncate'
 
-import { WallItem, Avatar, YouTubePlayer } from '../../components'
+import { WallItem, Avatar, YouTubePlayer, Poll } from '../../components'
 import { IconHeartRegular, IconHeartSolid, IconCommentRegular } from '../../icons'
 import { Link } from '../../UI'
 import { dateToString } from '../../utils'
@@ -90,6 +90,9 @@ export function WallPost({
                     controls={true}
                   />
                 )
+
+              case 'poll':
+                return <Poll key={id} className={cnWallPost('Poll')} {...body} />
 
               default:
                 return null

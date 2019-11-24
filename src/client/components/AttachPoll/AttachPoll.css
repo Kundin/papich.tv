@@ -1,0 +1,48 @@
+.AttachPoll {
+  position: relative;
+
+  background: #eceff1;
+
+  /* Контент */
+  &-Content {
+    padding: var(--space-xxs) 0;
+  }
+
+  /* Опции */
+  &-Options {
+  }
+
+  /* Отдельная опция */
+  &-Option {
+    padding: var(--space-xs) var(--space-s);
+
+    border-bottom: 1px dashed var(--color-border);
+
+    align-items: center;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  /* Кнопка для удаления */
+  &-Remove {
+    position: absolute;
+    top: var(--space-s);
+    right: var(--space-s);
+
+    overflow: hidden;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+    background: var(--color-black);
+    box-shadow: var(--shadow-main);
+  }
+
+  /* Иконка кнопки для удаления */
+  &-RemoveIcon {
+    color: var(--color-white);
+  }
+}

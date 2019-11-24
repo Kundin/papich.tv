@@ -7,20 +7,17 @@ export const uploadPoll = {
   type: AttachmentType,
   description: 'Загрузить опрос',
   args: {
-    title: {
-      name: 'title',
-      type: new GraphQLNonNull(GraphQLString),
-    },
     options: {
       name: 'options',
       type: new GraphQLNonNull(new GraphQLList(GraphQLString)),
     },
   },
-  resolve: async (rootVal, { title, options }, { user }) => {
+  resolve: async (rootVal, { options }, { user }) => {
     // Создаём новое вложение нужного типа
     const pollAttachment = await new PollAttachments({
-      title,
-      options,
+      options: options.map((name) => ({
+        name,
+      })),
     }).save()
 
     // Создаём общее вложение

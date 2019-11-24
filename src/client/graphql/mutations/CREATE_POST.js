@@ -33,6 +33,15 @@ export const CREATE_POST = gql`
             id
             url
           }
+          ... on PollAttachment {
+            id
+            options {
+              name
+              votes {
+                id
+              }
+            }
+          }
         }
       }
       counters {

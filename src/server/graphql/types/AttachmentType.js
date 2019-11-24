@@ -34,7 +34,7 @@ export const AttachmentType = new GraphQLObjectType({
           if (value.path && value.src) return 'PhotoAttachment'
 
           // Это опрос
-          if (value.title && value.options) return 'PollAttachmentType'
+          if (value.options) return 'PollAttachment'
 
           return null
         },

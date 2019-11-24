@@ -13,14 +13,19 @@ export function ModalAddPoll({ className, onAttach, ...props }) {
   const minCountOptions = 2
   const maxCountOptions = 5
   const [options, setOptions] = useState([shortid(), shortid()])
+  const [values, setValues] = useState({})
 
   // Удалить вариант
   function removeOption(id) {
     if (options.length <= minCountOptions) return
 
     let newOptions = options.filter((option) => option !== id)
+    let newValues = Object.assign({}, values)
+
+    delete newValues[id]
 
     setOptions(newOptions)
+    setValues(newValues)
   }
 
   // Добавить вариант
@@ -34,23 +39,30 @@ export function ModalAddPoll({ className, onAttach, ...props }) {
 
   // Нажатие на кнопку "Прикрепить"
   function handleAttach(e) {
-    onAttach && onAttach(e, { url })
+    onAttach && onAttach(e, { options: Object.keys(values).map((key) => values[key]) })
   }
 
   return (
     <Modal {...props} title="Добавить опрос" className={cnModalAddPoll({}, [className])}>
       <div className={cnModalAddPoll('Content')}>
         <div className={cnModalAddPoll('Section')}>
-          <div className={cnModalAddPoll('Label')}>Тема опроса</div>
-          <Input wide name="title" className={cnModalAddPoll('Input')} />
-        </div>
-
-        <div className={cnModalAddPoll('Section')}>
           <div className={cnModalAddPoll('Label')}>Варианты ответа</div>
           <div className={cnModalAddPoll('Options')}>
             {options.map((option) => (
               <div key={option} className={cnModalAddPoll('Option')}>
-                <Input wide name="options" className={cnModalAddPoll('Input')} />
+                <Input
+                  wide
+                  name="options"
+                  className={cnModalAddPoll('Input')}
+                  onChange={(e) => {
+                    let value = e.currentTarget.value
+                    let newValues = Object.assign({}, values)
+
+                    newValues[option] = value
+
+                    setValues(newValues)
+                  }}
+                />
                 {options.length > 2 && (
                   <div
                     className={cnModalAddPoll('RemoveOption')}

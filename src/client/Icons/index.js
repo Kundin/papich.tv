@@ -1,6 +1,7 @@
 export * from './Icon'
 export * from './IconBarsSolid'
 export * from './IconCameraSolid'
+export * from './IconCheckSolid'
 export * from './IconCogSolid'
 export * from './IconCommentRegular'
 export * from './IconFilmSolid'

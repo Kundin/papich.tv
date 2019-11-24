@@ -5,7 +5,14 @@ import { Redirect } from 'react-router-dom'
 import loadable from '@loadable/component'
 import { Helmet } from 'react-helmet'
 
-import { Pad, PreloaderPage, ErrorPage, AttachPhoto, AttachYouTube } from '../../components'
+import {
+  Pad,
+  PreloaderPage,
+  ErrorPage,
+  AttachPhoto,
+  AttachYouTube,
+  AttachPoll,
+} from '../../components'
 import { Textarea, ButtonAction } from '../../UI'
 import { IconCameraSolid, IconYoutubeBrands, IconPollSolid } from '../../icons'
 import {
@@ -13,6 +20,7 @@ import {
   CREATE_POST,
   UPLOAD_FILE,
   UPLOAD_YOUTUBE,
+  UPLOAD_POLL,
   REMOVE_ATTACH,
   useMe,
 } from '../../graphql'
@@ -52,6 +60,7 @@ export function PageCreatePost() {
   })
   const [uploadFile, { data: dataFile }] = useMutation(UPLOAD_FILE)
   const [uploadYouTube, { data: dataYouTube }] = useMutation(UPLOAD_YOUTUBE)
+  const [uploadPoll, { data: dataPoll }] = useMutation(UPLOAD_POLL)
   const [removeAttach, { data: dataRemoveAttach }] = useMutation(REMOVE_ATTACH)
 
   // Добавляем фотовложения
@@ -64,8 +73,15 @@ export function PageCreatePost() {
     dataYouTube && setAttachments([dataYouTube.uploadYouTube])
   }, [dataYouTube])
 
+  // Добавляем вложение — опрос
+  useEffect(() => {
+    dataPoll && setAttachments([dataPoll.uploadPoll])
+  }, [dataPoll])
+
   // Удаляем вложение
   useEffect(() => {
+    if (!dataRemoveAttach) return
+
     setAttachments(() => {
       return attachments.filter((attach) => attach.id !== dataRemoveAttach.removeAttach.id)
     })
@@ -134,6 +150,9 @@ export function PageCreatePost() {
               case 'youtube':
                 return <AttachYouTube key={id} {...body} onRemove={(e) => onRemoveAttach(e, id)} />
 
+              case 'poll':
+                return <AttachPoll key={id} {...body} onRemove={(e) => onRemoveAttach(e, id)} />
+
               default:
                 return null
             }
@@ -176,8 +195,8 @@ export function PageCreatePost() {
       <ModalAddPoll
         visible={visibleModalAddPoll}
         onClose={() => setVisibleModalAddPoll(false)}
-        onAttach={(e, data) => {
-          console.log(data)
+        onAttach={(e, variables) => {
+          uploadPoll({ variables })
 
           setVisibleModalAddPoll(false)
         }}
@@ -187,8 +206,8 @@ export function PageCreatePost() {
       <ModalAddYouTubeVideo
         visible={visibleModalAddYouTubeVideo}
         onClose={() => setVisibleModalAddYouTubeVideo(false)}
-        onAttach={(e, { url }) => {
-          url && uploadYouTube({ variables: { url } })
+        onAttach={(e, variables) => {
+          uploadYouTube({ variables })
 
           setVisibleModalAddYouTubeVideo(false)
         }}

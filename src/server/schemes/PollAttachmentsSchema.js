@@ -4,12 +4,6 @@ import { Schema } from 'mongoose'
 
 export const PollAttachmentsSchema = new Schema(
   {
-    // Заголовок
-    title: {
-      type: String,
-      required: true,
-    },
-
     // Варианты ответа
     options: [
       {

@@ -11,11 +11,6 @@ export const PollAttachmentType = new GraphQLObjectType({
       description: ' Уникальный идентификатор',
     },
 
-    title: {
-      type: new GraphQLNonNull(GraphQLString),
-      description: 'Тема опроса',
-    },
-
     options: {
       type: new GraphQLList(PollOptionType),
       description: 'Варианты ответа',
