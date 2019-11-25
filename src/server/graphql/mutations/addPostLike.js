@@ -2,6 +2,7 @@ import { GraphQLID, GraphQLNonNull } from 'graphql'
 
 import { PostType } from '../types'
 import { Posts } from '../../models'
+import { useAuth } from '../hooks'
 
 export const addPostLike = {
   type: PostType,
@@ -12,7 +13,7 @@ export const addPostLike = {
       type: new GraphQLNonNull(GraphQLID),
     },
   },
-  resolve: async (rootVal, { id }, { user }) => {
+  resolve: useAuth(async (rootVal, { id }, { user }) => {
     const post = await Posts.findById(id)
     const hasLike = Boolean(post.likes.find((userId) => userId.toString() === user.id.toString()))
 
@@ -46,5 +47,5 @@ export const addPostLike = {
         },
       })
       .exec()
-  },
+  }),
 }

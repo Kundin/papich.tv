@@ -3,6 +3,7 @@ import { GraphQLNonNull, GraphQLID } from 'graphql'
 
 import { AttachmentType } from '../types'
 import { Attachments, PhotoAttachments, YouTubeAttachments } from '../../models'
+import { useAdminOrPapich } from '../hooks'
 
 export const removeAttach = {
   type: AttachmentType,
@@ -13,7 +14,7 @@ export const removeAttach = {
       type: new GraphQLNonNull(GraphQLID),
     },
   },
-  resolve: async (rootVal, { id }) => {
+  resolve: useAdminOrPapich(async (rootVal, { id }) => {
     const attachment = await Attachments.findById(id)
       .populate('body')
       .exec()
@@ -42,5 +43,5 @@ export const removeAttach = {
     }
 
     return attachment
-  },
+  }),
 }

@@ -2,6 +2,7 @@ import { GraphQLID, GraphQLString, GraphQLNonNull } from 'graphql'
 
 import { CommentType } from '../types'
 import { Posts, Comments } from '../../models'
+import { useAuth } from '../hooks'
 
 export const addComment = {
   type: CommentType,
@@ -16,7 +17,7 @@ export const addComment = {
       type: new GraphQLNonNull(GraphQLString),
     },
   },
-  resolve: async (rootVal, { postId, text }, { user }) => {
+  resolve: useAuth(async (rootVal, { postId, text }, { user }) => {
     const post = await Posts.findById(postId)
 
     // Создаём новый комментарий
@@ -56,5 +57,5 @@ export const addComment = {
       })
       .populate('author')
       .exec()
-  },
+  }),
 }

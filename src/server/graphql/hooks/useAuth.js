@@ -1,7 +1,9 @@
-// // Только авторизованные пользователи
+// Только авторизованные пользователи
 
-// export const useAuth = next => (root, args, context, info) => {
-// 	!context.user && throw new Error('Unauthenticated')
+export const useAuth = (next) => (root, args, context, info) => {
+  const { user } = context
 
-// 	return next(root, args, context, info)
-// }
+  if (!user) throw new Error('Пользователь не авторизован')
+
+  return next(root, args, context, info)
+}

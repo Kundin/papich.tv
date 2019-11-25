@@ -2,6 +2,7 @@ import { GraphQLString, GraphQLNonNull } from 'graphql'
 
 import { AttachmentType } from '../types'
 import { Attachments, YouTubeAttachments } from '../../models'
+import { useAdminOrPapich } from '../hooks'
 
 export const uploadYouTube = {
   type: AttachmentType,
@@ -12,7 +13,7 @@ export const uploadYouTube = {
       type: new GraphQLNonNull(GraphQLString),
     },
   },
-  resolve: async (rootVal, { url }) => {
+  resolve: useAdminOrPapich(async (rootVal, { url }) => {
     // Создаём новое вложение нужного типа
     const youtubeAttachment = await new YouTubeAttachments({
       url,
@@ -26,5 +27,5 @@ export const uploadYouTube = {
     }).save()
 
     return attachment
-  },
+  }),
 }

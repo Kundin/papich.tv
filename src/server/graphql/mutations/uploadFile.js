@@ -7,6 +7,7 @@ import { GraphQLUpload } from 'apollo-server'
 import { config } from '../../../config'
 import { AttachmentType } from '../types'
 import { Attachments, PhotoAttachments } from '../../models'
+import { useAdminOrPapich } from '../hooks'
 
 export const uploadFile = {
   type: AttachmentType,
@@ -17,7 +18,7 @@ export const uploadFile = {
       type: new GraphQLNonNull(GraphQLUpload),
     },
   },
-  resolve: async (rootVal, { file }) => {
+  resolve: useAdminOrPapich(async (rootVal, { file }) => {
     const fullPath = await saveFile(file)
     const src = `/static${fullPath.split('/public')[1]}`
 
@@ -35,7 +36,7 @@ export const uploadFile = {
     }).save()
 
     return attachment
-  },
+  }),
 }
 
 // Сохранить файл

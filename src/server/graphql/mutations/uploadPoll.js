@@ -2,6 +2,7 @@ import { GraphQLString, GraphQLNonNull, GraphQLList } from 'graphql'
 
 import { AttachmentType } from '../types'
 import { Attachments, PollAttachments } from '../../models'
+import { useAdminOrPapich } from '../hooks'
 
 export const uploadPoll = {
   type: AttachmentType,
@@ -12,7 +13,7 @@ export const uploadPoll = {
       type: new GraphQLNonNull(new GraphQLList(GraphQLString)),
     },
   },
-  resolve: async (rootVal, { options }) => {
+  resolve: useAdminOrPapich(async (rootVal, { options }) => {
     // Создаём новое вложение нужного типа
     const pollAttachment = await new PollAttachments({
       options: options.map((name) => ({
@@ -28,5 +29,5 @@ export const uploadPoll = {
     }).save()
 
     return attachment
-  },
+  }),
 }
