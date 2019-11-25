@@ -36,6 +36,11 @@
     text-transform: uppercase;
   }
 
+  /* Кнопка доната */
+  &-Donate {
+    background: var(--color-success);
+  }
+
   /* Основной контент */
   &-Content {
     min-height: calc(100vh - var(--height-header) - var(--height-tabs) - var(--space-s) * 2);
