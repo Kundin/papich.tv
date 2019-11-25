@@ -13,6 +13,21 @@
     font-weight: 600;
   }
 
+  /* Текст */
+  &-Text {
+    /* Свернутый */
+    &_truncate {
+      overflow: hidden;
+
+      max-height: 63px;
+    }
+  }
+
+  /* Показать длинный текст */
+  &-Show {
+    color: var(--color-text-link);
+  }
+
   /* Дата */
   &-Date {
     font-size: var(--size-typo-s);
