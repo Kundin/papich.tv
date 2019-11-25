@@ -2,7 +2,7 @@ import React from 'react'
 import { cn } from '@bem-react/classname'
 
 import { IconTimesCircleSolid } from '../../icons'
-import { Checkbox } from '../../UI'
+import { Radio } from '../../UI'
 import './AttachPoll.css'
 
 const cnAttachPoll = cn('AttachPoll')
@@ -13,7 +13,7 @@ export function AttachPoll({ className, options, onRemove }) {
       <div className={cnAttachPoll('Content')}>
         <div className={cnAttachPoll('Options')}>
           {options.map(({ name }, i) => (
-            <Checkbox key={`option-${i}`} className={cnAttachPoll('Option')} disabled text={name} />
+            <Radio key={`option-${i}`} className={cnAttachPoll('Option')} disabled text={name} />
           ))}
         </div>
       </div>
