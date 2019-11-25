@@ -9,6 +9,7 @@ import './App.css'
 
 const TemplateMain = loadable(() => import('../../templates/TemplateMain/default'))
 
+const PageBiography = loadable(() => import('../../pages/PageBiography/default'))
 const PageNews = loadable(() => import('../../pages/PageNews/default'))
 const PageFeed = loadable(() => import('../../pages/PageFeed/default'))
 const PageMenu = loadable(() => import('../../pages/PageMenu/default'))
@@ -66,6 +67,12 @@ export function App() {
         <Route exact path="/id:vkId">
           <TemplateMain>
             <PageUser />
+          </TemplateMain>
+        </Route>
+
+        <Route exact path="/biography">
+          <TemplateMain>
+            <PageBiography />
           </TemplateMain>
         </Route>
 
