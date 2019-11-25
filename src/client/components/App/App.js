@@ -70,11 +70,13 @@ export function App() {
           </TemplateMain>
         </Route>
 
-        <Route exact path="/biography">
-          <TemplateMain>
-            <PageBiography />
-          </TemplateMain>
-        </Route>
+        {/*
+          <Route exact path="/biography">
+            <TemplateMain>
+              <PageBiography />
+            </TemplateMain>
+          </Route>
+        */}
 
         {/*
           <Route exact path="/donate">
