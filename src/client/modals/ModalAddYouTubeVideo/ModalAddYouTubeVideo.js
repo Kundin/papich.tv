@@ -34,6 +34,7 @@ export function ModalAddYouTubeVideo({ className, onAttach, ...props }) {
         return setError('Не указан идентификатор видео')
       }
 
+      setError('')
       setUrl(_url)
     } catch (err) {
       setError('Некорректная ссылка на видео')
@@ -43,6 +44,10 @@ export function ModalAddYouTubeVideo({ className, onAttach, ...props }) {
   // Нажатие на кнопку "Прикрепить"
   function handleAttach(e) {
     if (error.length > 0) return
+
+    if (!url || url === '') {
+      return setError('Нужно вставить ссылку на видео')
+    }
 
     onAttach && onAttach(e, { url })
   }
