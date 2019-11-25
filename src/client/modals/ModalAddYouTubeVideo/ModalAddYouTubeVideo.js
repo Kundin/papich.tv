@@ -16,16 +16,34 @@ ModalAddYouTubeVideo.propTypes = {
 export function ModalAddYouTubeVideo({ className, onAttach, ...props }) {
   const refUrl = useRef()
   const [url, setUrl] = useState()
+  const [error, setError] = useState('')
 
   // Изменение текста в поле ввода
   function handleChangeUrl() {
-    const _url = refUrl.current.value
+    try {
+      const _url = refUrl.current.value
+      const objectUrl = new URL(_url)
+      const params = objectUrl.searchParams
+      const hosts = ['www.youtube.com', 'youtube.com']
 
-    setUrl(_url)
+      if (!hosts.includes(objectUrl.host)) {
+        return setError('Можно добавлять видео только с YouTube')
+      }
+
+      if (!params.has('v') || params.get('v') === '') {
+        return setError('Не указан идентификатор видео')
+      }
+
+      setUrl(_url)
+    } catch (err) {
+      setError('Некорректная ссылка на видео')
+    }
   }
 
   // Нажатие на кнопку "Прикрепить"
   function handleAttach(e) {
+    if (error.length > 0) return
+
     onAttach && onAttach(e, { url })
   }
 
@@ -36,7 +54,14 @@ export function ModalAddYouTubeVideo({ className, onAttach, ...props }) {
       className={cnModalAddYouTubeVideo({}, [className])}
     >
       <div className={cnModalAddYouTubeVideo('Content')}>
-        <Input ref={refUrl} wide placeholder="Адрес видео" onChange={handleChangeUrl} />
+        <Input
+          ref={refUrl}
+          wide
+          placeholder="Адрес видео"
+          error={error.length > 0}
+          onChange={handleChangeUrl}
+        />
+        {error.length > 0 && <div className={cnModalAddYouTubeVideo('Error')}>{error}</div>}
 
         <div className={cnModalAddYouTubeVideo('WrapperPlayer')}>
           <YouTubePlayer url={url} />

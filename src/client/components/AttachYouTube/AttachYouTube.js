@@ -10,7 +10,7 @@ const cnAttachYouTube = cn('AttachYouTube')
 
 AttachYouTube.propTypes = {
   className: PropTypes.string,
-  url: PropTypes.strin,
+  url: PropTypes.string,
   onRemove: PropTypes.func.isRequired,
 }
 

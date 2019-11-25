@@ -17,4 +17,13 @@
   &_wide {
     width: 100%;
   }
+
+  /* Поле заполнено неверно */
+  &_error {
+    border-color: red;
+
+    &:focus {
+      border-color: red;
+    }
+  }
 }

@@ -4,6 +4,11 @@
     padding: 0 var(--space-s);
   }
 
+  /* Ошибка */
+  &-Error {
+    color: red;
+  }
+
   /* Обёртка плеера */
   &-WrapperPlayer {
     margin: var(--space-s) 0;
