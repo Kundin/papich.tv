@@ -20,10 +20,10 @@
 
   /* Поле заполнено неверно */
   &_error {
-    border-color: red;
+    border-color: var(--color-danger);
 
     &:focus {
-      border-color: red;
+      border-color: var(--color-danger);
     }
   }
 }
