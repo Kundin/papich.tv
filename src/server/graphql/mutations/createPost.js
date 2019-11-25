@@ -28,27 +28,23 @@ export const createPost = {
     },
   },
   resolve: async (rootVal, { type = 'default', title, text, attachmentIds }, { user }) => {
+    if (!title && !text && attachmentIds.length === 0) {
+      throw new Error('Нельзя опубликовать пустую запись')
+    }
+
     const photoAttachments = await Attachments.find({ type: 'photo', _id: { $in: attachmentIds } })
       .populate('body')
       .exec()
 
     // Прикреплённые к посту фотографии перемещаем из временной папки в новое место
     await Promise.all(
-      photoAttachments.map(({ body }) => {
-        return new Promise(async (resolve, reject) => {
-          try {
-            const basename = path.basename(body.path)
-            const newPath = `${config.uploadPath}/${basename}`
-            const src = `/static${newPath.split('/public')[1]}`
+      photoAttachments.map(async ({ body }) => {
+        const basename = path.basename(body.path)
+        const newPath = `${config.uploadPath}/${basename}`
+        const src = `/static${newPath.split('/public')[1]}`
 
-            await AFS.rename(body.path, newPath)
-            await PhotoAttachments.updateOne({ _id: body._id }, { $set: { path: newPath, src } })
-
-            resolve()
-          } catch (err) {
-            reject(err)
-          }
-        })
+        await AFS.rename(body.path, newPath)
+        await PhotoAttachments.updateOne({ _id: body._id }, { $set: { path: newPath, src } })
       }),
     )
 
