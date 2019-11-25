@@ -25,12 +25,6 @@ function getConfig(target) {
     name: target,
     devtool: isDev && isWeb ? 'source-map' : false,
     entry: [`./src/client/main-${target}.js`],
-    resolve: {
-      alias: {
-        Pages: path.resolve(__dirname, './src/client/pages'),
-        Components: path.resolve(__dirname, './src/client/components'),
-      },
-    },
     output: {
       path: path.join(DIST_PATH, target),
       filename: isProd ? '[name].[contenthash].js' : '[name].js',
@@ -88,7 +82,7 @@ function getConfig(target) {
       splitChunks: {
         cacheGroups: {
           vendor: {
-            test: /[\/]node_modules[\/]/,
+            test: /node_modules/,
             name: 'manifest',
             enforce: true,
           },
