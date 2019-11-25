@@ -1,11 +1,17 @@
 import React, { useState, useRef } from 'react'
 import { cn } from '@bem-react/classname'
+import PropTypes from 'prop-types'
 
 import { Modal, YouTubePlayer } from '../../components'
 import { Input, ButtonAction } from '../../UI'
 import './ModalAddYouTubeVideo.css'
 
 const cnModalAddYouTubeVideo = cn('ModalAddYouTubeVideo')
+
+ModalAddYouTubeVideo.propTypes = {
+  className: PropTypes.string,
+  onAttach: PropTypes.func.isRequired,
+}
 
 export function ModalAddYouTubeVideo({ className, onAttach, ...props }) {
   const refUrl = useRef()

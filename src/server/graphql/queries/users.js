@@ -7,8 +7,8 @@ export const users = {
   type: new GraphQLList(UserType),
   description: 'Получить список пользователей',
   args: {
-    full_name: {
-      name: 'full_name',
+    fullName: {
+      name: 'fullName',
       type: GraphQLString,
     },
     sex: {
@@ -21,11 +21,9 @@ export const users = {
       description: 'С какой записи начать получение данных',
     },
   },
-  resolve: async (obj, args, context, info) => {
-    const { id, role, full_name, sex, deactivated } = args
+  resolve: async (obj, { id, sex, skip = 0 }) => {
     const query = {}
     const limit = 50
-    const skip = args.skip || 0
 
     if (id) query._id = id
     if (sex) query.sex = sex

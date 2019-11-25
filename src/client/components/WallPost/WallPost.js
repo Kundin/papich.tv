@@ -2,6 +2,7 @@ import React from 'react'
 import { cn } from '@bem-react/classname'
 import { useMutation } from '@apollo/react-hooks'
 import TextTruncate from 'react-text-truncate'
+import PropTypes from 'prop-types'
 
 import { WallItem, Avatar, YouTubePlayer, Poll } from '../../components'
 import { IconHeartRegular, IconHeartSolid, IconCommentRegular } from '../../icons'
@@ -12,6 +13,23 @@ import './WallPost.css'
 
 const cnWallPost = cn('WallPost')
 
+WallPost.propTypes = {
+  className: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  author: PropTypes.object.isRequired,
+  title: PropTypes.string,
+  attachments: PropTypes.array,
+  counters: PropTypes.object.isRequired,
+  hasLike: PropTypes.bool.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  unfolded: PropTypes.bool,
+  children: PropTypes.node,
+}
+
+WallPost.defaultProps = {
+  unfolded: false,
+}
+
 export function WallPost({
   className,
   id,
@@ -21,10 +39,10 @@ export function WallPost({
   counters,
   hasLike,
   createdAt,
-  unfolded = false, // Развернутый пост?
+  unfolded,
   children,
 }) {
-  const [addPostLike, { data, loading }] = useMutation(ADD_POST_LIKE)
+  const [addPostLike] = useMutation(ADD_POST_LIKE)
 
   author.info = (
     <Link to={`/post-${id}`} className={cnWallPost('AuthorInfo')}>
@@ -107,8 +125,15 @@ export function WallPost({
 }
 
 // Автор поста
+WallPostAuthor.propTypes = {
+  vkId: PropTypes.number.isRequired,
+  avatar: PropTypes.string.isRequired,
+  fullName: PropTypes.string.isRequired,
+  info: PropTypes.node,
+}
+
 export function WallPostAuthor(user) {
-  const { vkId, avatar, fullName, info } = user
+  const { vkId, fullName, info } = user
 
   return (
     <div className={cnWallPost('Author')}>
@@ -126,7 +151,17 @@ export function WallPostAuthor(user) {
 }
 
 // Кнопки реакций на пост
-export function WallPostButton({ icon, children, active = false, ...props }) {
+WallPostButton.propTypes = {
+  icon: PropTypes.element.isRequired,
+  children: PropTypes.node,
+  active: PropTypes.bool,
+}
+
+WallPostButton.defaultProps = {
+  active: false,
+}
+
+export function WallPostButton({ icon, children, active, ...props }) {
   return (
     <Link {...props} className={cnWallPost('Button', { active })}>
       <div className={cnWallPost('ButtonIcon')}>{icon}</div>

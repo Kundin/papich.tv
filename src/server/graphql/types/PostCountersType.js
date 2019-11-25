@@ -1,7 +1,5 @@
 import { GraphQLInt, GraphQLObjectType, GraphQLNonNull } from 'graphql'
 
-import { UserType } from '../types'
-
 export const PostCountersType = new GraphQLObjectType({
   name: 'PostCounters',
   description: 'Счётчики у поста',

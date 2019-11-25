@@ -1,8 +1,6 @@
 import React from 'react'
-import gql from 'graphql-tag'
 import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
-import loadable from '@loadable/component'
 
 import { WallPost, NewPost, PreloaderPage } from '../../components'
 import { useMe, useDefaultPosts } from '../../graphql'

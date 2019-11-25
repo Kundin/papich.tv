@@ -1,17 +1,25 @@
 import React from 'react'
 import { cn } from '@bem-react/classname'
+import PropTypes from 'prop-types'
 
 import { IconTimesCircleSolid } from '../../icons'
 import './Modal.css'
 
 const cnModal = cn('Modal')
 
-export function Modal({ className, title, visible = false, children, onClose, ...props }) {
-  //
-  function onClickClose(e) {
-    onClose && onClose(e)
-  }
+Modal.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string,
+  visible: PropTypes.bool,
+  children: PropTypes.node,
+  onClose: PropTypes.func.isRequired,
+}
 
+Modal.defaultProps = {
+  visible: false,
+}
+
+export function Modal({ className, title, visible, children, onClose, ...props }) {
   return (
     <div {...props} className={cnModal({ visible }, [className])}>
       <div className={cnModal('Body')}>

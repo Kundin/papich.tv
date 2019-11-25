@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
 import { cn } from '@bem-react/classname'
 import shortid from 'shortid'
+import PropTypes from 'prop-types'
 
-import { Modal, EditorPoll } from '../../components'
+import { Modal } from '../../components'
 import { Input, ButtonAction } from '../../UI'
 import { IconTimesSolid } from '../../icons'
 import './ModalAddPoll.css'
 
 const cnModalAddPoll = cn('ModalAddPoll')
+
+ModalAddPoll.propTypes = {
+  className: PropTypes.string,
+  onAttach: PropTypes.func.isRequired,
+}
 
 export function ModalAddPoll({ className, onAttach, ...props }) {
   const minCountOptions = 2

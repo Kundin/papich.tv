@@ -34,7 +34,7 @@ export const createPost = {
 
     // Прикреплённые к посту фотографии перемещаем из временной папки в новое место
     await Promise.all(
-      photoAttachments.map(({ type, body }) => {
+      photoAttachments.map(({ body }) => {
         return new Promise(async (resolve, reject) => {
           try {
             const basename = path.basename(body.path)

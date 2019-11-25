@@ -3,5 +3,5 @@
 import { usePosts } from '../hooks'
 
 export function useDefaultPosts(variables) {
-  return usePosts({ isPapich: false })
+  return usePosts(Object.assign(variables, { isPapich: false }))
 }

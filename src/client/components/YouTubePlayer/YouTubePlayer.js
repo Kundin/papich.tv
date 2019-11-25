@@ -1,20 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { cn } from '@bem-react/classname'
 import ReactPlayer from 'react-player'
+import PropTypes from 'prop-types'
 
 import './YouTubePlayer.css'
 
 const cnYouTubePlayer = cn('YouTubePlayer')
 
-export function YouTubePlayer({
-  className,
-  url,
-  controls = false,
-  playing = false,
-  light = true,
-  placeholder = 'Здесь должно быть видео…',
-  ...props
-}) {
+YouTubePlayer.propTypes = {
+  className: PropTypes.string,
+  url: PropTypes.string,
+  controls: PropTypes.bool,
+  playing: PropTypes.bool,
+  light: PropTypes.bool,
+  placeholder: PropTypes.string,
+}
+
+YouTubePlayer.defaultProps = {
+  controls: false,
+  playing: false,
+  light: true,
+  placeholder: 'Здесь должно быть видео…',
+}
+
+export function YouTubePlayer({ className, url, controls, playing, light, placeholder, ...props }) {
   const ref = useRef()
   const [width, setWidth] = useState()
   const strWidth = `${width}px`

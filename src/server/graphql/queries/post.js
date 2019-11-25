@@ -1,4 +1,4 @@
-import { GraphQLID, GraphQLList, GraphQLNonNull, GraphQLString } from 'graphql'
+import { GraphQLID, GraphQLNonNull } from 'graphql'
 import validator from 'validator'
 
 import { PostType } from '../types'
@@ -13,7 +13,7 @@ export const post = {
       type: new GraphQLNonNull(GraphQLID),
     },
   },
-  resolve: async (obj, { id }, { user }, info) => {
+  resolve: async (obj, { id }) => {
     if (!validator.isMongoId(id)) {
       return null
     }

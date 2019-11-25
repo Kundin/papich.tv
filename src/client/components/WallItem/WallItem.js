@@ -1,9 +1,17 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { cn } from '@bem-react/classname'
+import PropTypes from 'prop-types'
 
 import './WallItem.css'
 
 const cnWallItem = cn('WallItem')
+
+WallItem.propTypes = {
+  className: PropTypes.string,
+  header: PropTypes.node,
+  footer: PropTypes.node,
+  children: PropTypes.node.isRequired,
+}
 
 export function WallItem({ className, header, footer, children, ...props }) {
   return (

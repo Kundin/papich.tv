@@ -5,7 +5,7 @@ import JWT from 'jsonwebtoken'
 import { Users } from '../models'
 import { config } from '../../config'
 
-export async function login(req, res, next) {
+export async function login(req, res) {
   let { email, password } = req.body
 
   try {

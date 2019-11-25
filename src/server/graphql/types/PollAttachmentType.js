@@ -1,4 +1,4 @@
-import { GraphQLID, GraphQLString, GraphQLObjectType, GraphQLNonNull, GraphQLList } from 'graphql'
+import { GraphQLID, GraphQLObjectType, GraphQLNonNull, GraphQLList } from 'graphql'
 
 import { PollOptionType, UserType } from '../types'
 

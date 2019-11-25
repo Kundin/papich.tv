@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { cn } from '@bem-react/classname'
 import { useMutation } from '@apollo/react-hooks'
+import PropTypes from 'prop-types'
 
 import { Avatar } from '../../components'
 import { Textarea } from '../../UI'
@@ -10,10 +11,16 @@ import './AddComment.css'
 
 const cnAddComment = cn('AddComment')
 
+AddComment.propTypes = {
+  className: PropTypes.string,
+  post: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+}
+
 export function AddComment({ className, post, user, ...props }) {
   const refComment = useRef()
   const [activeIcon, setActiveIcon] = useState(false)
-  const [addComment, { data }] = useMutation(ADD_COMMENT, {
+  const [addComment] = useMutation(ADD_COMMENT, {
     update(cache, { data: { addComment } }) {
       const variables = { postId: post.id }
       let { comments } = cache.readQuery({ query: COMMENTS, variables })

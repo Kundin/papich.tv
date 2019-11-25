@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
 import { cn } from '@bem-react/classname'
 import { useLocation } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import { WrapperMain } from '../../components'
 import { Link, ButtonAction } from '../../UI'
-import { IconFireSolid, IconUsersSolid, IconBarsSolid, IconUserCircleSolid } from '../../icons'
+import { IconFireSolid, IconUsersSolid, IconUserCircleSolid } from '../../icons'
 import { useMe } from '../../graphql'
 import { texts } from './texts'
 import './TemplateMain.css'
 
 const cnTemplateMain = cn('TemplateMain')
 
-export function TemplateMain({ children }) {
+TemplateMain.propTypes = {
+  children: PropTypes.node,
+}
+
+export function TemplateMain({ children, ...props }) {
   const {
     data: { me },
   } = useMe()
@@ -20,7 +25,7 @@ export function TemplateMain({ children }) {
   const [activeTab, setActiveTab] = useState(tabs.includes(pathname) ? pathname : null)
 
   return (
-    <div className={cnTemplateMain()}>
+    <div {...props} className={cnTemplateMain()}>
       <header className={cnTemplateMain('Header')}>
         <WrapperMain>
           <div className={cnTemplateMain('HeaderContent')}>
@@ -61,7 +66,19 @@ export function TemplateMain({ children }) {
 }
 
 // Отдельная вкладка
-export function TemplateMainTab({ className, active, url, icon, count = 0, ...props }) {
+TemplateMainTab.propTypes = {
+  className: PropTypes.string,
+  active: PropTypes.bool,
+  url: PropTypes.string,
+  icon: PropTypes.element.isRequired,
+  count: PropTypes.number,
+}
+
+TemplateMainTab.defaultTypes = {
+  count: 0,
+}
+
+export function TemplateMainTab({ className, active, url, icon, count, ...props }) {
   return (
     <Link {...props} className={cnTemplateMain('Tab', { active }, [className])} to={url}>
       <div className={cnTemplateMain('TabIcon')}>

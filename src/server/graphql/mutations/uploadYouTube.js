@@ -12,7 +12,7 @@ export const uploadYouTube = {
       type: new GraphQLNonNull(GraphQLString),
     },
   },
-  resolve: async (rootVal, { url }, { user }) => {
+  resolve: async (rootVal, { url }) => {
     // Создаём новое вложение нужного типа
     const youtubeAttachment = await new YouTubeAttachments({
       url,

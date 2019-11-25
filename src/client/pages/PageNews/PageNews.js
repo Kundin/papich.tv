@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import gql from 'graphql-tag'
+import React from 'react'
 import { Helmet } from 'react-helmet'
 import { cn } from '@bem-react/classname'
-import loadable from '@loadable/component'
 
 import { WallPost, NewPost, PreloaderPage } from '../../components'
 import { usePapichPosts, useMe } from '../../graphql'
@@ -11,7 +9,6 @@ import './PageNews.css'
 const cnPageNews = cn('PageNews')
 
 export function PageNews() {
-  const [visibleModalSelectTypePost, setVisibleModalSelectTypePost] = useState(false)
   const {
     data: { me },
   } = useMe()

@@ -12,7 +12,7 @@ export const uploadPoll = {
       type: new GraphQLNonNull(new GraphQLList(GraphQLString)),
     },
   },
-  resolve: async (rootVal, { options }, { user }) => {
+  resolve: async (rootVal, { options }) => {
     // Создаём новое вложение нужного типа
     const pollAttachment = await new PollAttachments({
       options: options.map((name) => ({

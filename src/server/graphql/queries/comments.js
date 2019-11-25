@@ -13,7 +13,7 @@ export const comments = {
       type: GraphQLID,
     },
   },
-  resolve: async (obj, { postId }, { user }, info) => {
+  resolve: async (obj, { postId }) => {
     if (!validator.isMongoId(postId)) {
       return null
     }

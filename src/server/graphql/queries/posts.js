@@ -12,7 +12,7 @@ export const posts = {
       type: GraphQLBoolean,
     },
   },
-  resolve: async (obj, { isPapich }, { user }, info) => {
+  resolve: async (obj, { isPapich }) => {
     let posts = await Posts.find()
       .sort({ createdAt: -1 })
       .populate('author')

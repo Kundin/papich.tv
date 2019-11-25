@@ -7,8 +7,6 @@ export function detectDevice(req, res, next) {
   const router = express.Router()
 
   router.use(device.capture()).use((req, res, next) => {
-    const hardDevice = req.query.device || null
-    const correctDevices = ['desktop', 'touch']
     const devicesMap = {
       desktop: 'desktop',
       tv: 'desktop',
@@ -18,13 +16,8 @@ export function detectDevice(req, res, next) {
       car: 'touch',
     }
 
-    // Проверка «жёсткого» типа девайса
-    if (!correctDevices.includes(hardDevice)) {
-      hardDevice = null
-    }
-
     // Тип устройства и бандл
-    res.device = hardDevice ? hardDevice : devicesMap[req.device.type]
+    res.device = devicesMap[req.device.type]
 
     next()
   })

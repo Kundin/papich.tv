@@ -1,5 +1,6 @@
 import React from 'react'
 import { cn } from '@bem-react/classname'
+import PropTypes from 'prop-types'
 
 import { Avatar } from '../../components'
 import { Link } from '../../UI'
@@ -7,6 +8,13 @@ import { dateToString } from '../../utils'
 import './Comment.css'
 
 const cnComment = cn('Comment')
+
+Comment.propTypes = {
+  className: PropTypes.string,
+  author: PropTypes.object.isRequired,
+  text: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+}
 
 export function Comment({ className, author, text, createdAt }) {
   return (

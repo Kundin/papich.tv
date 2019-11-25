@@ -1,10 +1,19 @@
 import React from 'react'
 import { cn } from '@bem-react/classname'
+import PropTypes from 'prop-types'
 
 import { Link } from '../../UI'
 import './Pad.css'
 
 const cnPad = cn('Pad')
+
+Pad.propTypes = {
+  className: PropTypes.string,
+  title: PropTypes.string,
+  corner: PropTypes.object,
+  padding: PropTypes.string,
+  children: PropTypes.node,
+}
 
 export function Pad({ className, title, corner, padding, children, ...props }) {
   return (

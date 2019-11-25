@@ -1,11 +1,22 @@
 import React from 'react'
 import { cn } from '@bem-react/classname'
+import PropTypes from 'prop-types'
 
 import './Avatar.css'
 
 const cnAvatar = cn('Avatar')
 
-export function Avatar({ className, user, size = 'm', ...props }) {
+Avatar.propTypes = {
+  className: PropTypes.string,
+  user: PropTypes.object.isRequired,
+  size: PropTypes.string,
+}
+
+Avatar.defaultProps = {
+  size: 'm',
+}
+
+export function Avatar({ className, user, size, ...props }) {
   return (
     <img
       {...props}

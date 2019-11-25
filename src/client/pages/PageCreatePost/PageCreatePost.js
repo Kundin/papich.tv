@@ -100,7 +100,6 @@ export function PageCreatePost() {
   // Загрузка файла
   function onUpload(e) {
     const {
-      validity,
       files: [file],
     } = e.target
 

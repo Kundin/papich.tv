@@ -13,7 +13,7 @@ export const removeAttach = {
       type: new GraphQLNonNull(GraphQLID),
     },
   },
-  resolve: async (rootVal, { id }, { user }) => {
+  resolve: async (rootVal, { id }) => {
     const attachment = await Attachments.findById(id)
       .populate('body')
       .exec()

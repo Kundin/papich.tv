@@ -12,7 +12,7 @@ export const user = {
       type: new GraphQLNonNull(GraphQLInt),
     },
   },
-  resolve: async (obj, { vkId }, context, info) => {
+  resolve: async (obj, { vkId }) => {
     return await Users.findOne({ vkId }).exec()
   },
 }

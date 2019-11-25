@@ -17,7 +17,7 @@ export const uploadFile = {
       type: new GraphQLNonNull(GraphQLUpload),
     },
   },
-  resolve: async (rootVal, { file }, { user }) => {
+  resolve: async (rootVal, { file }) => {
     const fullPath = await saveFile(file)
     const src = `/static${fullPath.split('/public')[1]}`
 
@@ -40,7 +40,7 @@ export const uploadFile = {
 
 // Сохранить файл
 async function saveFile(file) {
-  const { createReadStream, filename, mimetype, encoding } = await file
+  const { createReadStream, filename } = await file
 
   const name = shortid.generate()
   const ext = path.extname(filename)
