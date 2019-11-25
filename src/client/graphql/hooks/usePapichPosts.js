@@ -2,6 +2,6 @@
 
 import { usePosts } from '../hooks'
 
-export function usePapichPosts(variables) {
+export function usePapichPosts(variables = {}) {
   return usePosts(Object.assign(variables, { isPapich: true }))
 }

@@ -2,6 +2,6 @@
 
 import { usePosts } from '../hooks'
 
-export function useDefaultPosts(variables) {
+export function useDefaultPosts(variables = {}) {
   return usePosts(Object.assign(variables, { isPapich: false }))
 }
