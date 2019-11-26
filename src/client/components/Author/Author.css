@@ -1,0 +1,27 @@
+.Author {
+  display: flex;
+  align-items: center;
+
+  /* Аватарка автора */
+  &-Avatar {
+    margin-right: var(--space-s);
+  }
+
+  /* Имя пользователя */
+  &-Name {
+    font-size: var(--size-typo-m);
+    font-weight: 600;
+
+    color: var(--color-text-link);
+  }
+
+  /* Дополнительное информации в блоке автора */
+  &-Info {
+    font-size: var(--size-typo-s);
+    line-height: var(--line-height-typo-s);
+
+    display: block;
+
+    color: var(--color-text-secondary);
+  }
+}

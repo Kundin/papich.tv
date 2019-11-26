@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/react-hooks'
 import TextTruncate from 'react-text-truncate'
 import PropTypes from 'prop-types'
 
-import { WallItem, Avatar, YouTubePlayer, Poll } from '../../components'
+import { WallItem, YouTubePlayer, Poll, Author } from '../../components'
 import { IconHeartRegular, IconHeartSolid, IconCommentRegular } from '../../icons'
 import { Link } from '../../UI'
 import { dateToString } from '../../utils'
@@ -44,11 +44,7 @@ export function WallPost({
 }) {
   const [addPostLike] = useMutation(ADD_POST_LIKE)
 
-  author.info = (
-    <Link to={`/post-${id}`} className={cnWallPost('AuthorInfo')}>
-      {dateToString(createdAt)}
-    </Link>
-  )
+  author.info = <Link to={`/post-${id}`}>{dateToString(createdAt)}</Link>
 
   // Клик на лайк
   function onLike(e) {
@@ -60,7 +56,7 @@ export function WallPost({
   return (
     <WallItem
       className={cnWallPost({}, [className])}
-      header={<WallPostAuthor {...author} />}
+      header={<Author {...author} />}
       footer={
         <div className={cnWallPost('Buttons')}>
           <WallPostButton
@@ -121,32 +117,6 @@ export function WallPost({
         <hr className={cnWallPost('Sep')} />
       )}
     </WallItem>
-  )
-}
-
-// Автор поста
-WallPostAuthor.propTypes = {
-  vkId: PropTypes.number.isRequired,
-  avatar: PropTypes.string.isRequired,
-  fullName: PropTypes.string.isRequired,
-  info: PropTypes.node,
-}
-
-export function WallPostAuthor(user) {
-  const { vkId, fullName, info } = user
-
-  return (
-    <div className={cnWallPost('Author')}>
-      <Link to={`/id${vkId}`} className={cnWallPost('AuthorAvatar')}>
-        <Avatar user={user} alt={fullName} />
-      </Link>
-      <div className={cnWallPost('AuthorContent')}>
-        <Link to={`/id${vkId}`}>
-          <div className={cnWallPost('AuthorName')}>{fullName}</div>
-        </Link>
-        {info}
-      </div>
-    </div>
   )
 }
 
