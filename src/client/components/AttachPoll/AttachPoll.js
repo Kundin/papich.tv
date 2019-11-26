@@ -17,12 +17,10 @@ AttachPoll.propTypes = {
 export function AttachPoll({ className, options, onRemove }) {
   return (
     <div className={cnAttachPoll({}, [className])}>
-      <div className={cnAttachPoll('Content')}>
-        <div className={cnAttachPoll('Options')}>
-          {options.map(({ name }, i) => (
-            <Radio key={`option-${i}`} className={cnAttachPoll('Option')} disabled text={name} />
-          ))}
-        </div>
+      <div className={cnAttachPoll('Options')}>
+        {options.map(({ name }, i) => (
+          <Radio key={`option-${i}`} className={cnAttachPoll('Option')} disabled text={name} />
+        ))}
       </div>
 
       <div className={cnAttachPoll('Remove')}>
