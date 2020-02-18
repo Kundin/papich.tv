@@ -32,7 +32,7 @@
         "@bem-react/classname": "^1.5.6",
         "@loadable/component": "5.10.2",
         "@loadable/server": "5.10.2",
-        "apollo-cache-inmemory": "1.6.2",
+        "apollo-cache-inmemory": "1.6.5",
         "apollo-client": "2.6.3",
         "apollo-link-http": "1.5.15",
         "apollo-server": "^2.9.6",
