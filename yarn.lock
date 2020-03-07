@@ -902,10 +902,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bem-react/classname@^1.5.6":
-  version "1.5.6"
-  resolved "https://registry.yarnpkg.com/@bem-react/classname/-/classname-1.5.6.tgz#28ae425ef981d92075a19ed6a1b03375d3635605"
-  integrity sha512-Fq8dzuJHUKAUt/FtBM04ibzN1iahSo7FJCfdqG9mxiu5K/LdZgFCeaRgF68vv0jmr9+WtR1h0IMz1vypQgnigQ==
+"@bem-react/classname@^1.5.7":
+  version "1.5.7"
+  resolved "https://registry.yarnpkg.com/@bem-react/classname/-/classname-1.5.7.tgz#39fbdc6ef6e3d17a7cbf6b8b0853bafc7eec83ef"
+  integrity sha512-SaBjorV/+LTbI9Q45mZj+gaW0snylfWgBnq9HDrqbRCIAkOHjTTyJQZQNN2clasR85eH62zOxGlHlV3xvfBkVw==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
