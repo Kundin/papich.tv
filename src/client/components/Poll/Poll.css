@@ -1,25 +1,36 @@
 .Poll {
+  /* Уже проголосовал */
+  &_voted {
+    .Poll {
+      &-WrapperOption {
+        &::after {
+          background: hsl(248, 18%, 93%);
+        }
+      }
+    }
+  }
+
   /* Опции */
   &-Options {
   }
 
-  /* Отдельная опция */
-  &-Option {
+  /* Обёртка варианта */
+  &-WrapperOption {
     position: relative;
-
-    padding: var(--space-xs) var(--space-s);
 
     border-bottom: 1px solid var(--color-border);
 
-    align-items: center;
-
     &:last-child {
       border-bottom: 0;
+
+      &::after {
+        content: none;
+      }
     }
 
     &::after {
       position: absolute;
-      z-index: 2;
+      z-index: 3;
       bottom: -1px;
       left: 0;
 
@@ -32,6 +43,43 @@
 
       background: var(--color-white);
     }
+  }
+
+  /* Отдельный вариант */
+  &-Option {
+    position: relative;
+    z-index: 2;
+
+    padding: var(--space-xs) var(--space-s);
+
+    align-items: center;
+  }
+
+  /* Полоска в варианте */
+  &-OptionLine {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+
+    background: hsl(248, 18%, 93%);
+  }
+
+  /* Проценты в варианте */
+  &-Perzent {
+    font-weight: 600;
+
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: var(--space-s);
+
+    display: flex;
+
+    height: 100%;
+    align-items: center;
   }
 
   /* Подвал */

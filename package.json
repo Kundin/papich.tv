@@ -24,7 +24,8 @@
         "build:webpack": "webpack",
         "build:lib": "babel -d lib src",
         "remove-statics": "rm -rf public/tmp/*.* && rm -rf public/files/*.*",
-        "gql-analize": "node src/server/graphql/analize.js"
+        "gql-analize": "node src/server/graphql/analize.js",
+        "test": "jest"
     },
     "dependencies": {
         "@apollo/react-hooks": "3.0.0",
@@ -91,6 +92,7 @@
         "eslint": "^6.7.1",
         "eslint-plugin-react": "^7.16.0",
         "file-loader": "^4.2.0",
+        "jest": "^24.9.0",
         "mini-css-extract-plugin": "^0.8.0",
         "nodemon": "1.19.1",
         "prettier": "^1.19.1",

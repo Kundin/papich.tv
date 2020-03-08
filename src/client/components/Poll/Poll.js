@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { cn } from '@bem-react/classname'
 import PropTypes from 'prop-types'
 
@@ -16,13 +16,25 @@ Poll.propTypes = {
 }
 
 export function Poll({ className, id, options, votes, ...props }) {
+  const [voted, setVoted] = useState(true)
   const totalTitles = ['голос', 'голоса', 'голосов']
+  const widths = [20, 80, 10, 50, 40]
 
   return (
-    <div {...props} className={cnPoll({}, [className])}>
+    <div {...props} className={cnPoll({ voted }, [className])}>
       <div className={cnPoll('Options')}>
         {options.map(({ name }, i) => (
-          <Radio key={`option-${i}`} className={cnPoll('Option')} name={id} text={name} />
+          <div key={`option-${i}`} className={cnPoll('WrapperOption')}>
+            <Radio
+              className={cnPoll('Option')}
+              checked={i === 0}
+              disabled={voted}
+              name={id}
+              text={name}
+            />
+            <div className={cnPoll('Perzent')}>{`${widths[i]}%`}</div>
+            <div className={cnPoll('OptionLine')} style={{ width: `${widths[i]}%` }} />
+          </div>
         ))}
       </div>
 
@@ -30,7 +42,7 @@ export function Poll({ className, id, options, votes, ...props }) {
         <div className={cnPoll('Total')}>
           Всего {votes.length} {declOfNum(votes.length, totalTitles)}
         </div>
-        <ButtonAction>Проголосовать</ButtonAction>
+        {!voted && <ButtonAction>Проголосовать</ButtonAction>}
       </div>
     </div>
   )
