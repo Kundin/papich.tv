@@ -47,7 +47,7 @@
         "graphql-tag": "2.10.3",
         "ignore-styles": "^5.0.1",
         "jsonwebtoken": "^8.5.1",
-        "mongoose": "^5.9.3",
+        "mongoose": "^5.9.4",
         "node-fetch": "2.6.0",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
         "postcss-loader": "^3.0.0",
