@@ -48,7 +48,7 @@
         "ignore-styles": "^5.0.1",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^5.9.7",
-        "node-fetch": "2.6.0",
+        "node-fetch": "2.6.1",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
         "postcss-loader": "^3.0.0",
         "postcss-nested": "^4.2.1",
